@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* Whirlwind Robotics - global theme */
+:root {
+  --ink: #eaf1ff;
+  --ink-dim: #c4d2ff;
+  --bg-deep: #1a0a06;  /* warm near-black with orange undertones */
+  --bg-sky: #2d1608;   /* warm dark with orange */
+  --bg-orange: #4a2c0a; /* deep orange accent */
+  --grad-a: #4cc9f0;   /* cyan (headline only) */
+  --grad-b: #4361ee;   /* indigo (headline only) */
+  --shadow: 0 10px 30px rgba(0,0,0,0.35), 0 2px 10px rgba(0,0,0,0.2);
+
+  /* Next.js font variables from layout */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 85%, rgba(255, 120, 0, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 80% at 85% 15%, rgba(255, 140, 20, 0.12) 0%, transparent 65%),
+    linear-gradient(160deg, #000000, #252525);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Simple full-center layout */
+.center {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out;
+}
+
+.whirlwind-icon {
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.whirlwind-spinner {
+  animation: spinCounterclockwise 2s linear infinite;
+}
+
+.whirlwind-emoji {
+  font-size: 4rem;
+  display: inline-block;
+  filter: drop-shadow(0 4px 12px rgba(76, 201, 240, 0.3));
+}
+
+.headline {
+  margin: 0;
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  line-height: 1.18;
+  padding-bottom: 0.05em;
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 2s ease-in-out infinite alternate;
+}
+
+.team {
+  margin: 0.2rem 0 0 0;
+  color: var(--ink);
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  text-align: center;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+.tagline {
+  margin: 0.3rem 0 2rem 0;
+  color: var(--ink-dim);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.7s forwards;
+}
+
+
+/* Floating background elements */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.float-element {
+  position: absolute;
+  background: linear-gradient(45deg, var(--grad-a), var(--grad-b));
+  border-radius: 50%;
+  opacity: 0.02;
+  animation: floatAround 40s linear infinite;
+}
+
+.sphere-1 { width: 25px; height: 25px; top: 15%; left: 8%; animation-delay: 0s; }
+.sphere-2 { width: 20px; height: 20px; top: 65%; right: 12%; animation-delay: -15s; }
+.sphere-3 { width: 30px; height: 30px; bottom: 25%; left: 18%; animation-delay: -25s; }
+.sphere-4 { width: 15px; height: 15px; top: 35%; right: 25%; animation-delay: -5s; }
+.sphere-5 { width: 22px; height: 22px; bottom: 40%; right: 8%; animation-delay: -35s; }
+.sphere-6 { width: 18px; height: 18px; top: 50%; left: 5%; animation-delay: -20s; }
+.sphere-7 { width: 28px; height: 28px; top: 80%; left: 40%; animation-delay: -10s; }
+.sphere-8 { width: 16px; height: 16px; bottom: 60%; right: 35%; animation-delay: -30s; }
+.sphere-9 { width: 24px; height: 24px; top: 25%; left: 60%; animation-delay: -18s; }
+.sphere-10 { width: 19px; height: 19px; bottom: 15%; right: 20%; animation-delay: -40s; }
+.sphere-11 { width: 21px; height: 21px; top: 75%; left: 70%; animation-delay: -12s; }
+.sphere-12 { width: 17px; height: 17px; top: 42%; left: 85%; animation-delay: -28s; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { filter: brightness(1) saturate(1); }
+  100% { filter: brightness(1.2) saturate(1.3); }
+}
+
+
+@keyframes spinCounterclockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes floatAround {
+  0% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(120deg); }
+  66% { transform: translateY(5px) rotate(240deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
