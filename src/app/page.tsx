@@ -8,7 +8,7 @@ export default function Home() {
           </div>
         </div>
 
-        <h1 className="headline">team whirlwind</h1>
+        <h1 className="headline">team wh<span className="irl-text">irl</span>wind</h1>
         <p className="team">coming soon</p>
         <p className="tagline">
           University of Amsterdam • Intelligent Robotics Lab

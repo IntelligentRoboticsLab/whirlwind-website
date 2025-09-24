@@ -78,6 +78,13 @@ body {
   animation: shimmer 2s ease-in-out infinite alternate;
 }
 
+.irl-text {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  color: #9bb5ff !important;
+}
+
 .team {
   margin: 0.2rem 0 0 0;
   color: var(--ink);
