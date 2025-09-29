@@ -1,16 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Team whIRLwind",
@@ -38,10 +28,41 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`antialiased`}>
+        <header className="site-header">
+          <div className="container nav">
+            <Link href="/" className="brand" aria-label="Team whIRLwind home">
+              <img src="/logo-temp.svg" alt="WhIRLwind logo" className="logo" />
+              <span className="brand-text">
+                wh<span className="irl-text">irl</span>wind
+              </span>
+            </Link>
+            <nav aria-label="Primary">
+              <ul className="nav-list">
+                <li>
+                  <Link href="/publications">Publications</Link>
+                </li>
+                <li>
+                  <Link href="/socials">Socials</Link>
+                </li>
+                <li>
+                  <Link href="/sponsors">Sponsors</Link>
+                </li>
+              </ul>
+            </nav>
+            <Link href="/contact" className="nav-cta" aria-label="Get in touch">
+              Get in touch
+            </Link>
+          </div>
+        </header>
+
+        <main className="site-main">{children}</main>
+
+        <footer className="site-footer">
+          <div className="container footer-inner">
+            <p>Made with ❤️ by Team whIRLwind — University of Amsterdam</p>
+          </div>
+        </footer>
       </body>
     </html>
   );
