@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import Image from "next/image";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,7 +34,11 @@ export default function RootLayout({
         <header className="site-header">
           <div className="container nav">
             <Link href="/" className="brand" aria-label="Team whIRLwind home">
-              <img src="/logo-temp.svg" alt="WhIRLwind logo" className="logo" />
+              <Image
+                src="/logo-temp.svg"
+                alt="WhIRLwind logo"
+                className="logo"
+              />
               <span className="brand-text">
                 wh<span className="irl-text">irl</span>wind
               </span>

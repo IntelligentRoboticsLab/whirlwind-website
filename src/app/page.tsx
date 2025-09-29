@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <section className="center hero-like" aria-label="Hero">
@@ -8,7 +10,7 @@ export default function Home() {
           <h1 className="headline plain">
             team wh<span className="irl-text">irl</span>wind
           </h1>
-          <img
+          <Image
             src="/logo-temp.svg"
             alt="Whirlwind Robotics logo"
             className="logo-hero"
