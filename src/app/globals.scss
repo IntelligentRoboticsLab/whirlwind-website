@@ -204,16 +204,28 @@ body {
   pointer-events: none;
   z-index: 2;
   box-sizing: border-box;
-  border: var(--nav-link-stroke) solid transparent;
-  background: transparent;
-  border-image: conic-gradient(
-      from calc(var(--nav-link-angle) - 90deg),
-      transparent 0deg,
-      transparent 332deg,
-      var(--nav-link-spark-color, rgba(255, 255, 255, 0.95)) 360deg
-    )
-    1;
-  border-image-slice: 1;
+  padding: var(--nav-link-stroke);
+  background: conic-gradient(
+    from calc(var(--nav-link-angle) - 90deg),
+    transparent 0deg,
+    transparent 332deg,
+    var(--nav-link-spark-color, rgba(255, 255, 255, 0.95)) 360deg
+  );
+  mask-image:
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+  mask-mode: alpha;
+  mask-repeat: no-repeat;
+  mask-origin: content-box, border-box;
+  mask-clip: content-box, border-box;
+  mask-composite: exclude;
+  -webkit-mask-image:
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-origin: content-box, border-box;
+  -webkit-mask-clip: content-box, border-box;
+  -webkit-mask-composite: xor;
   opacity: var(--nav-link-active);
   filter: drop-shadow(
     0 0 calc(var(--nav-link-active) * 16px) var(--nav-link-glow-color, rgba(255, 255, 255, 0.45))
