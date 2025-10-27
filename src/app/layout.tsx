@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
-import "./globals.css";
+import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "Team whIRLwind",
@@ -35,24 +35,35 @@ export default function RootLayout({
           <div className="container nav">
             <Link href="/" className="brand" aria-label="Team whIRLwind home">
               <Image
-                src="/logo-temp.svg"
+                src="/logo_light.svg"
+                width={240}
+                height={80}
                 alt="WhIRLwind logo"
                 className="logo"
               />
-              <span className="brand-text">
-                wh<span className="irl-text">irl</span>wind
-              </span>
             </Link>
             <nav aria-label="Primary">
               <ul className="nav-list">
                 <li>
-                  <Link href="/publications">Publications</Link>
+                  <Link href="/publications" className="nav-link">
+                    <span aria-hidden="true" className="nav-link__spark" />
+                    <span aria-hidden="true" className="nav-link__backdrop" />
+                    <span className="nav-link__label">Publications</span>
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/socials">Socials</Link>
+                  <Link href="/socials" className="nav-link">
+                    <span aria-hidden="true" className="nav-link__spark" />
+                    <span aria-hidden="true" className="nav-link__backdrop" />
+                    <span className="nav-link__label">Socials</span>
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/sponsors">Sponsors</Link>
+                  <Link href="/sponsors" className="nav-link">
+                    <span aria-hidden="true" className="nav-link__spark" />
+                    <span aria-hidden="true" className="nav-link__backdrop" />
+                    <span className="nav-link__label">Sponsors</span>
+                  </Link>
                 </li>
               </ul>
             </nav>

@@ -5,16 +5,26 @@ export default function Home() {
     <section className="center hero-like" aria-label="Hero">
       <div className="hero-backdrop" aria-hidden />
 
+      <div className="wind-particles" aria-hidden>
+        {Array.from({ length: 40 }).map((_, i) => (
+          <div key={i} className="wind-particle" />
+        ))}
+      </div>
+
       <div className="hero-container">
+        <Image
+          src="/logo_single.svg"
+          width={160}
+          height={160}
+          alt="Whirlwind Robotics logo"
+          className="logo-hero"
+        />
         <div className="headline-row">
           <h1 className="headline plain">
-            team wh<span className="irl-text">irl</span>wind
+            amsterdam wh
+            <span className="irl-text">irl</span>
+            wind
           </h1>
-          <Image
-            src="/logo-temp.svg"
-            alt="Whirlwind Robotics logo"
-            className="logo-hero"
-          />
         </div>
         <p className="team">
           Your local artificially intelligent robotics team
