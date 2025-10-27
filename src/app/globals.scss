@@ -204,13 +204,16 @@ body {
   pointer-events: none;
   z-index: 2;
   box-sizing: border-box;
-  padding: var(--nav-link-stroke);
-  background: conic-gradient(
-    from calc(var(--nav-link-angle) - 90deg),
-    transparent 0deg,
-    transparent 332deg,
-    var(--nav-link-spark-color, rgba(255, 255, 255, 0.95)) 360deg
-  );
+  border: var(--nav-link-stroke) solid transparent;
+  background: transparent;
+  border-image: conic-gradient(
+      from calc(var(--nav-link-angle) - 90deg),
+      transparent 0deg,
+      transparent 332deg,
+      var(--nav-link-spark-color, rgba(255, 255, 255, 0.95)) 360deg
+    )
+    1;
+  border-image-slice: 1;
   opacity: var(--nav-link-active);
   filter: drop-shadow(
     0 0 calc(var(--nav-link-active) * 16px) var(--nav-link-glow-color, rgba(255, 255, 255, 0.45))
@@ -220,14 +223,6 @@ body {
     filter var(--nav-link-transition);
   animation: nav-link-spin var(--nav-link-spin) linear infinite;
   animation-play-state: var(--nav-link-play-state);
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
 }
 .nav-link:hover .nav-link__spark,
 .nav-link:focus-visible .nav-link__spark {
