@@ -148,9 +148,10 @@ body {
 .nav-link {
   --nav-link-active: 0;
   --nav-link-transition: 0.25s;
-  --nav-link-spin: 1.8s;
+  --nav-link-spin: 1.25s;
   --nav-link-stroke: 0.16rem;
   --nav-link-play-state: paused;
+  --nav-link-angle: 0deg;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -191,16 +192,10 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.09),
-    rgba(255, 255, 255, 0.03)
-  );
-  opacity: calc(0.25 + 0.3 * var(--nav-link-active));
-  transition: opacity var(--nav-link-transition), background var(--nav-link-transition);
+  background: transparent;
+  opacity: 0;
   pointer-events: none;
   z-index: 1;
-  backdrop-filter: saturate(calc(120% + var(--nav-link-active) * 60%)) blur(6px);
 }
 .nav-link__spark {
   position: absolute;
@@ -210,21 +205,19 @@ body {
   z-index: 2;
   box-sizing: border-box;
   padding: var(--nav-link-stroke);
-  transform: rotate(0deg);
   background: conic-gradient(
-    from -90deg,
+    from calc(var(--nav-link-angle) - 90deg),
     transparent 0deg,
     transparent 332deg,
-    rgba(255, 255, 255, 0.95) 360deg
+    var(--nav-link-spark-color, rgba(255, 255, 255, 0.95)) 360deg
   );
-  background-origin: border-box;
-  background-clip: padding-box;
   opacity: var(--nav-link-active);
-  filter: drop-shadow(0 0 calc(var(--nav-link-active) * 16px) rgba(255, 255, 255, 0.45));
+  filter: drop-shadow(
+    0 0 calc(var(--nav-link-active) * 16px) var(--nav-link-glow-color, rgba(255, 255, 255, 0.45))
+  );
   transition:
     opacity var(--nav-link-transition),
     filter var(--nav-link-transition);
-  transform-origin: 50% 50%;
   animation: nav-link-spin var(--nav-link-spin) linear infinite;
   animation-play-state: var(--nav-link-play-state);
   mask:
@@ -241,6 +234,12 @@ body {
   opacity: 1;
 }
 
+@property --nav-link-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 @keyframes rotate-spark {
   from {
     rotate: 0deg;
@@ -251,8 +250,11 @@ body {
 }
 
 @keyframes nav-link-spin {
+  from {
+    --nav-link-angle: 0deg;
+  }
   to {
-    transform: rotate(360deg);
+    --nav-link-angle: 360deg;
   }
 }
 
@@ -263,84 +265,34 @@ body {
 }
 
 /* Header CTA (white pill) */
-.nav-cta {
+.nav-link--cta {
   margin-left: 0.75rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #0b1020;
-  background: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 9999px;
-  padding: 0.25rem 0.6rem;
-  text-decoration: none;
+  padding: 0.55rem 1.35rem;
   font-weight: 700;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
-  position: relative;
-  z-index: 10;
-  overflow: hidden;
-  transition: all 0.25s ease;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b1020;
+  --nav-link-stroke: 0.24rem;
+  --nav-link-spark-color: rgba(88, 137, 255, 0.95);
+  --nav-link-glow-color: rgba(88, 137, 255, 0.45);
 }
-.nav-cta:active {
-  transform: translateY(0);
+.nav-link--cta .nav-link__label {
+  font-size: 0.92rem;
+  color: inherit;
 }
-.nav-cta-icon {
-  filter: saturate(0);
+.nav-link--cta,
+.nav-link--cta:hover,
+.nav-link--cta:focus-visible {
+  text-shadow: none;
 }
-
-/* Rotating gradient circle for CTA */
-.nav-cta::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  aspect-ratio: 1;
-  top: 0%;
-  left: 50%;
-  translate: -50% -15%;
-  rotate: 0deg;
-  opacity: 0;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 340deg,
-    rgba(70, 130, 250, 0.95) 360deg
-  );
-  transition: opacity 0.25s ease;
-  pointer-events: none;
-  z-index: 0;
-  mask: linear-gradient(white, transparent 50%);
-  -webkit-mask: linear-gradient(white, transparent 50%);
-  animation: flip 3.6s infinite steps(2, end), rotate-spark 1.8s linear infinite;
-  animation-play-state: paused;
-}
-
-/* Backdrop to cover the center - always visible */
-.nav-cta::after {
-  content: "";
-  position: absolute;
-  inset: 0.1em;
-  border-radius: 9999px;
+.nav-link--cta .nav-link__backdrop {
   background: #ffffff;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.nav-cta:hover {
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(70, 130, 250, 0.4);
-  transform: translateY(-1px);
-}
-
-.nav-cta:hover::before {
   opacity: 1;
-  animation-play-state: running;
 }
-
-/* Ensure text stays on top */
-.nav-cta > * {
-  position: relative;
-  z-index: 2;
+.nav-link--cta:hover .nav-link__backdrop,
+.nav-link--cta:focus-visible .nav-link__backdrop {
+  background: #ffffff;
+  opacity: 1;
 }
 
 /* Utility */

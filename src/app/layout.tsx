@@ -67,8 +67,14 @@ export default function RootLayout({
                 </li>
               </ul>
             </nav>
-            <Link href="/contact" className="nav-cta" aria-label="Get in touch">
-              Get in touch
+            <Link
+              href="/contact"
+              className="nav-link nav-link--cta"
+              aria-label="Get in touch"
+            >
+              <span aria-hidden="true" className="nav-link__spark" />
+              <span aria-hidden="true" className="nav-link__backdrop" />
+              <span className="nav-link__label">Get in touch</span>
             </Link>
           </div>
         </header>
