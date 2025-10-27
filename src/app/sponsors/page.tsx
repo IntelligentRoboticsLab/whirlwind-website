@@ -23,27 +23,12 @@ export default function SponsorsPage() {
 
         <div className="grid">
           {sponsors.map((s) => (
-            <div
-              key={s.id}
-              className="panel"
-              style={{ textAlign: "center", padding: "2rem 1rem" }}
-            >
+            <div key={s.id} className="panel px-4 py-8 text-center">
               <div
-                style={{
-                  width: "100%",
-                  height: 90,
-                  borderRadius: 12,
-                  border: "1px dashed rgba(251,146,60,.35)",
-                  display: "grid",
-                  placeItems: "center",
-                  background:
-                    "linear-gradient(180deg, rgba(27,39,66,.3), rgba(27,39,66,.1))",
-                }}
+                className="grid h-[90px] w-full place-items-center rounded-xl border border-dashed border-[rgba(251,146,60,0.35)] bg-[linear-gradient(180deg,rgba(27,39,66,0.3),rgba(27,39,66,0.1))]"
                 aria-label={`${s.name} placeholder`}
               >
-                <span style={{ fontWeight: 700, color: "var(--ink-dim)" }}>
-                  {s.name}
-                </span>
+                <span className="font-bold text-(--ink-dim)">{s.name}</span>
               </div>
             </div>
           ))}
