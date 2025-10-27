@@ -1,34 +1,45 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <main className="center" role="main">
+    <section className="center hero-like" aria-label="Hero">
+      <div className="hero-backdrop" aria-hidden />
+
+      <div className="wind-particles" aria-hidden>
+        {Array.from({ length: 40 }).map((_, i) => (
+          <div key={i} className="wind-particle" />
+        ))}
+      </div>
+
       <div className="hero-container">
-        <div className="whirlwind-icon">
-          <div className="whirlwind-spinner">
-            <span className="whirlwind-emoji">🌀</span>
-          </div>
+        <Image
+          src="/logo_single.svg"
+          width={160}
+          height={160}
+          alt="Whirlwind Robotics logo"
+          className="logo-hero"
+        />
+        <div className="headline-row">
+          <h1 className="headline plain">
+            amsterdam wh
+            <span className="irl-text">irl</span>
+            wind
+          </h1>
         </div>
-
-        <h1 className="headline">team wh<span className="irl-text">irl</span>wind</h1>
-        <p className="team">coming soon</p>
-        <p className="tagline">
-          University of Amsterdam • Intelligent Robotics Lab
+        <p className="team">
+          Your local artificially intelligent robotics team
         </p>
-      </div>
+        <p className="tagline max-700">
+          University of Amsterdam · Intelligent Robotics Lab.
+        </p>
 
-      <div className="floating-elements">
-        <div className="float-element sphere-1"></div>
-        <div className="float-element sphere-2"></div>
-        <div className="float-element sphere-3"></div>
-        <div className="float-element sphere-4"></div>
-        <div className="float-element sphere-5"></div>
-        <div className="float-element sphere-6"></div>
-        <div className="float-element sphere-7"></div>
-        <div className="float-element sphere-8"></div>
-        <div className="float-element sphere-9"></div>
-        <div className="float-element sphere-10"></div>
-        <div className="float-element sphere-11"></div>
-        <div className="float-element sphere-12"></div>
+        <div className="cta-row">
+          <a className="btn hero" href="/publications">
+            Explore Publications
+          </a>
+        </div>
+        <div className="hero-note">more coming soon</div>
       </div>
-    </main>
+    </section>
   );
 }
