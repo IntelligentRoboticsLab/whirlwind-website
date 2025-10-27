@@ -883,6 +883,19 @@ body {
 
   .site-header {
     padding-bottom: 1.5rem;
+  }
+
+  .site-header:not(.site-header--open) {
+    mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      black 62%,
+      transparent 100%
+    );
+  }
+
+  .site-header.site-header--open {
     mask-image: none;
     -webkit-mask-image: none;
   }
