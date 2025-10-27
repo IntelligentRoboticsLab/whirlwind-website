@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
-import Image from "next/image";
 
 import "./globals.scss";
+import SiteHeader from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Team whIRLwind",
@@ -31,53 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased`}>
-        <header className="site-header">
-          <div className="container nav">
-            <Link href="/" className="brand" aria-label="Team whIRLwind home">
-              <Image
-                src="/logo_light.svg"
-                width={240}
-                height={80}
-                alt="WhIRLwind logo"
-                className="logo"
-              />
-            </Link>
-            <nav aria-label="Primary">
-              <ul className="nav-list">
-                <li>
-                  <Link href="/publications" className="nav-link">
-                    <span aria-hidden="true" className="nav-link__spark" />
-                    <span aria-hidden="true" className="nav-link__backdrop" />
-                    <span className="nav-link__label">Publications</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/socials" className="nav-link">
-                    <span aria-hidden="true" className="nav-link__spark" />
-                    <span aria-hidden="true" className="nav-link__backdrop" />
-                    <span className="nav-link__label">Socials</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/sponsors" className="nav-link">
-                    <span aria-hidden="true" className="nav-link__spark" />
-                    <span aria-hidden="true" className="nav-link__backdrop" />
-                    <span className="nav-link__label">Sponsors</span>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-            <Link
-              href="/contact"
-              className="nav-link nav-link--cta"
-              aria-label="Get in touch"
-            >
-              <span aria-hidden="true" className="nav-link__spark" />
-              <span aria-hidden="true" className="nav-link__backdrop" />
-              <span className="nav-link__label">Get in touch</span>
-            </Link>
-          </div>
-        </header>
+        <SiteHeader />
 
         <main className="site-main">{children}</main>
 
