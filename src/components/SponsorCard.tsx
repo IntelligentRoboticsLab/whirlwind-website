@@ -31,7 +31,7 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
   const captionGapClass = sponsor.captionGapClass ?? "gap-3";
   const logoWrapperRestClass =
     sponsor.logoWrapperClassName ??
-    "justify-start px-4 py-4 bg-white shadow-sm border border-[rgba(255,255,255,0.12)]";
+    "justify-center sm:justify-start px-4 py-4 bg-white shadow-sm border border-[rgba(255,255,255,0.12)]";
   const imageStyle = {
     width: "auto" as const,
     maxWidth: logoMaxWidth,
@@ -39,7 +39,7 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
   };
   const hasDetails = Boolean(sponsor.contribution || sponsor.notes);
   const captionClass = [
-    "flex flex-col items-start text-center",
+    "flex flex-col items-center text-center sm:items-start",
     captionGapClass,
   ].join(" ");
   const logoWrapperClass = [
@@ -47,7 +47,7 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
     logoWrapperRestClass,
   ].join(" ");
   const cardClasses = [
-    "flex flex-col items-start gap-4",
+    "flex flex-col items-center gap-4 sm:items-start",
     hasDetails ? "sm:flex-row sm:items-start sm:gap-8 sm:flex-1" : "",
   ].join(" ");
 
