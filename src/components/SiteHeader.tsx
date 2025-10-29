@@ -40,7 +40,7 @@ export default function SiteHeader() {
 
   return (
     <header className={`site-header ${open ? "site-header--open" : ""}`}>
-      <div className="container nav">
+      <div className="nav w-full px-8 py-4 sm:px-10 lg:px-12 xl:mx-auto xl:max-w-[1120px] xl:px-4">
         <Link
           href="/"
           className="brand"

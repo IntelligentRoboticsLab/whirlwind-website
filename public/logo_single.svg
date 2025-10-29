@@ -28,12 +28,12 @@
      inkscape:zoom="0.91125982"
      inkscape:cx="224.96328"
      inkscape:cy="122.90677"
-     inkscape:window-width="1512"
-     inkscape:window-height="835"
-     inkscape:window-x="0"
-     inkscape:window-y="34"
+     inkscape:window-width="1432"
+     inkscape:window-height="1047"
+     inkscape:window-x="1428"
+     inkscape:window-y="31"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="Penguins">
     <sodipodi:guide
        position="13.923691,93.26226"
        orientation="1,0"
@@ -163,7 +163,8 @@
        id="Logo"
        transform="matrix(0.75960048,0,0,0.75960048,-0.68248917,0.50930139)">
       <g
-         id="Fans">
+         id="Fans"
+         transform="matrix(-1,0,0,1,174.88,0)">
         <path
            id="Fan_Orange"
            data-name="Fan Orange"
@@ -214,17 +215,20 @@
            style="fill:url(#linearGradient13)" />
       </g>
       <g
-         id="Penguins">
+         id="Penguins"
+         transform="translate(-10.320454,15.289561)">
         <polygon
            class="cls-2"
            points="61.63,2.46 59.27,13.16 29.08,2.46 "
            id="polygon1"
-           style="fill:url(#linearGradient27)" />
+           style="fill:url(#linearGradient27)"
+           transform="translate(-0.76447806,1.9111952)" />
         <polygon
            class="cls-1"
            points="32.55,32.81 30.19,43.51 0,32.81 "
            id="polygon2"
-           style="fill:url(#linearGradient11)" />
+           style="fill:url(#linearGradient11)"
+           transform="translate(11.084932,-0.38223903)" />
       </g>
     </g>
   </g>
