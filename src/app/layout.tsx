@@ -35,7 +35,7 @@ export default function RootLayout({
         <main className="site-main">{children}</main>
 
         <footer className="site-footer">
-          <div className="container footer-inner">
+          <div className="footer-inner w-full px-8 text-left sm:px-10 lg:px-12">
             <p>Made with ❤️ by Team whIRLwind — University of Amsterdam</p>
           </div>
         </footer>

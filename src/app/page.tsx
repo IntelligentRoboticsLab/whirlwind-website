@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <section className="center hero-like" aria-label="Hero">
+    <section
+      className="hero-like relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden px-8 sm:px-10 lg:px-12 xl:px-4"
+      aria-label="Hero"
+    >
       <div className="hero-backdrop" aria-hidden />
 
       <div className="wind-particles" aria-hidden>
@@ -29,16 +32,18 @@ export default function Home() {
         <p className="team">
           Your local artificially intelligent robotics team
         </p>
-        <p className="tagline max-700">
+        <p className="tagline max-w-[700px]">
           University of Amsterdam · Intelligent Robotics Lab.
         </p>
 
-        <div className="cta-row">
+        <div className="mt-[0.6rem] flex justify-center gap-3">
           <a className="btn hero" href="/publications">
             Explore Publications
           </a>
         </div>
-        <div className="hero-note">more coming soon</div>
+        <div className="mt-[0.6rem] text-[0.9rem] text-(--ink-muted)">
+          more coming soon
+        </div>
       </div>
     </section>
   );
