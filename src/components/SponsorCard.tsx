@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { type ImageProps } from "next/image";
 import Link from "next/link";
 
 export type Sponsor = {
@@ -6,7 +6,7 @@ export type Sponsor = {
   website?: string;
   contribution?: string;
   notes?: string;
-  logo?: string;
+  logo?: ImageProps["src"];
   logoAlt?: string;
   logoWidth?: number;
   logoHeight?: number;

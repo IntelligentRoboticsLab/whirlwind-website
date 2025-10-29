@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import SponsorCard, { type Sponsor } from "@/components/SponsorCard";
+import rerunLogo from "@/assets/sponsors/rerun.svg";
+import startupVillageLogo from "@/assets/sponsors/startup_village.webp";
+import uvaLogo from "@/assets/sponsors/uva.png";
 
 export const metadata: Metadata = {
   title: "Sponsors — Team whIRLwind",
@@ -18,7 +21,7 @@ const sponsorTiers: SponsorTier[] = [
       {
         name: "Rerun",
         website: "https://rerun.io",
-        logo: "/sponsors/rerun.svg",
+        logo: rerunLogo,
         logoAlt: "Rerun logo",
         logoWidth: 94,
         logoHeight: 28,
@@ -35,7 +38,7 @@ const sponsorTiers: SponsorTier[] = [
       {
         name: "StartUp Village",
         website: "https://startupvillage.nl",
-        logo: "/sponsors/startup_village.webp",
+        logo: startupVillageLogo,
         logoAlt: "StartUp Village logo",
         logoWidth: 480,
         logoHeight: 242,
@@ -43,7 +46,7 @@ const sponsorTiers: SponsorTier[] = [
       {
         name: "University of Amsterdam",
         website: "https://uva.nl",
-        logo: "/sponsors/uva.png",
+        logo: uvaLogo,
         logoAlt: "University of Amsterdam logo",
         logoWidth: 480,
         logoHeight: 242,
