@@ -26,10 +26,11 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+  }>) {
   return (
     <html lang="en">
       <body className={`antialiased`}>
+        <div className="site-background" aria-hidden="true" />
         <SiteHeader />
 
         <main className="site-main">{children}</main>

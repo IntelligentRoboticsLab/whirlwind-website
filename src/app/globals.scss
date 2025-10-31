@@ -47,6 +47,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 body {
@@ -61,10 +62,17 @@ body {
     "Apple Color Emoji",
     "Segoe UI Emoji";
   color: var(--ink);
-  /* Deep blue background with subtle vertical gradient */
-  background: linear-gradient(180deg, #0b183d 0%, #163068 100%);
+  background-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.site-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #0b183d 0%, #163068 100%);
+  pointer-events: none;
 }
 
 /* App shell */
@@ -776,6 +784,153 @@ body {
 .sponsor-entry:last-child {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+/* --- Socials --- */
+.social-collage {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-auto-rows: 84px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 3rem 0 0;
+}
+.social-collage__item {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 16px 28px rgba(11, 16, 32, 0.18);
+}
+.social-collage__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(8, 12, 26, 0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.social-collage__item:hover::after,
+.social-collage__item:focus-within::after {
+  opacity: 1;
+}
+.social-collage__image {
+  object-fit: cover;
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+.social-collage__item:hover .social-collage__image,
+.social-collage__item:focus-within .social-collage__image {
+  transform: scale(1.05);
+  filter: saturate(1.1);
+}
+.social-collage__item--wide {
+  grid-column: span 6;
+  grid-row: span 4;
+}
+.social-collage__item--tall {
+  grid-column: span 3;
+  grid-row: span 4;
+}
+.social-collage__item--square {
+  grid-column: span 3;
+  grid-row: span 4;
+}
+.social-collage__item--panorama {
+  grid-column: span 6;
+  grid-row: span 4;
+}
+
+@media (max-width: 960px) {
+  .social-collage {
+    grid-auto-rows: 96px;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+  .social-collage__item--wide,
+  .social-collage__item--panorama {
+    grid-column: span 8;
+  }
+  .social-collage__item--tall,
+  .social-collage__item--square {
+    grid-column: span 4;
+  }
+}
+
+@media (max-width: 640px) {
+  .social-collage {
+    grid-auto-rows: 160px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin-top: 2.4rem;
+  }
+  .social-collage__item {
+    box-shadow: 0 12px 22px rgba(11, 16, 32, 0.18);
+  }
+  .social-collage__item--wide,
+  .social-collage__item--panorama,
+  .social-collage__item--tall,
+  .social-collage__item--square {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+.social-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.social-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 100%;
+  padding: 1.25rem 1.3rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  background: none;
+  box-shadow: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.social-card:hover,
+.social-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(6, 10, 20, 0.28);
+  border-color: rgba(251, 146, 60, 0.35);
+}
+.social-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.social-card__logo {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+.social-card__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.social-card__name {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+.social-card__handle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-dim);
+}
+.social-card__description {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
 }
 
 .pub-grid {
