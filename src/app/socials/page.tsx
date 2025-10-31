@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+import PhotoBackstage from "@/assets/photos/158-IMG_5111.jpg";
+import PhotoWorkshop from "@/assets/photos/168-IMG_5126.jpg";
+import PhotoEvening from "@/assets/photos/20250812_202120.jpg";
+import PhotoNaoLab from "@/assets/photos/203-IMG_5141.jpg";
+import PhotoTeam from "@/assets/photos/5-IMG_5253.jpg";
+import PhotoIceRibbon from "@/assets/photos/NAN12947_3610623519-rp3913954625-opq3915027514.jpg";
+import PhotoShowcase from "@/assets/photos/NAN12360-opq3912652044.jpg";
+import PhotoTeamWithPortugeseProfessor from "@/assets/photos/NAN13334_3613110639-rp3914172363-opq3915542285.jpg";
+import PhotoRobot from "@/assets/photos/NAN18608-opq3906025937.jpg";
+import PhotoGermanOpen2025 from "@/assets/photos/DSC_0798.jpg";
+import PhotoFreeKick from "@/assets/photos/ROC_4057-opq3912329047.jpg";
 import GitHubLogo from "@/assets/socials/github.svg";
 import InstagramLogo from "@/assets/socials/instagram.svg";
 import LinkedInLogo from "@/assets/socials/linkedin.svg";
@@ -17,6 +28,12 @@ type SocialChannel = {
   logo: StaticImageData;
   logoAlt: string;
   description: string;
+};
+
+type CollagePhoto = {
+  src: StaticImageData;
+  alt: string;
+  layout: "wide" | "tall" | "square" | "panorama";
 };
 
 const socialChannels: SocialChannel[] = [
@@ -43,6 +60,64 @@ const socialChannels: SocialChannel[] = [
     logo: GitHubLogo,
     logoAlt: "GitHub logo",
     description: "Code releases, tools, and research repos.",
+  },
+];
+
+const collagePhotos: CollagePhoto[] = [
+  {
+    src: PhotoRobot,
+    alt: "Close-up of the robot under bright lighting.",
+    layout: "wide",
+  },
+  {
+    src: PhotoTeamWithPortugeseProfessor,
+    alt: "Team photo with the professor of the Portugese team in Beijing",
+    layout: "wide",
+  },
+  {
+    src: PhotoFreeKick,
+    alt: "Robots waiting to take a free kick",
+    layout: "tall",
+  },
+  {
+    src: PhotoWorkshop,
+    alt: "Team members giving a demo to visitors in the Lab",
+    layout: "tall",
+  },
+  {
+    src: PhotoGermanOpen2025,
+    alt: "Team looking on during a match at the German Open 2025",
+    layout: "panorama",
+  },
+  {
+    src: PhotoNaoLab,
+    alt: "The team showing a NAO robot to visitors in the Lab",
+    layout: "square",
+  },
+  {
+    src: PhotoEvening,
+    alt: "Preparing for a match during evening competitions.",
+    layout: "square",
+  },
+  {
+    src: PhotoShowcase,
+    alt: "Team posing with the robot at the World Humanoid Robot Games showcase.",
+    layout: "wide",
+  },
+  {
+    src: PhotoTeam,
+    alt: "The team looking on as the robot walks around",
+    layout: "tall",
+  },
+  {
+    src: PhotoBackstage,
+    alt: "Team members repairing a broken ankle joint",
+    layout: "wide",
+  },
+  {
+    src: PhotoIceRibbon,
+    alt: "The Ice Ribbon competition venu in Bejing, China",
+    layout: "square",
   },
 ];
 
@@ -89,6 +164,24 @@ export default function SocialsPage() {
               </Link>
             );
           })}
+        </div>
+        <div className="social-collage">
+          {collagePhotos.map((photo, index) => (
+            <div
+              key={index}
+              className={`social-collage__item social-collage__item--${photo.layout}`}
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                placeholder="blur"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 600px"
+                className="social-collage__image"
+                priority={index < 2}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
