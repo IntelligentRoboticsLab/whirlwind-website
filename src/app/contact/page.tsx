@@ -22,9 +22,9 @@ export default function ContactPage() {
                 Applications temporarily closed
               </h2>
               <p className="contact-highlight__copy">
-                We're pausing new member applications while we continue ramping
-                up the team. We'll share an update on our channels once we're
-                ready to welcome new teammates again.
+                We&apos;re pausing new member applications while we continue
+                ramping up the team. We&apos;ll share an update on our channels
+                once we&apos;re ready to welcome new teammates again.
               </p>
               <div className="contact-highlight__actions">
                 <LinkButton
@@ -39,7 +39,7 @@ export default function ContactPage() {
               <h3>Reach the team</h3>
               <p>
                 For collaborations, sponsorships, press, or general questions,
-                drop us a line and we'll connect you with the right person.
+                drop us a line and we&apos;ll connect you with the right person.
               </p>
               <dl className="contact-details">
                 <div className="contact-detail">
@@ -69,8 +69,8 @@ export default function ContactPage() {
                 <div>
                   <h4>Sponsorship & support</h4>
                   <p>
-                    Share how you'd like to collaborate and we'll explore ways
-                    to partner on upcoming competitions and events.
+                    Share how you&apos;d like to collaborate and we&apos;ll
+                    explore ways to partner on upcoming competitions and events.
                   </p>
                 </div>
                 <div>

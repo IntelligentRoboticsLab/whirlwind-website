@@ -9,21 +9,6 @@ export const metadata: Metadata = {
   description: "Papers, reports, and preprints from Team whIRLwind.",
 };
 
-// Helper function to format publication type
-function formatPublicationType(type?: string): string {
-  if (!type) return "";
-
-  const typeMap: Record<string, string> = {
-    techreport: "Technical Report",
-    mastersthesis: "Master's Thesis",
-    misc: "Preprint",
-    inproceedings: "Conference Paper",
-    article: "Journal Article",
-  };
-
-  return typeMap[type] || type;
-}
-
 export default function PublicationsPage() {
   return (
     <section className="pb-20 pt-10 sm:pb-32 sm:pt-12">
@@ -36,7 +21,7 @@ export default function PublicationsPage() {
           members (2021-2025).
         </p>
 
-        {publicationsByYear.map((yearGroup, _index) => (
+        {publicationsByYear.map((yearGroup) => (
           <div key={yearGroup.year} className="year-group mb-12">
             <h2 className="mb-6 font-semibold text-[2rem] text-(--ink)">
               {yearGroup.year}

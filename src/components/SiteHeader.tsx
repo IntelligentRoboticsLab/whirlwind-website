@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import logoLight from "@/assets/logo_light.svg";
+
 import NavToggle from "./NavToggle";
 import LinkButton from "./LinkButton";
 import NavLinks from "./NavLinks";
@@ -46,7 +48,7 @@ export default function SiteHeader() {
           onClick={closeMenu}
         >
           <Image
-            src="/logo_light.svg"
+            src={logoLight}
             width={240}
             height={80}
             alt="WhIRLwind logo"
