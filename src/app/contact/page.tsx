@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contact — Team whIRLwind",
-  description: "Get in touch with Team whIRLwind.",
+  title: "Contact | Team whIRLwind",
+  description: "Contact Team whIRLwind.",
 };
 
 export default function ContactPage() {

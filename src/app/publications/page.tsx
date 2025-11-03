@@ -5,8 +5,8 @@ import PdfButton from "@/components/PdfButton";
 import { publicationsByYear } from "@/lib/publications/publications";
 
 export const metadata: Metadata = {
-  title: "Publications — Team whIRLwind",
-  description: "Selected papers and preprints by Team whIRLwind.",
+  title: "Publications | Team whIRLwind",
+  description: "Papers, reports, and preprints from Team whIRLwind.",
 };
 
 // Helper function to format publication type
