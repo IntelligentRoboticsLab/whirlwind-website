@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import logoSingle from "@/assets/logo_single.svg";
+
 export default function Home() {
   return (
     <section
@@ -16,7 +18,7 @@ export default function Home() {
 
       <div className="hero-container">
         <Image
-          src="/logo_single.svg"
+          src={logoSingle}
           width={160}
           height={160}
           alt="Whirlwind Robotics logo"

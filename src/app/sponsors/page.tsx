@@ -5,8 +5,8 @@ import startupVillageLogo from "@/assets/sponsors/startup_village.webp";
 import uvaLogo from "@/assets/sponsors/uva.png";
 
 export const metadata: Metadata = {
-  title: "Sponsors — Team whIRLwind",
-  description: "Our generous sponsors.",
+  title: "Sponsors | Team whIRLwind",
+  description: "Organisations supporting Team whIRLwind.",
 };
 
 type SponsorTier = {

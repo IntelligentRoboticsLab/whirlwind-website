@@ -17,8 +17,8 @@ import InstagramLogo from "@/assets/socials/instagram.svg";
 import LinkedInLogo from "@/assets/socials/linkedin.svg";
 
 export const metadata: Metadata = {
-  title: "Socials — Team whIRLwind",
-  description: "Follow Team whIRLwind across the web.",
+  title: "Socials | Team whIRLwind",
+  description: "Follow Team whIRLwind on our social media channels.",
 };
 
 type SocialChannel = {

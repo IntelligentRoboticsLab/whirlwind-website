@@ -1,20 +1,32 @@
 import type { Metadata, Viewport } from "next";
-
-import "./globals.scss";
 import SiteHeader from "@/components/SiteHeader";
+import "./globals.scss";
+
+const logoSingleDark = new URL(
+  "../assets/logo_single_dark.svg",
+  import.meta.url,
+).toString();
 
 export const metadata: Metadata = {
   title: "Team whIRLwind",
   description:
-    "whIRLwind is a robotics team in the University of Amsterdam's Intelligent Robotics Lab. Coming soon.",
+    "Humanoid robotics team from the University of Amsterdam Intelligent Robotics Lab.",
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌀</text></svg>",
+    icon: [
+      { url: logoSingleDark, type: "image/svg+xml" },
+      {
+        url: logoSingleDark,
+        rel: "shortcut icon",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: logoSingleDark,
   },
   openGraph: {
     type: "website",
-    title: "Team whIRLwind — UvA",
+    title: "Team whIRLwind at the University of Amsterdam",
     description:
-      "whIRLwind is a robotics team in the University of Amsterdam's Intelligent Robotics Lab. Coming soon.",
+      "Humanoid robotics team from the University of Amsterdam Intelligent Robotics Lab.",
   },
 };
 
@@ -26,7 +38,7 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  }>) {
+}>) {
   return (
     <html lang="en">
       <body className={`antialiased`}>
