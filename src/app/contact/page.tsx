@@ -1,5 +1,5 @@
+import LinkButton from "@/components/LinkButton";
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact | Team whIRLwind",
@@ -27,9 +27,11 @@ export default function ContactPage() {
                 ready to welcome new teammates again.
               </p>
               <div className="contact-highlight__actions">
-                <Link className="btn sec" href="/socials">
-                  Follow our socials
-                </Link>
+                <LinkButton
+                  href="/socials"
+                  label="Follow our socials"
+                  bordered
+                />
               </div>
             </div>
 
@@ -105,12 +107,12 @@ export default function ContactPage() {
                 member applications.
               </p>
               <div className="contact-actions">
-                <Link className="btn sec" href="/socials">
-                  Social channels
-                </Link>
-                <Link className="btn sec" href="/publications">
-                  Latest publications
-                </Link>
+                <LinkButton href="/socials" label="Social channels" bordered />
+                <LinkButton
+                  href="/publications"
+                  label="Latest publications"
+                  bordered
+                />
               </div>
             </div>
           </aside>

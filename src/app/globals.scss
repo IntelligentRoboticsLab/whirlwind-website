@@ -321,6 +321,14 @@ body {
   opacity: 1;
 }
 
+.nav-link--bordered {
+  border: 1px solid rgba(148, 163, 184, 0.28);
+}
+.nav-link--bordered:hover,
+.nav-link--bordered:focus-visible {
+  border-color: rgba(148, 163, 184, 0.42);
+}
+
 @property --nav-link-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -820,7 +828,9 @@ body {
 }
 .social-collage__image {
   object-fit: cover;
-  transition: transform 0.45s ease, filter 0.45s ease;
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
 }
 .social-collage__item:hover .social-collage__image,
 .social-collage__item:focus-within .social-collage__image {
@@ -1177,7 +1187,12 @@ body {
   }
 
   .site-header:not(.site-header--open) {
-    mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+    mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      black 62%,
+      transparent 100%
+    );
     -webkit-mask-image: linear-gradient(
       to bottom,
       black 0%,

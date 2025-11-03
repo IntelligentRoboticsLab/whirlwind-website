@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
-const navLinks = [
-  { href: "/publications", label: "Publications" },
-  { href: "/socials", label: "Socials" },
-  { href: "/sponsors", label: "Sponsors" },
-];
+import NavToggle from "./NavToggle";
+import LinkButton from "./LinkButton";
+import NavLinks from "./NavLinks";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -57,59 +55,30 @@ export default function SiteHeader() {
           />
         </Link>
 
-        <button
-          type="button"
-          className="nav-toggle"
-          aria-expanded={open}
-          aria-controls="primary-navigation"
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          onClick={toggleMenu}
-        >
-          <span className="nav-toggle__icon" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
-        </button>
+        <NavToggle open={open} onToggle={toggleMenu} />
 
         <nav
           id="primary-navigation"
           aria-label="Primary"
           className="nav-list-container"
         >
-          <ul className="nav-list">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="nav-link" onClick={closeMenu}>
-                  <span aria-hidden="true" className="nav-link__spark" />
-                  <span aria-hidden="true" className="nav-link__backdrop" />
-                  <span className="nav-link__label">{link.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <NavLinks onNavigate={closeMenu} />
 
-          <Link
+          <LinkButton
             href="/contact"
-            className="nav-link nav-link--cta nav-link--cta-mobile"
-            aria-label="Get in touch"
-            onClick={closeMenu}
-          >
-            <span aria-hidden="true" className="nav-link__spark" />
-            <span aria-hidden="true" className="nav-link__backdrop" />
-            <span className="nav-link__label">Get in touch</span>
-          </Link>
+            label="Get in touch"
+            className="nav-link--cta nav-link--cta-mobile"
+            ariaLabel="Get in touch"
+            onNavigate={closeMenu}
+          />
         </nav>
 
-        <Link
+        <LinkButton
           href="/contact"
-          className="nav-link nav-link--cta nav-link--cta-desktop"
-          aria-label="Get in touch"
-        >
-          <span aria-hidden="true" className="nav-link__spark" />
-          <span aria-hidden="true" className="nav-link__backdrop" />
-          <span className="nav-link__label">Get in touch</span>
-        </Link>
+          label="Get in touch"
+          className="nav-link--cta nav-link--cta-desktop"
+          ariaLabel="Get in touch"
+        />
       </div>
     </header>
   );
