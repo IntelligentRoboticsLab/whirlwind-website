@@ -26,9 +26,9 @@ export default function Home() {
         />
         <div className="headline-row">
           <h1 className="headline plain">
-            amsterdam wh
+            wh
             <span className="irl-text">irl</span>
-            wind
+            wind amsterdam
           </h1>
         </div>
         <p className="team">
