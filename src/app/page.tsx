@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import logoSingle from "@/assets/logo_single.svg";
+import logoSingle from "@/assets/logo_light_single.svg";
 
 export default function Home() {
   return (
@@ -26,9 +26,9 @@ export default function Home() {
         />
         <div className="headline-row">
           <h1 className="headline plain">
-            amsterdam wh
+            wh
             <span className="irl-text">irl</span>
-            wind
+            wind amsterdam
           </h1>
         </div>
         <p className="team">
