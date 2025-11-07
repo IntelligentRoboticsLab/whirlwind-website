@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import logoSingle from "@/assets/logo_single.svg";
+import logoSingle from "@/assets/logo_light_single.svg";
 
 export default function Home() {
   return (
