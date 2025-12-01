@@ -47,8 +47,8 @@ const socialChannels: SocialChannel[] = [
   },
   {
     name: "Instagram",
-    url: "https://www.instagram.com/dutchnaoteam",
-    handle: "@dutchnaoteam",
+    url: "https://www.instagram.com/whirlwind.ams",
+    handle: "@whirlwind.ams",
     logo: InstagramLogo,
     logoAlt: "Instagram logo",
     description: "Travel stories and day-to-day progress from the team.",
