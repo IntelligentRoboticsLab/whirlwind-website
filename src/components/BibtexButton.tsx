@@ -25,7 +25,7 @@ export default function BibtexButton({ publication }: BibtexButtonProps) {
     <>
       <button
         onClick={handleCopy}
-        className={`bibtex-button flex w-auto flex-row items-center gap-2 rounded-lg px-3 py-1.5 transition-all ${
+        className={`bibtex-button flex w-auto flex-row items-center gap-2 rounded-lg px-3 py-1.5 transition-all cursor-pointer ${
           copied ? "copied" : ""
         }`}
         aria-label="Copy BibTeX citation"

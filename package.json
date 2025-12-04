@@ -9,22 +9,22 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "15.5.3",
-    "prettier": "^3.6.2",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "zod": "^4.1.12"
+    "next": "15.5.7",
+    "prettier": "^3.7.4",
+    "react": "19.1.2",
+    "react-dom": "19.1.2",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.1.16",
-    "@types/node": "^20.19.23",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
-    "eslint": "^9.38.0",
-    "eslint-config-next": "15.5.3",
-    "sass": "^1.93.2",
-    "tailwindcss": "^4.1.16",
+    "@eslint/eslintrc": "^3.3.3",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "^20.19.25",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "15.5.7",
+    "sass": "^1.94.2",
+    "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3"
   }
 }
