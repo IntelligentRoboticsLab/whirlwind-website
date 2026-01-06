@@ -13,6 +13,7 @@ const PUBLICATION_TYPE_SCHEMA = z.enum([
   "misc",
   "phdthesis",
   "proceedings",
+  "teamreport",
   "techreport",
   "unpublished",
 ]);
