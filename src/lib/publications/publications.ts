@@ -36,11 +36,6 @@ export const publicationsByYear = PubsByYear.parse([
         id: "teamreport2025",
         file: "/publications/2025/DNT_Team_Report_2025.pdf",
       },
-    ],
-  },
-  {
-    year: "2025",
-    publications: [
       {
         title:
           "Distillation Techniques for Network Reconstruction in Adaptive Systems",
