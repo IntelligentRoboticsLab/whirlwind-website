@@ -12,6 +12,13 @@ import PhotoTeamWithPortugeseProfessor from "@/assets/photos/NAN13334_3613110639
 import PhotoRobot from "@/assets/photos/NAN18608-opq3906025937.jpg";
 import PhotoGermanOpen2025 from "@/assets/photos/DSC_0798.jpg";
 import PhotoFreeKick from "@/assets/photos/ROC_4057-opq3912329047.jpg";
+import PhotoLaptopOnField from "@/assets/photos/110-DSC09284.jpg";
+import PhotoTeamWorkingAtPitch from "@/assets/photos/117-DSC09277.jpg";
+import PhotoRobotWalking from "@/assets/photos/133-DSC09261.jpg";
+import PhotoTeamSetup from "@/assets/photos/55142547581_39130691ce_o.jpg";
+import PhotoMemberWithRobot from "@/assets/photos/72-DSC09322.jpg";
+import PhotoWhirlwindJersey from "@/assets/photos/74-DSC09320.jpg";
+import PhotoRobotsFromBehind from "@/assets/photos/86-DSC09308.jpg";
 import GitHubLogo from "@/assets/socials/github.svg";
 import InstagramLogo from "@/assets/socials/instagram.svg";
 import LinkedInLogo from "@/assets/socials/linkedin.svg";
@@ -64,6 +71,41 @@ const socialChannels: SocialChannel[] = [
 ];
 
 const collagePhotos: CollagePhoto[] = [
+  {
+    src: PhotoLaptopOnField,
+    alt: "Team member kneeling on the field debugging robots with a laptop.",
+    layout: "wide",
+  },
+  {
+    src: PhotoTeamWorkingAtPitch,
+    alt: "Two team members working on a robot at pitch level during a match.",
+    layout: "square",
+  },
+  {
+    src: PhotoRobotWalking,
+    alt: "Team member guiding a walking robot near the goal.",
+    layout: "tall",
+  },
+  {
+    src: PhotoTeamSetup,
+    alt: "The full team set up at the German Open 2026 with the RoboCup World Championship 2027 sign.",
+    layout: "panorama",
+  },
+  {
+    src: PhotoMemberWithRobot,
+    alt: "Team member standing with a robot on the football field.",
+    layout: "wide",
+  },
+  {
+    src: PhotoWhirlwindJersey,
+    alt: "Back of a whIRLwind 2026 team jersey showing sponsors.",
+    layout: "square",
+  },
+  {
+    src: PhotoRobotsFromBehind,
+    alt: "Two robots in red jerseys seen from behind during a match.",
+    layout: "wide",
+  },
   {
     src: PhotoRobot,
     alt: "Close-up of the robot under bright lighting.",
