@@ -10,6 +10,21 @@ const PubsByYear = z.array(
 
 export const publicationsByYear = PubsByYear.parse([
   {
+    year: "2026",
+    publications: [
+      {
+        title: "Team Description Paper whIRLwind Amsterdam",
+        authors: ["Mark Honkoop", "Julia de Vries", "Gijs de Jong"],
+        date: "2026-03-17",
+        year: "2026",
+        type: "techreport",
+        tags: ["Technical-Report", "Description"],
+        id: "team_description_paper_2026",
+        file: "/publications/2026/whIRLwind_RoboCup_2026_qualification_document.pdf",
+      },
+    ],
+  },
+  {
     year: "2025",
     publications: [
       {
