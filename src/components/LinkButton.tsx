@@ -6,7 +6,8 @@ type LinkButtonProps = {
   onNavigate?: () => void;
   className?: string;
   ariaLabel?: string;
-  bordered?: boolean;
+  variant?: "nav" | "primary" | "secondary" | "inline";
+  active?: boolean;
 };
 
 export default function LinkButton({
@@ -15,28 +16,27 @@ export default function LinkButton({
   onNavigate,
   className,
   ariaLabel,
-  bordered = false,
+  variant = "nav",
+  active = false,
 }: LinkButtonProps) {
-  const classes = ["nav-link"];
-
-  if (bordered) {
-    classes.push("nav-link--bordered");
-  }
-
-  if (className) {
-    classes.push(className);
-  }
+  const classes = [
+    "link-button",
+    `link-button--${variant}`,
+    active ? "is-active" : "",
+    className ?? "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <Link
       href={href}
-      className={classes.join(" ")}
+      className={classes}
       onClick={onNavigate}
       aria-label={ariaLabel}
+      aria-current={active ? "page" : undefined}
     >
-      <span aria-hidden="true" className="nav-link__spark" />
-      <span aria-hidden="true" className="nav-link__backdrop" />
-      <span className="nav-link__label">{label}</span>
+      <span className="link-button__label">{label}</span>
     </Link>
   );
 }

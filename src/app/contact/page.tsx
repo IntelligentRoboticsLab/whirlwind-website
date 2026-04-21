@@ -1,5 +1,7 @@
 import LinkButton from "@/components/LinkButton";
 import type { Metadata } from "next";
+import PageHero from "@/components/site/PageHero";
+import { contactTopics, siteContact } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Contact | Team whIRLwind",
@@ -8,116 +10,104 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="pb-20 pt-10 sm:pb-32 sm:pt-12">
-      <div className="mx-auto w-full max-w-[1120px] px-8 sm:px-10 lg:px-12 xl:px-4">
-        <div className="contact-header">
-          <h1 className="mt-0 text-[clamp(1.8rem,2.5vw,2.4rem)]">Contact</h1>
-        </div>
+    <div className="page-shell">
+      <PageHero
+        eyebrow="Contact"
+        title={
+          <>
+            Collaborations,
+            <br />
+            demos, and <span>press requests.</span>
+          </>
+        }
+        description="Reach the team for sponsorships, research conversations, event invites, or general questions and we will connect you with the right people."
+        metrics={[
+          { label: "Base", value: "Science Park" },
+          { label: "Lab", value: "UvA IRL" },
+          { label: "Status", value: "Applications paused" },
+        ]}
+        actions={
+          <>
+            <a
+              href={`mailto:${siteContact.email}`}
+              className="link-button link-button--primary"
+            >
+              <span className="link-button__label">{siteContact.email}</span>
+            </a>
+            <LinkButton href="/socials" label="Follow updates" variant="secondary" />
+          </>
+        }
+        aside={
+          <div className="page-note">
+            <p>Membership update</p>
+            <h2>Applications are temporarily closed while the team ramps up.</h2>
+            <span>
+              We will post an update on our channels when we are ready to open
+              up new member applications again.
+            </span>
+          </div>
+        }
+      />
 
-        <div className="contact-layout">
-          <div className="contact-main">
-            <div className="contact-highlight">
-              <span className="contact-eyebrow">Membership update</span>
-              <h2 className="contact-highlight__title">
-                Applications temporarily closed
-              </h2>
-              <p className="contact-highlight__copy">
-                We&apos;re pausing new member applications while we continue
-                ramping up the team. We&apos;ll share an update on our channels
-                once we&apos;re ready to welcome new teammates again.
-              </p>
-              <div className="contact-highlight__actions">
-                <LinkButton
-                  href="/socials"
-                  label="Follow our socials"
-                  bordered
-                />
-              </div>
-            </div>
-
-            <div className="card contact-card">
-              <h3>Reach the team</h3>
+      <section className="site-section site-section--tight-top">
+        <div className="site-container contact-layout">
+          <div className="contact-stack">
+            <article className="detail-card">
+              <p className="detail-card__eyebrow">Reach the team</p>
+              <h2>Email</h2>
+              <a href={`mailto:${siteContact.email}`} className="detail-card__link">
+                {siteContact.email}
+              </a>
               <p>
-                For collaborations, sponsorships, press, or general questions,
-                drop us a line and we&apos;ll connect you with the right person.
+                For collaborations, sponsorships, demos, press, or general
+                questions, send a note and we&apos;ll route it internally.
               </p>
-              <dl className="contact-details">
-                <div className="contact-detail">
-                  <dt>Email</dt>
-                  <dd>
-                    <a
-                      className="contact-link"
-                      href="mailto:info@whirlwind.team"
-                    >
-                      info@whirlwind.team
-                    </a>
-                  </dd>
-                </div>
-              </dl>
-            </div>
+            </article>
 
-            <div className="card contact-card contact-card--topics">
-              <h3>How we can help</h3>
-              <div className="contact-topics">
-                <div>
-                  <h4>Research & demos</h4>
-                  <p>
-                    Invite us to showcase humanoid robotics work or speak with
-                    your students, lab, or community.
-                  </p>
-                </div>
-                <div>
-                  <h4>Sponsorship & support</h4>
-                  <p>
-                    Share how you&apos;d like to collaborate and we&apos;ll
-                    explore ways to partner on upcoming competitions and events.
-                  </p>
-                </div>
-                <div>
-                  <h4>Media & press</h4>
-                  <p>
-                    Tell us your deadline and angle so we can coordinate
-                    spokespeople, quotes, and assets.
-                  </p>
-                </div>
+            <article className="detail-card">
+              <p className="detail-card__eyebrow">How we can help</p>
+              <div className="topic-list">
+                {contactTopics.map((topic) => (
+                  <section key={topic.title} className="topic-list__item">
+                    <h3>{topic.title}</h3>
+                    <p>{topic.description}</p>
+                  </section>
+                ))}
               </div>
-            </div>
+            </article>
           </div>
 
-          <aside className="contact-sidebar">
-            <div className="card contact-card">
-              <h3>Where we are</h3>
-              <p>
-                Team whIRLwind is based at the Intelligent Robotics Lab of the
-                University of Amsterdam.
-              </p>
-              <address className="contact-address">
-                Room L0.01
-                <br />
-                Science Park 900
-                <br />
-                1098 XH Amsterdam
+          <aside className="contact-stack">
+            <article className="detail-card">
+              <p className="detail-card__eyebrow">Where we are</p>
+              <h2>University of Amsterdam</h2>
+              <p>Team whIRLwind is based in the Intelligent Robotics Lab.</p>
+              <address className="detail-card__address">
+                {siteContact.addressLines.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
               </address>
-            </div>
+            </article>
 
-            <div className="card contact-card">
-              <h3>Stay updated</h3>
+            <article className="detail-card">
+              <p className="detail-card__eyebrow">Keep up</p>
+              <h2>Public channels</h2>
               <p>
-                Follow along for competition news and hear first when we reopen
-                member applications.
+                For competition updates, demos, and team news, our public
+                channels are the right place to follow along.
               </p>
-              <div className="contact-actions">
-                <LinkButton href="/socials" label="Social channels" bordered />
+              <div className="detail-card__actions">
+                <LinkButton href="/socials" label="Social channels" variant="secondary" />
                 <LinkButton
                   href="/publications"
-                  label="Latest publications"
-                  bordered
+                  label="Research archive"
+                  variant="secondary"
                 />
               </div>
-            </div>
+            </article>
           </aside>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

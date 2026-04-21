@@ -1,231 +1,68 @@
 import type { Metadata } from "next";
-import Image, { type StaticImageData } from "next/image";
-import Link from "next/link";
-import PhotoBackstage from "@/assets/photos/158-IMG_5111.jpg";
-import PhotoWorkshop from "@/assets/photos/168-IMG_5126.jpg";
-import PhotoEvening from "@/assets/photos/20250812_202120.jpg";
-import PhotoNaoLab from "@/assets/photos/203-IMG_5141.jpg";
-import PhotoTeam from "@/assets/photos/5-IMG_5253.jpg";
-import PhotoIceRibbon from "@/assets/photos/NAN12947_3610623519-rp3913954625-opq3915027514.jpg";
-import PhotoShowcase from "@/assets/photos/NAN12360-opq3912652044.jpg";
-import PhotoTeamWithPortugeseProfessor from "@/assets/photos/NAN13334_3613110639-rp3914172363-opq3915542285.jpg";
-import PhotoRobot from "@/assets/photos/NAN18608-opq3906025937.jpg";
-import PhotoGermanOpen2025 from "@/assets/photos/DSC_0798.jpg";
-import PhotoFreeKick from "@/assets/photos/ROC_4057-opq3912329047.jpg";
-import PhotoLaptopOnField from "@/assets/photos/110-DSC09284.jpg";
-import PhotoTeamWorkingAtPitch from "@/assets/photos/117-DSC09277.jpg";
-import PhotoRobotWalking from "@/assets/photos/133-DSC09261.jpg";
-import PhotoTeamSetup from "@/assets/photos/55142547581_39130691ce_o.jpg";
-import PhotoMemberWithRobot from "@/assets/photos/72-DSC09322.jpg";
-import PhotoWhirlwindJersey from "@/assets/photos/74-DSC09320.jpg";
-import PhotoRobotsFromBehind from "@/assets/photos/86-DSC09308.jpg";
-import GitHubLogo from "@/assets/socials/github.svg";
-import InstagramLogo from "@/assets/socials/instagram.svg";
-import LinkedInLogo from "@/assets/socials/linkedin.svg";
+import Image from "next/image";
+import LinkButton from "@/components/LinkButton";
+import PageHero from "@/components/site/PageHero";
+import PhotoCollage from "@/components/site/PhotoCollage";
+import SocialCard from "@/components/site/SocialCard";
+import {
+  homePhotos,
+  socialChannels,
+  socialCollagePhotos,
+} from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Socials | Team whIRLwind",
   description: "Follow Team whIRLwind on our social media channels.",
 };
 
-type SocialChannel = {
-  name: string;
-  url: string;
-  handle?: string;
-  logo: StaticImageData;
-  logoAlt: string;
-  description: string;
-};
-
-type CollagePhoto = {
-  src: StaticImageData;
-  alt: string;
-  layout: "wide" | "tall" | "square" | "panorama";
-};
-
-const socialChannels: SocialChannel[] = [
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/company/whirlwind-amsterdam/",
-    handle: "whIRLwind Amsterdam",
-    logo: LinkedInLogo,
-    logoAlt: "LinkedIn logo",
-    description: "Announcements, partnerships, and team stories.",
-  },
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com/whirlwind.ams",
-    handle: "@whirlwind.ams",
-    logo: InstagramLogo,
-    logoAlt: "Instagram logo",
-    description: "Travel stories and day-to-day progress from the team.",
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/IntelligentRoboticsLab",
-    handle: "Intelligent Robotics Lab",
-    logo: GitHubLogo,
-    logoAlt: "GitHub logo",
-    description: "Code releases, tools, and research repos.",
-  },
-];
-
-const collagePhotos: CollagePhoto[] = [
-  {
-    src: PhotoLaptopOnField,
-    alt: "Team member kneeling on the field debugging robots with a laptop.",
-    layout: "wide",
-  },
-  {
-    src: PhotoTeamWorkingAtPitch,
-    alt: "Two team members working on a robot at pitch level during a match.",
-    layout: "square",
-  },
-  {
-    src: PhotoRobotWalking,
-    alt: "Team member guiding a walking robot near the goal.",
-    layout: "tall",
-  },
-  {
-    src: PhotoTeamSetup,
-    alt: "The full team set up at the German Open 2026 with the RoboCup World Championship 2027 sign.",
-    layout: "panorama",
-  },
-  {
-    src: PhotoMemberWithRobot,
-    alt: "Team member standing with a robot on the football field.",
-    layout: "wide",
-  },
-  {
-    src: PhotoWhirlwindJersey,
-    alt: "Back of a whIRLwind 2026 team jersey showing sponsors.",
-    layout: "square",
-  },
-  {
-    src: PhotoRobotsFromBehind,
-    alt: "Two robots in red jerseys seen from behind during a match.",
-    layout: "wide",
-  },
-  {
-    src: PhotoRobot,
-    alt: "Close-up of the robot under bright lighting.",
-    layout: "wide",
-  },
-  {
-    src: PhotoTeamWithPortugeseProfessor,
-    alt: "Team photo with the professor of the Portugese team in Beijing",
-    layout: "wide",
-  },
-  {
-    src: PhotoFreeKick,
-    alt: "Robots waiting to take a free kick",
-    layout: "tall",
-  },
-  {
-    src: PhotoWorkshop,
-    alt: "Team members giving a demo to visitors in the Lab",
-    layout: "tall",
-  },
-  {
-    src: PhotoGermanOpen2025,
-    alt: "Team looking on during a match at the German Open 2025",
-    layout: "panorama",
-  },
-  {
-    src: PhotoNaoLab,
-    alt: "The team showing a NAO robot to visitors in the Lab",
-    layout: "square",
-  },
-  {
-    src: PhotoEvening,
-    alt: "Preparing for a match during evening competitions.",
-    layout: "square",
-  },
-  {
-    src: PhotoShowcase,
-    alt: "Team posing with the robot at the World Humanoid Robot Games showcase.",
-    layout: "wide",
-  },
-  {
-    src: PhotoTeam,
-    alt: "The team looking on as the robot walks around",
-    layout: "tall",
-  },
-  {
-    src: PhotoBackstage,
-    alt: "Team members repairing a broken ankle joint",
-    layout: "wide",
-  },
-  {
-    src: PhotoIceRibbon,
-    alt: "The Ice Ribbon competition venu in Bejing, China",
-    layout: "square",
-  },
-];
-
-function isExternalUrl(url: string): boolean {
-  return /^https?:\/\//.test(url);
-}
-
 export default function SocialsPage() {
   return (
-    <section className="pb-20 pt-10 sm:pb-32 sm:pt-12">
-      <div className="mx-auto w-full max-w-[1120px] px-8 sm:px-10 lg:px-12 xl:px-4">
-        <h1 className="mb-3 mt-0 text-[clamp(1.8rem,2.5vw,2.4rem)]">Socials</h1>
-        <div className="social-grid">
-          {socialChannels.map((platform) => {
-            const isExternal = isExternalUrl(platform.url);
-            return (
-              <Link
-                key={platform.name}
-                href={platform.url}
-                target={isExternal ? "_blank" : undefined}
-                rel={isExternal ? "noopener noreferrer" : undefined}
-                className="social-card"
-                aria-label={`Open ${platform.name}`}
-              >
-                <div className="social-card__header">
-                  <Image
-                    src={platform.logo}
-                    alt={platform.logoAlt}
-                    width={42}
-                    height={42}
-                    className="social-card__logo"
-                  />
-                  <div className="social-card__heading">
-                    <h3 className="social-card__name">{platform.name}</h3>
-                    {platform.handle && (
-                      <p className="social-card__handle">{platform.handle}</p>
-                    )}
-                  </div>
-                </div>
+    <div className="page-shell">
+      <PageHero
+        eyebrow="Social channels"
+        title={
+          <>
+            Match trips,
+            <br />
+            build days, and <span>lab updates.</span>
+          </>
+        }
+        description="Follow the team across the channels where we share competition travel, demos, progress, and the code orbiting the project."
+        metrics={[
+          { label: "Channels", value: `${socialChannels.length}` },
+          { label: "Photo archive", value: `${socialCollagePhotos.length}` },
+          { label: "Base", value: "UvA IRL" },
+        ]}
+        actions={
+          <LinkButton href="/contact" label="Reach the team" variant="secondary" />
+        }
+        aside={
+          <figure className="page-hero__photo">
+            <Image
+              src={homePhotos.supportA.src}
+              alt={homePhotos.supportA.alt}
+              fill
+              placeholder="blur"
+              sizes="(max-width: 1024px) 100vw, 28vw"
+              className="media-panel__image"
+            />
+          </figure>
+        }
+      />
 
-                <p className="social-card__description">
-                  {platform.description}
-                </p>
-              </Link>
-            );
-          })}
-        </div>
-        <div className="social-collage">
-          {collagePhotos.map((photo, index) => (
-            <div
-              key={index}
-              className={`social-collage__item social-collage__item--${photo.layout}`}
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                placeholder="blur"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 600px"
-                className="social-collage__image"
-                priority={index < 2}
-              />
-            </div>
+      <section className="site-section site-section--tight-top">
+        <div className="site-container social-grid social-grid--page">
+          {socialChannels.map((channel) => (
+            <SocialCard key={channel.name} channel={channel} />
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="site-section site-section--deep">
+        <div className="site-container">
+          <PhotoCollage photos={socialCollagePhotos} variant="gallery" />
+        </div>
+      </section>
+    </div>
   );
 }

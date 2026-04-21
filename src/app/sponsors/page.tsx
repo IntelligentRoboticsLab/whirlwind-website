@@ -1,94 +1,87 @@
 import type { Metadata } from "next";
-import SponsorCard, { type Sponsor } from "@/components/SponsorCard";
-import rerunLogo from "@/assets/sponsors/rerun.svg";
-import startupVillageLogo from "@/assets/sponsors/startup_village.webp";
-import uvaLogo from "@/assets/sponsors/uva.png";
+import LinkButton from "@/components/LinkButton";
+import SponsorCard from "@/components/SponsorCard";
+import PageHero from "@/components/site/PageHero";
+import { sponsorTiers } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Sponsors | Team whIRLwind",
   description: "Organisations supporting Team whIRLwind.",
 };
 
-type SponsorTier = {
-  name: string;
-  sponsors: Sponsor[];
-};
-
-const sponsorTiers: SponsorTier[] = [
-  {
-    name: "Premier Partner",
-    sponsors: [
-      {
-        name: "Rerun",
-        website: "https://rerun.io",
-        logo: rerunLogo,
-        logoAlt: "Rerun logo",
-        logoWidth: 94,
-        logoHeight: 28,
-        logoMaxWidth: "420px",
-        logoDisplayHeight: "96px",
-        captionGapClass: "gap-2",
-        logoWrapperClassName: "px-4 pt-2 pb-1",
-      },
-    ],
-  },
-  {
-    name: "Supporting Partners",
-    sponsors: [
-      {
-        name: "StartUp Village",
-        website: "https://startupvillage.nl",
-        logo: startupVillageLogo,
-        logoAlt: "StartUp Village logo",
-        logoWidth: 480,
-        logoHeight: 242,
-      },
-      {
-        name: "University of Amsterdam",
-        website: "https://uva.nl",
-        logo: uvaLogo,
-        logoAlt: "University of Amsterdam logo",
-        logoWidth: 480,
-        logoHeight: 242,
-      },
-    ],
-  },
-];
-
 export default function SponsorsPage() {
   return (
-    <section className="pb-20 pt-10 sm:pb-32 sm:pt-12">
-      <div className="mx-auto w-full max-w-[1120px] px-8 sm:px-10 lg:px-12 xl:px-4">
-        <h1 className="mb-3 mt-0 text-[clamp(1.8rem,2.5vw,2.4rem)]">
-          Sponsors
-        </h1>
-        <p className="mb-8 mt-0 text-(--ink-muted)">
-          These partners keep our robots rolling and make it possible to share
-          the work beyond the lab.
-        </p>
+    <div className="page-shell">
+      <PageHero
+        eyebrow="Partners"
+        title={
+          <>
+            Backing the robots,
+            <br />
+            the travel, and the <span>team.</span>
+          </>
+        }
+        description="These organisations make it possible to build, test, travel, and present the work beyond the lab."
+        metrics={[
+          { label: "Partner tiers", value: `${sponsorTiers.length}` },
+          {
+            label: "Current partners",
+            value: `${sponsorTiers.reduce((sum, tier) => sum + tier.sponsors.length, 0)}`,
+          },
+          { label: "Base", value: "Amsterdam" },
+        ]}
+        actions={
+          <LinkButton href="/contact" label="Become a sponsor" variant="primary" />
+        }
+        aside={
+          <div className="page-note">
+            <p>Why it matters</p>
+            <h2>Competitions reward reliable systems, not isolated prototypes.</h2>
+            <span>
+              Sponsorship helps cover hardware, travel, tooling, and the space
+              to keep iterating.
+            </span>
+          </div>
+        }
+      />
 
-        <div className="space-y-12">
-          {sponsorTiers.map((tier) => {
-            const tierClasses = "sponsor-entry space-y-8";
-            const rowClasses = [
-              "flex flex-col gap-4",
-              tier.sponsors.length > 1
-                ? "sm:flex-row sm:flex-wrap sm:gap-6"
-                : "",
-            ].join(" ");
-
-            return (
-              <div key={tier.name} className={tierClasses}>
-                <div className={rowClasses}>
-                  {tier.sponsors.map((sponsor) => (
-                    <SponsorCard key={sponsor.name} sponsor={sponsor} />
-                  ))}
-                </div>
+      <section className="site-section site-section--tight-top">
+        <div className="site-container sponsor-tier-grid">
+          {sponsorTiers.map((tier) => (
+            <section key={tier.name} className="tier-block tier-block--page">
+              <div className="tier-block__heading">
+                <p>{tier.name}</p>
+                <span>{tier.description}</span>
               </div>
-            );
-          })}
+              <div className="tier-block__cards">
+                {tier.sponsors.map((sponsor) => (
+                  <SponsorCard key={sponsor.name} sponsor={sponsor} />
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="site-section site-section--deep">
+        <div className="site-container contact-banner">
+          <div>
+            <span className="section-intro__eyebrow">Support the project</span>
+            <h2 className="contact-banner__title">
+              Interested in backing
+              <br />
+              the next <span>competition season?</span>
+            </h2>
+            <p className="contact-banner__description">
+              Tell us what kind of collaboration you have in mind and we will
+              route it to the right people inside the team.
+            </p>
+          </div>
+          <div className="contact-banner__actions">
+            <LinkButton href="/contact" label="Start the conversation" variant="primary" />
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

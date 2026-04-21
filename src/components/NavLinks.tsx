@@ -2,15 +2,18 @@ import LinkButton from "./LinkButton";
 
 type NavLinksProps = {
   onNavigate?: () => void;
+  currentPath: string;
 };
 
 const navLinks = [
+  { href: "/#team", label: "Team" },
+  { href: "/#results", label: "Results" },
   { href: "/publications", label: "Publications" },
   { href: "/socials", label: "Socials" },
   { href: "/sponsors", label: "Sponsors" },
 ];
 
-export default function NavLinks({ onNavigate }: NavLinksProps) {
+export default function NavLinks({ onNavigate, currentPath }: NavLinksProps) {
   return (
     <ul className="nav-list">
       {navLinks.map((link) => (
@@ -19,6 +22,7 @@ export default function NavLinks({ onNavigate }: NavLinksProps) {
             href={link.href}
             label={link.label}
             onNavigate={onNavigate}
+            active={!link.href.startsWith("/#") && currentPath.startsWith(link.href)}
           />
         </li>
       ))}
