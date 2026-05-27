@@ -28,11 +28,6 @@ export default function SocialsPage() {
           </>
         }
         description="Follow the team across the channels where we share competition travel, demos, progress, and the code orbiting the project."
-        metrics={[
-          { label: "Channels", value: `${socialChannels.length}` },
-          { label: "Photo archive", value: `${socialCollagePhotos.length}` },
-          { label: "Base", value: "UvA IRL" },
-        ]}
         actions={
           <LinkButton href="/contact" label="Reach the team" variant="secondary" />
         }

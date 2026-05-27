@@ -3,20 +3,15 @@ import Link from "next/link";
 
 import LinkButton from "@/components/LinkButton";
 import SponsorCard from "@/components/SponsorCard";
-import PhotoCollage from "@/components/site/PhotoCollage";
 import PublicationCard from "@/components/site/PublicationCard";
 import ResultTimeline from "@/components/site/ResultTimeline";
 import SectionIntro from "@/components/site/SectionIntro";
-import SocialCard from "@/components/site/SocialCard";
 import {
   highlightedEvent,
   homePhotos,
   siteContact,
   siteEvents,
-  socialChannels,
-  socialCollagePhotos,
   sponsorTiers,
-  teamPillars,
 } from "@/lib/site-content";
 import {
   getLatestPublications,
@@ -145,15 +140,15 @@ export default function Home() {
         <div className="site-container team-showcase">
           <div className="team-showcase__intro">
             <SectionIntro
-              eyebrow="The squad"
+              eyebrow="Why we exist"
               title={
                 <>
-                  Fifteen students.
+                  Chasing the
                   <br />
-                  <span>One team.</span>
+                  <span>2050 goal.</span>
                 </>
               }
-              description="We build the software, test rigs, and competition routines needed to make adult-size humanoids actually move, see, and play."
+              description="We build the software and competition routines needed to make adult-size humanoids actually move, see, and play."
               compact
             />
             <div className="team-showcase__photos">
@@ -178,16 +173,6 @@ export default function Home() {
                 />
               </figure>
             </div>
-          </div>
-
-          <div className="pillar-grid">
-            {teamPillars.map((pillar) => (
-              <article key={pillar.index} className="pillar-card">
-                <p>{pillar.index}</p>
-                <h3>{pillar.title}</h3>
-                <p>{pillar.description}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>
@@ -260,59 +245,6 @@ export default function Home() {
                 </div>
               </section>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="site-section site-section--deep">
-        <div className="site-container home-socials">
-          <div className="home-socials__content">
-            <SectionIntro
-              eyebrow="From the lab"
-              title={
-                <>
-                  Life around the
-                  <br />
-                  <span>build season.</span>
-                </>
-              }
-              description="Competition trips, demos, workshop moments, and field-side fixes all show up in the channels we keep active around the team."
-              compact
-            />
-
-            <div className="home-socials__actions">
-              <LinkButton
-                href="/socials"
-                label="See all photos and channels"
-                variant="secondary"
-              />
-            </div>
-
-            <div className="home-social-link-list">
-              {socialChannels.map((channel) => (
-                <Link
-                  key={channel.name}
-                  href={channel.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="home-social-link"
-                >
-                  <div>
-                    <h3>{channel.name}</h3>
-                    {channel.handle ? <p>{channel.handle}</p> : null}
-                  </div>
-                  <span>{channel.description}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="home-socials__gallery">
-            <PhotoCollage
-              photos={socialCollagePhotos}
-              limit={6}
-              variant="gallery"
-            />
           </div>
         </div>
       </section>

@@ -597,7 +597,6 @@ img {
 .pillar-card > p:last-child,
 .social-card__description,
 .tier-block__heading span,
-.page-note span,
 .detail-card p,
 .topic-list__item p,
 .site-footer__summary {
@@ -1121,10 +1120,6 @@ img {
 
   .team-showcase__intro {
     position: static;
-  }
-
-  .home-hero__media {
-    order: -1;
   }
 
   .social-grid {

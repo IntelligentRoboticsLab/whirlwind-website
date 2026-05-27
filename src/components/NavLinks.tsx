@@ -7,7 +7,6 @@ type NavLinksProps = {
 
 const navLinks = [
   { href: "/#team", label: "Team" },
-  { href: "/#results", label: "Results" },
   { href: "/publications", label: "Publications" },
   { href: "/socials", label: "Socials" },
   { href: "/sponsors", label: "Sponsors" },
