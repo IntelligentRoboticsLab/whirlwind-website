@@ -15,12 +15,10 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Collaborations,
-            <br />
-            demos, and <span>press requests.</span>
+            Get in <span>touch.</span>
           </>
         }
-        description="Reach the team for sponsorships, research conversations, event invites, or general questions and we will connect you with the right people."
+        description="Sponsorships, research, demos, event invites, press, or just questions. Email works best."
         metrics={[
           { label: "Base", value: "Science Park" },
           { label: "Lab", value: "UvA IRL" },
@@ -40,10 +38,9 @@ export default function ContactPage() {
         aside={
           <div className="page-note">
             <p>Membership update</p>
-            <h2>Applications are temporarily closed while the team ramps up.</h2>
+            <h2>Applications are closed for now.</h2>
             <span>
-              We will post an update on our channels when we are ready to open
-              up new member applications again.
+              We&apos;ll post on our channels when we open them again.
             </span>
           </div>
         }
@@ -53,19 +50,19 @@ export default function ContactPage() {
         <div className="site-container contact-layout">
           <div className="contact-stack">
             <article className="detail-card">
-              <p className="detail-card__eyebrow">Reach the team</p>
-              <h2>Email</h2>
+              <p className="detail-card__eyebrow">Email</p>
+              <h2>Drop us a line</h2>
               <a href={`mailto:${siteContact.email}`} className="detail-card__link">
                 {siteContact.email}
               </a>
               <p>
-                For collaborations, sponsorships, demos, press, or general
-                questions, send a note and we&apos;ll route it internally.
+                Whatever it is, send a note here and it&apos;ll get to the
+                right person.
               </p>
             </article>
 
             <article className="detail-card">
-              <p className="detail-card__eyebrow">How we can help</p>
+              <p className="detail-card__eyebrow">What to reach out about</p>
               <div className="topic-list">
                 {contactTopics.map((topic) => (
                   <section key={topic.title} className="topic-list__item">
@@ -79,9 +76,9 @@ export default function ContactPage() {
 
           <aside className="contact-stack">
             <article className="detail-card">
-              <p className="detail-card__eyebrow">Where we are</p>
+              <p className="detail-card__eyebrow">Location</p>
               <h2>University of Amsterdam</h2>
-              <p>Team whIRLwind is based in the Intelligent Robotics Lab.</p>
+              <p>The Intelligent Robotics Lab at Science Park.</p>
               <address className="detail-card__address">
                 {siteContact.addressLines.map((line) => (
                   <span key={line}>{line}</span>
@@ -90,17 +87,16 @@ export default function ContactPage() {
             </article>
 
             <article className="detail-card">
-              <p className="detail-card__eyebrow">Keep up</p>
-              <h2>Public channels</h2>
+              <p className="detail-card__eyebrow">Follow</p>
+              <h2>Channels</h2>
               <p>
-                For competition updates, demos, and team news, our public
-                channels are the right place to follow along.
+                For updates and demos, follow us on our socials.
               </p>
               <div className="detail-card__actions">
-                <LinkButton href="/socials" label="Social channels" variant="secondary" />
+                <LinkButton href="/socials" label="Socials" variant="secondary" />
                 <LinkButton
                   href="/publications"
-                  label="Research archive"
+                  label="Publications"
                   variant="secondary"
                 />
               </div>

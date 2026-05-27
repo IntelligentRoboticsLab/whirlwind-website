@@ -16,12 +16,12 @@ export default function SponsorsPage() {
         eyebrow="Partners"
         title={
           <>
-            Backing the robots,
+            Who keeps us
             <br />
-            the travel, and the <span>team.</span>
+            <span>on the field.</span>
           </>
         }
-        description="These organisations make it possible to build, test, travel, and present the work beyond the lab."
+        description="The organisations that help us build the robots and get them to competitions."
         metrics={[
           { label: "Partner tiers", value: `${sponsorTiers.length}` },
           {
@@ -35,11 +35,10 @@ export default function SponsorsPage() {
         }
         aside={
           <div className="page-note">
-            <p>Why it matters</p>
-            <h2>Competitions reward reliable systems, not isolated prototypes.</h2>
+            <p>What it covers</p>
+            <h2>Hardware, travel, tooling, and the lab space.</h2>
             <span>
-              Sponsorship helps cover hardware, travel, tooling, and the space
-              to keep iterating.
+              Running a competition team adds up quickly.
             </span>
           </div>
         }
@@ -66,15 +65,13 @@ export default function SponsorsPage() {
       <section className="site-section site-section--deep">
         <div className="site-container contact-banner">
           <div>
-            <span className="section-intro__eyebrow">Support the project</span>
+            <span className="section-intro__eyebrow">Sponsor us</span>
             <h2 className="contact-banner__title">
-              Interested in backing
-              <br />
-              the next <span>competition season?</span>
+              Want to <span>sponsor?</span>
             </h2>
             <p className="contact-banner__description">
-              Tell us what kind of collaboration you have in mind and we will
-              route it to the right people inside the team.
+              Get in touch. We can put together something that works for both
+              of us.
             </p>
           </div>
           <div className="contact-banner__actions">

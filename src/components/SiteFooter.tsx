@@ -9,8 +9,8 @@ export default function SiteFooter() {
         <div className="site-footer__brand">
           <p className="site-footer__kicker">whIRLwind Amsterdam</p>
           <p className="site-footer__summary">
-            Humanoid robotics from the University of Amsterdam Intelligent
-            Robotics Lab, built for competition and research.
+            Humanoid robotics team out of the Intelligent Robotics Lab at the
+            University of Amsterdam.
           </p>
         </div>
 

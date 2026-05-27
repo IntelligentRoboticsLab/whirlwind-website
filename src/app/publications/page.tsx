@@ -24,20 +24,20 @@ export default function PublicationsPage() {
             and <span>qualification docs.</span>
           </>
         }
-        description="A running archive of team reports, theses, and technical publications tied to the work around the robots and the competitions."
+        description="Team reports, student theses, and technical papers from the team and the lab."
         metrics={[
           { label: "Years covered", value: "2021-2026" },
-          { label: "Items archived", value: `${publicationCount}` },
+          { label: "Papers", value: `${publicationCount}` },
           { label: "Latest season", value: "2026" },
         ]}
         actions={
-          <LinkButton href="/contact" label="Ask about the work" variant="secondary" />
+          <LinkButton href="/contact" label="Get in touch" variant="secondary" />
         }
         aside={
           <div className="page-note">
             <p>Coverage</p>
-            <h2>Student theses, technical reports, and competition papers.</h2>
-            <span>Grouped by year and linked directly to the source files.</span>
+            <h2>Theses, technical reports, and competition papers.</h2>
+            <span>Grouped by year, linked to source PDFs.</span>
           </div>
         }
       />

@@ -25,7 +25,7 @@ export default function Home() {
     { value: "15", label: "Active members" },
     { value: "2025", label: "Founded" },
     { value: highlightedEvent.result, label: highlightedEvent.event },
-    { value: `${publicationCount}`, label: "Publications archived" },
+    { value: `${publicationCount}`, label: "Publications" },
   ];
 
   return (
@@ -39,9 +39,9 @@ export default function Home() {
               to play <span>football.</span>
             </h1>
             <p className="home-hero__description">
-              whIRLwind is the University of Amsterdam humanoid robotics team,
-              building perception, locomotion, control, and competition systems
-              that have to work outside the lab and under pressure.
+              whIRLwind is the humanoid robotics team at the University of
+              Amsterdam. We compete in the RoboCup Standard Platform League
+              and write the software that runs on our robots.
             </p>
             <div className="home-hero__actions">
               <LinkButton href="/contact" label="Get in touch" variant="primary" />
@@ -117,13 +117,13 @@ export default function Home() {
       <section id="results" className="site-section site-section--deep">
         <div className="site-container">
           <SectionIntro
-            eyebrow="Season recap"
+            eyebrow="Results"
             title={
               <>
                 Recent <span>results</span>
               </>
             }
-            description="A fast view of the competitions, milestones, and output that define the team's first seasons."
+            description="What we've competed in so far."
             action={
               <LinkButton
                 href="/publications"
@@ -140,15 +140,15 @@ export default function Home() {
         <div className="site-container team-showcase">
           <div className="team-showcase__intro">
             <SectionIntro
-              eyebrow="Why we exist"
+              eyebrow="The goal"
               title={
                 <>
-                  Chasing the
+                  The
                   <br />
                   <span>2050 goal.</span>
                 </>
               }
-              description="We build the software and competition routines needed to make adult-size humanoids actually move, see, and play."
+              description="RoboCup's stated goal: by 2050, a team of humanoid robots that can beat the human football world champions. We work on the software side."
               compact
             />
             <div className="team-showcase__photos">
@@ -180,7 +180,7 @@ export default function Home() {
       <section className="site-section site-section--deep">
         <div className="site-container">
           <SectionIntro
-            eyebrow="Research output"
+            eyebrow="Research"
             title={
               <>
                 Papers, reports,
@@ -188,7 +188,7 @@ export default function Home() {
                 and <span>technical notes.</span>
               </>
             }
-            description="The competition work spills into documentation, qualification papers, reports, and student research published through the team and the lab."
+            description="Qualification papers, team reports, and student theses."
             action={
               <LinkButton
                 href="/publications"
@@ -216,12 +216,12 @@ export default function Home() {
             eyebrow="Sponsors"
             title={
               <>
-                The partners behind
+                Who supports
                 <br />
-                the <span>build season.</span>
+                <span>the team.</span>
               </>
             }
-            description="Competition robotics is expensive, messy, and impossible to do well alone. These organisations help keep the team operational."
+            description="Robots, travel, and tooling are expensive. These organisations help cover it."
             action={
               <LinkButton
                 href="/sponsors"
@@ -254,13 +254,11 @@ export default function Home() {
           <div>
             <span className="section-intro__eyebrow">Contact</span>
             <h2 className="contact-banner__title">
-              Collaborations, demos,
-              <br />
-              press, and <span>support.</span>
+              Get in <span>touch.</span>
             </h2>
             <p className="contact-banner__description">
-              Reach the team for partnerships, research conversations, or event
-              enquiries. We will connect you with the right person.
+              Partnerships, research, demos, press, or just questions. Email
+              us.
             </p>
           </div>
           <div className="contact-banner__actions">

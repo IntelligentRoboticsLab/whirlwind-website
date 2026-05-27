@@ -95,7 +95,7 @@ export const siteEvents: SiteEvent[] = [
     event: "Qualification document published",
     location: "Amsterdam",
     result: "Season active",
-    detail: "Technical roadmap and team description for the current campaign.",
+    detail: "Technical roadmap and team description for the season.",
   },
   {
     id: "world-humanoid-robot-games-2025",
@@ -104,7 +104,7 @@ export const siteEvents: SiteEvent[] = [
     event: "World Humanoid Robot Games",
     location: "Beijing",
     result: "International debut",
-    detail: "Competition debut on a global stage with the squad and platform.",
+    detail: "Our first international competition with the new team.",
   },
   {
     id: "german-open-2026",
@@ -113,7 +113,7 @@ export const siteEvents: SiteEvent[] = [
     event: "RoboCup German Open 2026",
     location: "Germany",
     result: "3rd place",
-    detail: "A podium finish at the RoboCup German Open 2026.",
+    detail: "Two weeks with the robots and we got on the podium.",
     highlight: true,
   },
   {
@@ -123,7 +123,7 @@ export const siteEvents: SiteEvent[] = [
     event: "Team launched",
     location: "University of Amsterdam",
     result: "First roster",
-    detail: "whIRLwind formed inside the Intelligent Robotics Lab.",
+    detail: "whIRLwind started inside the Intelligent Robotics Lab.",
   },
 ];
 
@@ -135,32 +135,32 @@ export const teamPillars: TeamPillar[] = [
     index: "01",
     title: "Competition software",
     description:
-      "Vision, behavior, simulation, and testing that keep the robots usable before and during matches.",
+      "Vision, behaviours, RL policies, simulation, and the tests that keep it all working.",
   },
   {
     index: "02",
     title: "Hardware and repairs",
     description:
-      "Assembly, calibration, maintenance, and the rapid fixes that always show up once competition days start.",
+      "Assembly, calibration, maintenance, and fixing whatever breaks during a competition.",
   },
   {
     index: "03",
     title: "Match operations",
     description:
-      "Travel prep, field-side debugging, demos, and the logistics required to run the team through an event.",
+      "Travel, field-side debugging, demos, and the logistics of running a team at an event.",
   },
   {
     index: "04",
     title: "Research and outreach",
     description:
-      "Reports, theses, partner demos, and the work we publish around the team beyond the matches themselves.",
+      "Reports, theses, and the research we publish alongside the competition work.",
   },
 ];
 
 export const sponsorTiers: SponsorTier[] = [
   {
     name: "Premier Partner",
-    description: "Core support for the team's infrastructure and competition push.",
+    description: "Backs the team's infrastructure and competitions.",
     sponsors: [
       {
         name: "Rerun",
@@ -176,7 +176,7 @@ export const sponsorTiers: SponsorTier[] = [
   },
   {
     name: "Supporting Partners",
-    description: "The organisations that back the lab, the team, and the room to build.",
+    description: "Support the lab, the team, and the space we work in.",
     sponsors: [
       {
         name: "StartUp Village",
@@ -205,7 +205,7 @@ export const socialChannels: SocialChannel[] = [
     handle: "whIRLwind Amsterdam",
     logo: LinkedInLogo,
     logoAlt: "LinkedIn logo",
-    description: "Announcements, partnerships, and team stories from the lab.",
+    description: "Announcements and partnership updates.",
   },
   {
     name: "Instagram",
@@ -213,7 +213,7 @@ export const socialChannels: SocialChannel[] = [
     handle: "@whirlwind.ams",
     logo: InstagramLogo,
     logoAlt: "Instagram logo",
-    description: "Travel, workshop moments, and match-day updates from the team.",
+    description: "Photos and clips from the lab, travel, and match days.",
   },
   {
     name: "GitHub",
@@ -221,7 +221,7 @@ export const socialChannels: SocialChannel[] = [
     handle: "Intelligent Robotics Lab",
     logo: GitHubLogo,
     logoAlt: "GitHub logo",
-    description: "Open code, tools, and research repositories connected to the work.",
+    description: "Code and tooling from the lab we work in.",
   },
 ];
 
@@ -337,17 +337,17 @@ export const contactTopics = [
   {
     title: "Research and demos",
     description:
-      "Invite the team to present humanoid robotics work, lab demos, or student events.",
+      "Want us to present somewhere, run a lab demo, or come to a student event.",
   },
   {
-    title: "Sponsorship and support",
+    title: "Sponsoring",
     description:
-      "Share how you would like to collaborate on competitions, tooling, or outreach.",
+      "Want to sponsor the team, or collaborate on hardware or tooling.",
   },
   {
     title: "Media and press",
     description:
-      "Tell us the angle and timing so we can coordinate the right spokesperson and assets.",
+      "Tell us the angle and deadline and we'll find the right person.",
   },
 ];
 

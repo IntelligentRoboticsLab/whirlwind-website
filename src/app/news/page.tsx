@@ -6,7 +6,7 @@ import { getAllNewsPosts } from "@/lib/news/news";
 
 export const metadata: Metadata = {
   title: "News | Team whIRLwind",
-  description: "Short updates from Team whIRLwind: competitions, robots, releases, and more.",
+  description: "Short updates from Team whIRLwind on competitions, robots, and releases.",
 };
 
 function formatDate(date: string): string {
@@ -26,31 +26,23 @@ export default async function NewsPage() {
   return (
     <div className="page-shell">
       <PageHero
-        eyebrow="What's new"
-        title={
-          <>
-            Updates from the
-            <br />
-            <span>workshop floor.</span>
-          </>
-        }
-        description="Short notes on competitions, robot builds, and releases."
+        eyebrow="News"
+        title={<>Recent posts.</>}
+        description="Updates from the team on competitions, robot builds, and releases."
         metrics={[
           { label: "Posts", value: `${posts.length}` },
-          {
-            label: "Latest update",
-            value: latest ? formatDate(latest.date) : "None",
-          },
         ]}
         actions={
           <LinkButton href="/contact" label="Get in touch" variant="secondary" />
         }
         aside={
-          <div className="page-note">
-            <p>Feed</p>
-            <h2>Everything in one place, newest first.</h2>
-            <span>Posted by team members straight from the repo.</span>
-          </div>
+          latest ? (
+            <div className="page-note">
+              <p>Latest</p>
+              <h2>{latest.title}</h2>
+              <span>{formatDate(latest.date)}</span>
+            </div>
+          ) : null
         }
       />
 

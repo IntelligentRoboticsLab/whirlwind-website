@@ -11,7 +11,7 @@ const logoSingleDark = new URL(
 export const metadata: Metadata = {
   title: "whIRLwind Amsterdam",
   description:
-    "Humanoid robotics team from the University of Amsterdam Intelligent Robotics Lab.",
+    "Humanoid robotics team from the Intelligent Robotics Lab at the University of Amsterdam.",
   icons: {
     icon: [
       { url: logoSingleDark, type: "image/svg+xml" },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "whIRLwind Amsterdam",
     description:
-      "Humanoid robotics team from the University of Amsterdam Intelligent Robotics Lab.",
+      "Humanoid robotics team from the Intelligent Robotics Lab at the University of Amsterdam.",
   },
 };
 

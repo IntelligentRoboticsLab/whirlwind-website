@@ -22,12 +22,12 @@ export default function SocialsPage() {
         eyebrow="Social channels"
         title={
           <>
-            Match trips,
+            Where to
             <br />
-            build days, and <span>lab updates.</span>
+            <span>follow along.</span>
           </>
         }
-        description="Follow the team across the channels where we share competition travel, demos, progress, and the code orbiting the project."
+        description="Where we post competition travel, demos, progress, and the code behind it."
         actions={
           <LinkButton href="/contact" label="Reach the team" variant="secondary" />
         }
