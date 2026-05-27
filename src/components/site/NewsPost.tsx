@@ -24,7 +24,6 @@ export default function NewsPost({ post }: NewsPostProps) {
       </div>
 
       <h2 className="news-post__title">{post.title}</h2>
-      <p className="news-post__summary">{post.summary}</p>
 
       {post.coverImage ? (
         <div className="news-post__cover">

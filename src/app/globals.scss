@@ -1069,8 +1069,12 @@ img {
   line-height: 1.7;
 }
 
+.news-post__body > * {
+  margin: 0;
+}
+
 .news-post__body > * + * {
-  margin-top: 1rem;
+  margin-top: 1.5em;
 }
 
 .news-post__body h1,
@@ -1090,10 +1094,6 @@ img {
 
 .news-post__body h3 {
   font-size: 1.18rem;
-}
-
-.news-post__body p {
-  margin: 0;
 }
 
 .news-post__body a {

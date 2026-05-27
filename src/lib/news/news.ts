@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
+import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 import { z } from "zod";
@@ -30,7 +31,11 @@ export type NewsPost = {
 };
 
 async function renderMarkdown(body: string): Promise<string> {
-  const file = await remark().use(remarkGfm).use(remarkHtml).process(body);
+  const file = await remark()
+    .use(remarkGfm)
+    .use(remarkBreaks)
+    .use(remarkHtml)
+    .process(body);
   return String(file);
 }
 
