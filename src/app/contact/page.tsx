@@ -18,7 +18,7 @@ export default function ContactPage() {
             Get in <span>touch.</span>
           </>
         }
-        description="Sponsorships, research, demos, event invites, press, or just questions. Email works best."
+        description="Email us about sponsorships, research, demos, event invites, or press."
         metrics={[
           { label: "Base", value: "Science Park" },
           { label: "Lab", value: "UvA IRL" },
@@ -50,19 +50,18 @@ export default function ContactPage() {
         <div className="site-container contact-layout">
           <div className="contact-stack">
             <article className="detail-card">
-              <p className="detail-card__eyebrow">Email</p>
-              <h2>Drop us a line</h2>
+              <p className="detail-card__eyebrow">Contact</p>
+              <h2>Email</h2>
               <a href={`mailto:${siteContact.email}`} className="detail-card__link">
                 {siteContact.email}
               </a>
               <p>
-                Whatever it is, send a note here and it&apos;ll get to the
-                right person.
+                We&apos;ll get it to the right person.
               </p>
             </article>
 
             <article className="detail-card">
-              <p className="detail-card__eyebrow">What to reach out about</p>
+              <p className="detail-card__eyebrow">Topics</p>
               <div className="topic-list">
                 {contactTopics.map((topic) => (
                   <section key={topic.title} className="topic-list__item">

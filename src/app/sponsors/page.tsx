@@ -31,15 +31,17 @@ export default function SponsorsPage() {
           { label: "Base", value: "Amsterdam" },
         ]}
         actions={
-          <LinkButton href="/contact" label="Become a sponsor" variant="primary" />
+          <LinkButton
+            href="/contact"
+            label="Become a sponsor"
+            variant="primary"
+          />
         }
         aside={
           <div className="page-note">
             <p>What it covers</p>
             <h2>Hardware, travel, tooling, and the lab space.</h2>
-            <span>
-              Running a competition team adds up quickly.
-            </span>
+            <span>Running a competition team adds up quickly.</span>
           </div>
         }
       />
@@ -70,12 +72,15 @@ export default function SponsorsPage() {
               Want to <span>sponsor?</span>
             </h2>
             <p className="contact-banner__description">
-              Get in touch. We can put together something that works for both
-              of us.
+              Email us. We can figure out a sponsorship that fits.
             </p>
           </div>
           <div className="contact-banner__actions">
-            <LinkButton href="/contact" label="Start the conversation" variant="primary" />
+            <LinkButton
+              href="/contact"
+              label="Start the conversation"
+              variant="primary"
+            />
           </div>
         </div>
       </section>

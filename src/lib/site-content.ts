@@ -336,18 +336,15 @@ export const homePhotos = {
 export const contactTopics = [
   {
     title: "Research and demos",
-    description:
-      "Want us to present somewhere, run a lab demo, or come to a student event.",
+    description: "Talks, lab demos, or student events.",
   },
   {
     title: "Sponsoring",
-    description:
-      "Want to sponsor the team, or collaborate on hardware or tooling.",
+    description: "Sponsorships, hardware, or tooling partnerships.",
   },
   {
     title: "Media and press",
-    description:
-      "Tell us the angle and deadline and we'll find the right person.",
+    description: "Interviews, photos, articles.",
   },
 ];
 

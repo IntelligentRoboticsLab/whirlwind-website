@@ -6,7 +6,8 @@ import { getAllNewsPosts } from "@/lib/news/news";
 
 export const metadata: Metadata = {
   title: "News | Team whIRLwind",
-  description: "Short updates from Team whIRLwind on competitions, robots, and releases.",
+  description:
+    "Short updates from Team whIRLwind on competitions, robots, and releases.",
 };
 
 function formatDate(date: string): string {
@@ -28,12 +29,14 @@ export default async function NewsPage() {
       <PageHero
         eyebrow="News"
         title={<>Recent posts.</>}
-        description="Updates from the team on competitions, robot builds, and releases."
-        metrics={[
-          { label: "Posts", value: `${posts.length}` },
-        ]}
+        description="Updates from the team on competitions, events, and research."
+        metrics={[{ label: "Posts", value: `${posts.length}` }]}
         actions={
-          <LinkButton href="/contact" label="Get in touch" variant="secondary" />
+          <LinkButton
+            href="/contact"
+            label="Get in touch"
+            variant="secondary"
+          />
         }
         aside={
           latest ? (

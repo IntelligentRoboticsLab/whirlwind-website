@@ -40,11 +40,14 @@ export default function Home() {
             </h1>
             <p className="home-hero__description">
               whIRLwind is the humanoid robotics team at the University of
-              Amsterdam. We compete in the RoboCup Standard Platform League
-              and write the software that runs on our robots.
+              Amsterdam.
             </p>
             <div className="home-hero__actions">
-              <LinkButton href="/contact" label="Get in touch" variant="primary" />
+              <LinkButton
+                href="/contact"
+                label="Get in touch"
+                variant="primary"
+              />
               <LinkButton
                 href="/publications"
                 label="Explore publications"
@@ -89,27 +92,29 @@ export default function Home() {
         <div className="site-container sponsor-rail__inner">
           <p>Backed by</p>
           <div className="sponsor-rail__logos">
-            {sponsorTiers.flatMap((tier) => tier.sponsors).map((sponsor) => (
-              <Link
-                key={sponsor.name}
-                href={sponsor.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="sponsor-rail__logo-card"
-              >
-                <Image
-                  src={sponsor.logo}
-                  alt={sponsor.logoAlt}
-                  width={sponsor.logoWidth}
-                  height={sponsor.logoHeight}
-                  style={{
-                    width: "auto",
-                    height: sponsor.logoDisplayHeight ?? "46px",
-                    maxWidth: sponsor.logoMaxWidth ?? "180px",
-                  }}
-                />
-              </Link>
-            ))}
+            {sponsorTiers
+              .flatMap((tier) => tier.sponsors)
+              .map((sponsor) => (
+                <Link
+                  key={sponsor.name}
+                  href={sponsor.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sponsor-rail__logo-card"
+                >
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.logoAlt}
+                    width={sponsor.logoWidth}
+                    height={sponsor.logoHeight}
+                    style={{
+                      width: "auto",
+                      height: sponsor.logoDisplayHeight ?? "46px",
+                      maxWidth: sponsor.logoMaxWidth ?? "180px",
+                    }}
+                  />
+                </Link>
+              ))}
           </div>
         </div>
       </section>
@@ -143,12 +148,10 @@ export default function Home() {
               eyebrow="The goal"
               title={
                 <>
-                  The
-                  <br />
-                  <span>2050 goal.</span>
+                  The <span>2050</span> goal.
                 </>
               }
-              description="RoboCup's stated goal: by 2050, a team of humanoid robots that can beat the human football world champions. We work on the software side."
+              description="RoboCup's goal: by 2050, a team of humanoid robots that can beat the human football world champions."
               compact
             />
             <div className="team-showcase__photos">
@@ -214,13 +217,7 @@ export default function Home() {
         <div className="site-container">
           <SectionIntro
             eyebrow="Sponsors"
-            title={
-              <>
-                Who supports
-                <br />
-                <span>the team.</span>
-              </>
-            }
+            title={<>Who supports us</>}
             description="Robots, travel, and tooling are expensive. These organisations help cover it."
             action={
               <LinkButton
@@ -257,8 +254,7 @@ export default function Home() {
               Get in <span>touch.</span>
             </h2>
             <p className="contact-banner__description">
-              Partnerships, research, demos, press, or just questions. Email
-              us.
+              Partnerships, research, demos, press. Email us.
             </p>
           </div>
           <div className="contact-banner__actions">
@@ -268,7 +264,11 @@ export default function Home() {
             >
               <span className="link-button__label">{siteContact.email}</span>
             </a>
-            <LinkButton href="/contact" label="Contact page" variant="secondary" />
+            <LinkButton
+              href="/contact"
+              label="Contact page"
+              variant="secondary"
+            />
           </div>
         </div>
       </section>
