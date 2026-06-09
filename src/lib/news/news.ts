@@ -6,7 +6,11 @@ import { remark } from "remark";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
+import type { StaticImageData } from "next/image";
 import { z } from "zod";
+
+import { coverImages } from "./cover-images";
+import { galleryImages, type GalleryImage } from "./gallery-images";
 
 const NEWS_DIR = path.join(process.cwd(), "content", "news");
 
@@ -16,7 +20,7 @@ const Frontmatter = z.object({
   summary: z.string().min(1),
   author: z.string().optional(),
   tags: z.array(z.string()).optional(),
-  coverImage: z.string().optional(),
+  coverCredit: z.string().optional(),
 });
 
 export type NewsPost = {
@@ -26,7 +30,9 @@ export type NewsPost = {
   summary: string;
   author?: string;
   tags?: string[];
-  coverImage?: string;
+  coverImage?: StaticImageData;
+  coverCredit?: string;
+  gallery?: GalleryImage[];
   contentHtml: string;
 };
 
@@ -74,7 +80,9 @@ async function loadNewsPosts(): Promise<NewsPost[]> {
         summary: fm.summary,
         author: fm.author,
         tags: fm.tags,
-        coverImage: fm.coverImage,
+        coverImage: coverImages[slug],
+        coverCredit: fm.coverCredit,
+        gallery: galleryImages[slug],
         contentHtml,
       } satisfies NewsPost;
     }),

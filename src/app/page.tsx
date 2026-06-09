@@ -68,13 +68,26 @@ export default function Home() {
                 className="home-hero__image"
               />
             </figure>
-            <div className="home-hero__floating-card">
-              <p>Latest result</p>
-              <h2>{highlightedEvent.result}</h2>
-              <span>
-                {highlightedEvent.event} / {highlightedEvent.location}
-              </span>
-            </div>
+            {highlightedEvent.newsSlug ? (
+              <Link
+                href={`/news#${highlightedEvent.newsSlug}`}
+                className="home-hero__floating-card home-hero__floating-card--link"
+              >
+                <p>Latest result</p>
+                <h2>{highlightedEvent.result}</h2>
+                <span>
+                  {highlightedEvent.event} / {highlightedEvent.location}
+                </span>
+              </Link>
+            ) : (
+              <div className="home-hero__floating-card">
+                <p>Latest result</p>
+                <h2>{highlightedEvent.result}</h2>
+                <span>
+                  {highlightedEvent.event} / {highlightedEvent.location}
+                </span>
+              </div>
+            )}
           </div>
         </div>
 

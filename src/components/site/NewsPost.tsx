@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { NewsPost as NewsPostData } from "@/lib/news/news";
+import NewsGallery from "./NewsGallery";
 
 type NewsPostProps = {
   post: NewsPostData;
@@ -26,21 +27,27 @@ export default function NewsPost({ post }: NewsPostProps) {
       <h2 className="news-post__title">{post.title}</h2>
 
       {post.coverImage ? (
-        <div className="news-post__cover">
+        <figure className="news-post__cover">
           <Image
             src={post.coverImage}
             alt=""
-            width={1280}
-            height={720}
-            sizes="(max-width: 900px) 100vw, 720px"
+            sizes="(max-width: 1180px) 100vw, 1108px"
+            quality={85}
           />
-        </div>
+          {post.coverCredit ? (
+            <figcaption className="news-post__cover-credit">
+              {post.coverCredit}
+            </figcaption>
+          ) : null}
+        </figure>
       ) : null}
 
       <div
         className="news-post__body"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
+
+      {post.gallery?.length ? <NewsGallery images={post.gallery} /> : null}
 
       {post.tags?.length ? (
         <div className="news-post__tags">

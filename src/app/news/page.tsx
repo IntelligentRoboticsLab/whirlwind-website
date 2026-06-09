@@ -31,13 +31,6 @@ export default async function NewsPage() {
         title={<>Recent posts.</>}
         description="Updates from the team on competitions, events, and research."
         metrics={[{ label: "Posts", value: `${posts.length}` }]}
-        actions={
-          <LinkButton
-            href="/contact"
-            label="Get in touch"
-            variant="secondary"
-          />
-        }
         aside={
           latest ? (
             <div className="page-note">

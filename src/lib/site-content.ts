@@ -24,6 +24,23 @@ import PhotoTeamWithPortugueseProfessor from "@/assets/photos/2025-08-RCAP-Beiji
 import PhotoRobot from "@/assets/photos/2025-08-RCAP-Beijing/NAN18608-opq3906025937.jpg";
 import PhotoGermanOpen from "@/assets/photos/2025-07-Robocup-Salvador/DSC_0798.jpg";
 import PhotoFreeKick from "@/assets/photos/2025-08-RCAP-Beijing/ROC_4057-opq3912329047.jpg";
+import PhotoBeijingMatch from "@/assets/photos/2025-08-RCAP-Beijing/NAN19628-opq3907064631.jpg";
+import PhotoBeijingArena from "@/assets/photos/2025-08-RCAP-Beijing/SXW_3494-opq3906727421.jpg";
+import PhotoBeijingLineup from "@/assets/photos/2025-08-RCAP-Beijing/SXW_3502-opq3906725825.jpg";
+import PhotoScienceDayDemo from "@/assets/photos/2025-10-Dag_vd_wetenschap/Dag-van-de-wetenschap-202-IMG_5050.jpg";
+import PhotoScienceDayExplain from "@/assets/photos/2025-10-Dag_vd_wetenschap/Dag-van-de-wetenschap-31-IMG_5135.jpg";
+import PhotoScienceDayKids from "@/assets/photos/2025-10-Dag_vd_wetenschap/Dag-van-de-wetenschap-73-IMG_5240.jpg";
+import PhotoScienceDayPublic from "@/assets/photos/2025-10-Dag_vd_wetenschap/Dag-van-de-wetenschap-85-IMG_5107.jpg";
+import PhotoScienceDayUva from "@/assets/photos/2025-10-Dag_vd_wetenschap/UvA_Dag van de Wetenschap_LD_lr_20251004-2861.jpg";
+import PhotoGermanOpenTeam from "@/assets/photos/2026-03-German-Open/55141653492_512e7cb68f_o.jpg";
+import PhotoGermanOpenWalking from "@/assets/photos/2026-03-German-Open/135-DSC09259.jpg";
+import PhotoGermanOpenMember from "@/assets/photos/2026-03-German-Open/63-DSC09331~2.jpg";
+import PhotoStartupDemo from "@/assets/photos/2026-04-Startup-demo/Startup Villa Science park Amsterdam 18032026-08549.jpg";
+import PhotoStartupVisitors from "@/assets/photos/2026-04-Startup-demo/Startup Villa Science park Amsterdam 18032026-08740.jpg";
+import PhotoStartupPresenting from "@/assets/photos/2026-04-Startup-demo/Startup Villa Science park Amsterdam 18032026-08751.jpg";
+import PhotoStartupRobot from "@/assets/photos/2026-04-Startup-demo/Startup Villa Science park Amsterdam 18032026-08758.jpg";
+import PhotoStartupCloseUp from "@/assets/photos/2026-04-Startup-demo/Startup Villa Science park Amsterdam 18032026 ph by @ilsoovandijk-08735.jpg";
+import PhotoAmaliaVisit from "@/assets/photos/2026-05-Prinses-Amalia/003uvabezoekamaliasciencepark.jpg";
 
 export type SiteMetric = {
   value: string;
@@ -39,6 +56,8 @@ export type SiteEvent = {
   result: string;
   detail: string;
   highlight?: boolean;
+  // Slug of a related news post (filename without `.md`); links the event to its article.
+  newsSlug?: string;
 };
 
 export type TeamPillar = {
@@ -115,6 +134,7 @@ export const siteEvents: SiteEvent[] = [
     result: "3rd place",
     detail: "Two weeks with the robots and we got on the podium.",
     highlight: true,
+    newsSlug: "2026-03-14-german-open-third-place",
   },
   {
     id: "team-launched-2025",
@@ -225,7 +245,63 @@ export const socialChannels: SocialChannel[] = [
   },
 ];
 
+// Ordered reverse-chronologically by event (most recent first), so the gallery
+// reads newest-to-oldest top to bottom. The gallery variant lays these out in a
+// uniform grid, so `layout` is unused there but kept for the editorial variant.
 export const socialCollagePhotos: CollagePhoto[] = [
+  // 2026-05 — Princess Amalia visit, UvA Science Park
+  {
+    src: PhotoAmaliaVisit,
+    alt: "Princess Amalia visiting the team at UvA Science Park.",
+    layout: "panorama",
+  },
+  // 2026-04 — Startup Village demo, Amsterdam
+  {
+    src: PhotoStartupDemo,
+    alt: "Demoing the robots at Startup Village in Amsterdam.",
+    layout: "wide",
+  },
+  {
+    src: PhotoStartupVisitors,
+    alt: "Visitors gathered around the robots at the startup demo.",
+    layout: "square",
+  },
+  {
+    src: PhotoStartupPresenting,
+    alt: "Team presenting the NAO robots at the startup demo.",
+    layout: "tall",
+  },
+  {
+    src: PhotoStartupRobot,
+    alt: "Robot demo at Startup Village Science Park Amsterdam.",
+    layout: "square",
+  },
+  {
+    src: PhotoStartupCloseUp,
+    alt: "Close-up of the robots during the startup demo.",
+    layout: "wide",
+  },
+  // 2026-03 — German Open
+  {
+    src: PhotoTeamSetup,
+    alt: "The full team set up at the German Open with the RoboCup sign behind them.",
+    layout: "panorama",
+  },
+  {
+    src: PhotoMemberWithRobot,
+    alt: "Team member standing with a robot on the football field at the German Open.",
+    layout: "wide",
+  },
+  {
+    src: PhotoWhirlwindJersey,
+    alt: "Back of a whIRLwind jersey showing the sponsor placements.",
+    layout: "square",
+  },
+  {
+    src: PhotoRobotsFromBehind,
+    alt: "Two robots in red jerseys seen from behind during a match at the German Open.",
+    layout: "wide",
+  },
   {
     src: PhotoLaptopOnField,
     alt: "Team member kneeling on the field debugging robots with a laptop.",
@@ -242,39 +318,25 @@ export const socialCollagePhotos: CollagePhoto[] = [
     layout: "tall",
   },
   {
-    src: PhotoTeamSetup,
-    alt: "The full team set up at the German Open with the RoboCup sign behind them.",
-    layout: "panorama",
-  },
-  {
-    src: PhotoMemberWithRobot,
-    alt: "Team member standing with a robot on the football field.",
+    src: PhotoGermanOpenTeam,
+    alt: "The team with their robots at the German Open.",
     layout: "wide",
   },
   {
-    src: PhotoWhirlwindJersey,
-    alt: "Back of a whIRLwind jersey showing the sponsor placements.",
+    src: PhotoGermanOpenWalking,
+    alt: "Robot walking on the field at the German Open.",
+    layout: "tall",
+  },
+  {
+    src: PhotoGermanOpenMember,
+    alt: "Team member with a robot at the German Open.",
     layout: "square",
   },
+  // 2025-10 — Dag van de Wetenschap, UvA
   {
-    src: PhotoRobotsFromBehind,
-    alt: "Two robots in red jerseys seen from behind during a match.",
+    src: PhotoBackstage,
+    alt: "Team members repairing a broken ankle joint.",
     layout: "wide",
-  },
-  {
-    src: PhotoRobot,
-    alt: "Close-up of the robot under bright lighting.",
-    layout: "wide",
-  },
-  {
-    src: PhotoTeamWithPortugueseProfessor,
-    alt: "Team photo with visitors at an international event.",
-    layout: "wide",
-  },
-  {
-    src: PhotoFreeKick,
-    alt: "Robots waiting to take a free kick during a match.",
-    layout: "tall",
   },
   {
     src: PhotoWorkshop,
@@ -282,24 +344,9 @@ export const socialCollagePhotos: CollagePhoto[] = [
     layout: "tall",
   },
   {
-    src: PhotoGermanOpen,
-    alt: "Team looking on during a match at an international event.",
-    layout: "panorama",
-  },
-  {
     src: PhotoNaoLab,
     alt: "The team showing a NAO robot to visitors in the lab.",
     layout: "square",
-  },
-  {
-    src: PhotoEvening,
-    alt: "Preparing for a match during evening competitions.",
-    layout: "square",
-  },
-  {
-    src: PhotoShowcase,
-    alt: "Team posing with the robot at a showcase event.",
-    layout: "wide",
   },
   {
     src: PhotoTeam,
@@ -307,14 +354,81 @@ export const socialCollagePhotos: CollagePhoto[] = [
     layout: "tall",
   },
   {
-    src: PhotoBackstage,
-    alt: "Team members repairing a broken ankle joint.",
+    src: PhotoScienceDayDemo,
+    alt: "Visitors watching a NAO robot demo on the day of science.",
+    layout: "square",
+  },
+  {
+    src: PhotoScienceDayExplain,
+    alt: "Team member explaining the robot to visitors on the day of science.",
+    layout: "tall",
+  },
+  {
+    src: PhotoScienceDayKids,
+    alt: "Children interacting with a NAO robot on the day of science.",
     layout: "wide",
+  },
+  {
+    src: PhotoScienceDayPublic,
+    alt: "Demonstrating the robot to the public on the day of science.",
+    layout: "square",
+  },
+  {
+    src: PhotoScienceDayUva,
+    alt: "The team running a NAO robot demo at the UvA day of science.",
+    layout: "panorama",
+  },
+  // 2025-08 — RoboCup Asia-Pacific, Beijing
+  {
+    src: PhotoEvening,
+    alt: "Preparing for a match during evening competitions in Beijing.",
+    layout: "square",
   },
   {
     src: PhotoIceRibbon,
     alt: "Competition venue during an event in Beijing.",
     layout: "square",
+  },
+  {
+    src: PhotoShowcase,
+    alt: "Team posing with the robot at a showcase event in Beijing.",
+    layout: "wide",
+  },
+  {
+    src: PhotoTeamWithPortugueseProfessor,
+    alt: "Team photo with visitors at the RoboCup Asia-Pacific in Beijing.",
+    layout: "wide",
+  },
+  {
+    src: PhotoRobot,
+    alt: "Two robots during a match in Beijing.",
+    layout: "wide",
+  },
+  {
+    src: PhotoFreeKick,
+    alt: "Robots waiting to take a free kick during a match in Beijing.",
+    layout: "tall",
+  },
+  {
+    src: PhotoBeijingMatch,
+    alt: "Team at work during a match in Beijing.",
+    layout: "tall",
+  },
+  {
+    src: PhotoBeijingArena,
+    alt: "Team competing at the RoboCup Asia-Pacific in Beijing.",
+    layout: "wide",
+  },
+  {
+    src: PhotoBeijingLineup,
+    alt: "Team watching from the sidelines during a match in Beijing.",
+    layout: "square",
+  },
+  // 2025-07 — RoboCup, Salvador
+  {
+    src: PhotoGermanOpen,
+    alt: "Team looking on during a match at RoboCup in Salvador.",
+    layout: "panorama",
   },
 ];
 
