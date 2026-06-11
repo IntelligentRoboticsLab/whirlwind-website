@@ -28,18 +28,6 @@ export default async function Home() {
               whIRLwind is the humanoid robotics team at the University of
               Amsterdam.
             </p>
-            <div className="home-hero__actions">
-              <LinkButton
-                href="/contact"
-                label="Get in touch"
-                variant="primary"
-              />
-              <LinkButton
-                href="/publications"
-                label="Explore publications"
-                variant="secondary"
-              />
-            </div>
           </div>
 
           <div className="home-hero__media">
