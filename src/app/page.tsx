@@ -37,7 +37,7 @@ export default async function Home() {
             <h1 className="home-hero__title">
               Teaching robots
               <br />
-              to play <span>football.</span>
+              to play <span>football</span>
             </h1>
             <p className="home-hero__description">
               whIRLwind is the humanoid robotics team at the University of
@@ -201,7 +201,7 @@ export default async function Home() {
               eyebrow="The goal"
               title={
                 <>
-                  The <span>2050</span> goal.
+                  The <span>2050</span> goal
                 </>
               }
               description="RoboCup's goal: by 2050, a team of humanoid robots that can beat the human football world champions."
@@ -241,7 +241,7 @@ export default async function Home() {
               <>
                 Papers, reports,
                 <br />
-                and <span>technical notes.</span>
+                and <span>technical notes</span>
               </>
             }
             description="Qualification papers, team reports, and student theses."

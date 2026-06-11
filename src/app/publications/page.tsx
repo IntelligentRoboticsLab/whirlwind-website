@@ -7,7 +7,7 @@ import { getPublicationCount } from "@/lib/publications/helpers";
 
 export const metadata: Metadata = {
   title: "Publications | Team whIRLwind",
-  description: "Papers, reports, and preprints from Team whIRLwind.",
+  description: "Papers, reports, and preprints from Team whIRLwind",
 };
 
 export default function PublicationsPage() {
@@ -21,7 +21,7 @@ export default function PublicationsPage() {
           <>
             Papers, reports,
             <br />
-            and <span>qualification docs.</span>
+            and <span>qualification docs</span>
           </>
         }
         description="Team reports, student theses, and technical papers from the team and the lab."
