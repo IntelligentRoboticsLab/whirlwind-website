@@ -18,7 +18,7 @@ export default function SponsorsPage() {
           <>
             Who keeps us
             <br />
-            <span>on the field</span>
+            on the field
           </>
         }
         description="The organisations that help us build the robots and get them to competitions."

@@ -25,7 +25,7 @@ export default async function NewsPage() {
           {posts.length === 0 ? (
             <p className="news-feed__empty">No news yet.</p>
           ) : (
-            <div className="news-preview-grid">
+            <div className="news-preview-grid news-preview-grid--two">
               {posts.map((post) => (
                 <NewsCard key={post.slug} post={post} />
               ))}

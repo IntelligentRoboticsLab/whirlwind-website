@@ -21,7 +21,7 @@ export default function PublicationsPage() {
           <>
             Papers, reports,
             <br />
-            and <span>qualification docs</span>
+            and qualification docs
           </>
         }
         description="Team reports, student theses, and technical papers from the team and the lab."

@@ -25,7 +25,7 @@ export default function SocialsPage() {
           <>
             Where to
             <br />
-            <span>follow along</span>
+            follow along
           </>
         }
         description="Where we post competition travel, demos, progress, and the code behind it."
