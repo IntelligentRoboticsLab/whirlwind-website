@@ -6,7 +6,6 @@ type PageHeroMetric = {
 };
 
 type PageHeroProps = {
-  eyebrow: string;
   title: ReactNode;
   description: ReactNode;
   metrics?: PageHeroMetric[];
@@ -15,7 +14,6 @@ type PageHeroProps = {
 };
 
 export default function PageHero({
-  eyebrow,
   title,
   description,
   metrics,
@@ -26,7 +24,6 @@ export default function PageHero({
     <section className="page-hero">
       <div className="site-container page-hero__grid">
         <div className="page-hero__content">
-          <span className="section-intro__eyebrow">{eyebrow}</span>
           <h1 className="page-hero__title">{title}</h1>
           <p className="page-hero__description">{description}</p>
           {actions ? <div className="page-hero__actions">{actions}</div> : null}

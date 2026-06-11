@@ -20,12 +20,11 @@ export default function SocialsPage() {
   return (
     <div className="page-shell">
       <PageHero
-        eyebrow="Social channels"
         title={
           <>
             Where to
             <br />
-            follow along
+            follow us
           </>
         }
         description="Where we post competition travel, demos, progress, and the code behind it."
@@ -57,10 +56,9 @@ export default function SocialsPage() {
       <section className="site-section site-section--deep">
         <div className="site-container">
           <SectionIntro
-            eyebrow="Gallery"
             title={
               <>
-                Photo <span>gallery.</span>
+                Photo gallery
               </>
             }
             description="Moments from competitions, demos, and life in the lab."

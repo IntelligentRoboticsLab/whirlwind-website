@@ -3,7 +3,7 @@ import Image from "next/image";
 import LinkButton from "@/components/LinkButton";
 import type { Metadata } from "next";
 import PageHero from "@/components/site/PageHero";
-import { contactTopics, siteContact } from "@/lib/site-content";
+import { siteContact } from "@/lib/site-content";
 import lab42Photo from "@/assets/photos/2026-06-LAB42/LAB42-172.jpg";
 
 export const metadata: Metadata = {
@@ -15,18 +15,12 @@ export default function ContactPage() {
   return (
     <div className="page-shell">
       <PageHero
-        eyebrow="Contact"
         title={
           <>
             Get in touch
           </>
         }
         description="Email us about sponsorships, research, demos, event invites, or press."
-        metrics={[
-          { label: "Base", value: "Science Park" },
-          { label: "Lab", value: "UvA IRL" },
-          { label: "Status", value: "Applications paused" },
-        ]}
         actions={
           <>
             <a
@@ -69,18 +63,6 @@ export default function ContactPage() {
               <p>
                 We&apos;ll get it to the right person.
               </p>
-            </article>
-
-            <article className="detail-card">
-              <p className="detail-card__eyebrow">Topics</p>
-              <div className="topic-list">
-                {contactTopics.map((topic) => (
-                  <section key={topic.title} className="topic-list__item">
-                    <h3>{topic.title}</h3>
-                    <p>{topic.description}</p>
-                  </section>
-                ))}
-              </div>
             </article>
           </div>
 

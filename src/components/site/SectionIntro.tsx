@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 
 type SectionIntroProps = {
-  eyebrow: string;
   title: ReactNode;
   description?: ReactNode;
   action?: ReactNode;
@@ -9,7 +8,6 @@ type SectionIntroProps = {
 };
 
 export default function SectionIntro({
-  eyebrow,
   title,
   description,
   action,
@@ -20,7 +18,6 @@ export default function SectionIntro({
       className={`section-intro${compact ? " section-intro--compact" : ""}`}
     >
       <div className="section-intro__copy">
-        <span className="section-intro__eyebrow">{eyebrow}</span>
         <h2 className="section-intro__title">{title}</h2>
         {description ? (
           <p className="section-intro__description">{description}</p>

@@ -2,9 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import LinkButton from "@/components/LinkButton";
-import SponsorCard from "@/components/SponsorCard";
 import NewsCard from "@/components/site/NewsCard";
-import PublicationCard from "@/components/site/PublicationCard";
 import SectionIntro from "@/components/site/SectionIntro";
 import {
   highlightedEvent,
@@ -12,22 +10,10 @@ import {
   siteContact,
   sponsorTiers,
 } from "@/lib/site-content";
-import {
-  getLatestPublications,
-  getPublicationCount,
-} from "@/lib/publications/helpers";
 import { getAllNewsPosts } from "@/lib/news/news";
 
 export default async function Home() {
-  const latestPublications = getLatestPublications(4);
-  const publicationCount = getPublicationCount();
   const latestNews = (await getAllNewsPosts()).slice(0, 4);
-  const heroMetrics = [
-    { value: "15", label: "Active members" },
-    { value: "2025", label: "Founded" },
-    { value: highlightedEvent.result, label: highlightedEvent.event },
-    { value: `${publicationCount}`, label: "Publications" },
-  ];
 
   return (
     <div className="home-page">
@@ -37,7 +23,7 @@ export default async function Home() {
             <h1 className="home-hero__title">
               Teaching robots
               <br />
-              to play <span>football</span>
+              to play football
             </h1>
             <p className="home-hero__description">
               whIRLwind is the humanoid robotics team at the University of
@@ -92,14 +78,6 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="site-container metric-strip">
-          {heroMetrics.map((metric) => (
-            <div key={metric.label} className="metric-strip__item">
-              <p>{metric.value}</p>
-              <span>{metric.label}</span>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section className="sponsor-rail">
@@ -133,29 +111,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="news" className="site-section site-section--deep">
-        <div className="site-container">
-          <SectionIntro
-            eyebrow="News"
-            title={
-              <>
-                Recent <span>news</span>
-              </>
-            }
-            description="The latest updates from the team."
-            action={
-              <LinkButton href="/news" label="All news" variant="inline" />
-            }
-          />
-          <div className="news-preview-grid">
-            {latestNews.map((post) => (
-              <NewsCard key={post.slug} post={post} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="team" className="site-section">
+      <section id="team" className="site-section site-section--deep">
         <div className="site-container home-team">
           <div className="home-team__photos">
             {homePhotos.team.map((photo, index) => (
@@ -177,16 +133,21 @@ export default async function Home() {
             ))}
           </div>
           <div className="home-team__content">
-            <SectionIntro
-              eyebrow="Team"
-              title={
-                <>
-                  The <span>team</span>
-                </>
-              }
-              description="whIRLwind is run by bachelor and master students at the University of Amsterdam. We come from computer science and AI backgrounds, and spend our spare time programming humanoid robots to compete in RoboCup. No prior robotics experience required, just curiosity and the drive to make robots walk, see, and play football."
-              compact
-            />
+            <SectionIntro title={<>The team</>} compact />
+            <div className="home-team__copy">
+              <p className="section-intro__description">
+                whIRLwind is run by bachelor and master students at the
+                University of Amsterdam. We come from computer science and AI
+                backgrounds, and spend our spare time programming humanoid
+                robots to compete in RoboCup.
+              </p>
+              <p className="section-intro__description">
+                If you&apos;re interested in joining us on the field don&apos;t
+                hesitate to send us a message! No prior robotics experience is
+                required, just curiosity and the drive to make robots walk, see,
+                and play football.
+              </p>
+            </div>
             <div className="home-team__actions">
               <LinkButton href="/contact" label="Join us" variant="primary" />
             </div>
@@ -194,134 +155,23 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="site-section">
-        <div className="site-container team-showcase">
-          <div className="team-showcase__intro">
-            <SectionIntro
-              eyebrow="The goal"
-              title={
-                <>
-                  The <span>2050</span> goal
-                </>
-              }
-              description="RoboCup's goal: by 2050, a team of humanoid robots that can beat the human football world champions."
-              compact
-            />
-            <div className="team-showcase__photos">
-              <figure className="media-panel media-panel--wide">
-                <Image
-                  src={homePhotos.supportA.src}
-                  alt={homePhotos.supportA.alt}
-                  fill
-                  placeholder="blur"
-                  sizes="(max-width: 1024px) 100vw, 28vw"
-                  className="media-panel__image"
-                />
-              </figure>
-              <figure className="media-panel media-panel--tall">
-                <Image
-                  src={homePhotos.supportB.src}
-                  alt={homePhotos.supportB.alt}
-                  fill
-                  placeholder="blur"
-                  sizes="(max-width: 1024px) 100vw, 20vw"
-                  className="media-panel__image"
-                />
-              </figure>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="site-section site-section--deep">
+      <section id="news" className="site-section">
         <div className="site-container">
           <SectionIntro
-            eyebrow="Research"
             title={
               <>
-                Papers, reports,
-                <br />
-                and <span>technical notes</span>
+                Recent news
               </>
             }
-            description="Qualification papers, team reports, and student theses."
+            description="The latest updates from the team."
             action={
-              <LinkButton
-                href="/publications"
-                label="Full archive"
-                variant="inline"
-              />
+              <LinkButton href="/news" label="All news" variant="inline" />
             }
           />
-
-          <div className="publication-preview-grid">
-            {latestPublications.map((publication) => (
-              <PublicationCard
-                key={publication.id}
-                publication={publication}
-                compact
-              />
+          <div className="news-preview-grid">
+            {latestNews.map((post) => (
+              <NewsCard key={post.slug} post={post} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="site-section">
-        <div className="site-container">
-          <SectionIntro
-            eyebrow="Sponsors"
-            title={<>Who supports us</>}
-            description="Robots, travel, and tooling are expensive. These organisations help cover it."
-            action={
-              <LinkButton
-                href="/sponsors"
-                label="Sponsor page"
-                variant="inline"
-              />
-            }
-          />
-
-          <div className="sponsor-tier-grid">
-            {sponsorTiers.map((tier) => (
-              <section key={tier.name} className="tier-block">
-                <div className="tier-block__heading">
-                  <p>{tier.name}</p>
-                  <span>{tier.description}</span>
-                </div>
-                <div className="tier-block__cards">
-                  {tier.sponsors.map((sponsor) => (
-                    <SponsorCard key={sponsor.name} sponsor={sponsor} />
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="site-section">
-        <div className="site-container contact-banner">
-          <div>
-            <span className="section-intro__eyebrow">Contact</span>
-            <h2 className="contact-banner__title">
-              Get in touch
-            </h2>
-            <p className="contact-banner__description">
-              Partnerships, research, demos, press. Email us.
-            </p>
-          </div>
-          <div className="contact-banner__actions">
-            <a
-              href={`mailto:${siteContact.email}`}
-              className="link-button link-button--primary"
-            >
-              <span className="link-button__label">{siteContact.email}</span>
-            </a>
-            <LinkButton
-              href="/contact"
-              label="Contact page"
-              variant="secondary"
-            />
           </div>
         </div>
       </section>

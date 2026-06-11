@@ -15,7 +15,6 @@ export default async function NewsPage() {
   return (
     <div className="page-shell">
       <PageHero
-        eyebrow="News"
         title={<>Recent posts</>}
         description="Updates from the team on competitions, events, and research."
       />

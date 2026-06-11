@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import LinkButton from "@/components/LinkButton";
 import SponsorCard from "@/components/SponsorCard";
 import PageHero from "@/components/site/PageHero";
 import { sponsorTiers } from "@/lib/site-content";
+import jerseyPhoto from "@/assets/photos/2026-03-German-Open/74-DSC09320.jpg";
 
 export const metadata: Metadata = {
   title: "Sponsors | Team whIRLwind",
@@ -13,7 +15,6 @@ export default function SponsorsPage() {
   return (
     <div className="page-shell">
       <PageHero
-        eyebrow="Partners"
         title={
           <>
             Who keeps us
@@ -22,19 +23,17 @@ export default function SponsorsPage() {
           </>
         }
         description="The organisations that help us build the robots and get them to competitions."
-        actions={
-          <LinkButton
-            href="/contact"
-            label="Become a sponsor"
-            variant="primary"
-          />
-        }
         aside={
-          <div className="page-note">
-            <p>What it covers</p>
-            <h2>Hardware, travel, tooling, and the lab space.</h2>
-            <span>Running a competition team adds up quickly.</span>
-          </div>
+          <figure className="page-hero__photo">
+            <Image
+              src={jerseyPhoto}
+              alt="Back of a whIRLwind jersey showing the sponsor placements."
+              fill
+              placeholder="blur"
+              sizes="(max-width: 1024px) 100vw, 28vw"
+              className="media-panel__image"
+            />
+          </figure>
         }
       />
 
@@ -59,9 +58,8 @@ export default function SponsorsPage() {
       <section className="site-section site-section--deep">
         <div className="site-container contact-banner">
           <div>
-            <span className="section-intro__eyebrow">Sponsor us</span>
             <h2 className="contact-banner__title">
-              Want to <span>sponsor?</span>
+              Want to sponsor?
             </h2>
             <p className="contact-banner__description">
               Email us. We can figure out a sponsorship that fits.

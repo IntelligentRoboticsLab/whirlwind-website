@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/site/PageHero";
 import PublicationCard from "@/components/site/PublicationCard";
-import LinkButton from "@/components/LinkButton";
 import { publicationsByYear } from "@/lib/publications/publications";
-import { getPublicationCount } from "@/lib/publications/helpers";
 
 export const metadata: Metadata = {
   title: "Publications | Team whIRLwind",
@@ -11,12 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function PublicationsPage() {
-  const publicationCount = getPublicationCount();
-
   return (
     <div className="page-shell">
       <PageHero
-        eyebrow="Research archive"
         title={
           <>
             Papers, reports,
@@ -25,21 +20,6 @@ export default function PublicationsPage() {
           </>
         }
         description="Team reports, student theses, and technical papers from the team and the lab."
-        metrics={[
-          { label: "Years covered", value: "2021-2026" },
-          { label: "Papers", value: `${publicationCount}` },
-          { label: "Latest season", value: "2026" },
-        ]}
-        actions={
-          <LinkButton href="/contact" label="Get in touch" variant="secondary" />
-        }
-        aside={
-          <div className="page-note">
-            <p>Coverage</p>
-            <h2>Theses, technical reports, and competition papers.</h2>
-            <span>Grouped by year, linked to source PDFs.</span>
-          </div>
-        }
       />
 
       <section className="site-section site-section--deep site-section--tight-top">
