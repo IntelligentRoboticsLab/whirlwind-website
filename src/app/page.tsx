@@ -7,7 +7,6 @@ import SectionIntro from "@/components/site/SectionIntro";
 import {
   highlightedEvent,
   homePhotos,
-  siteContact,
   sponsorTiers,
 } from "@/lib/site-content";
 import { getAllNewsPosts } from "@/lib/news/news";
@@ -163,7 +162,6 @@ export default async function Home() {
                 Recent news
               </>
             }
-            description="The latest updates from the team."
             action={
               <LinkButton href="/news" label="All news" variant="inline" />
             }

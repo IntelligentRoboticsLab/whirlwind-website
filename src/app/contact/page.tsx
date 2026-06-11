@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import LinkButton from "@/components/LinkButton";
 import type { Metadata } from "next";
 import PageHero from "@/components/site/PageHero";
 import { siteContact } from "@/lib/site-content";
@@ -17,20 +16,28 @@ export default function ContactPage() {
       <PageHero
         title={
           <>
-            Get in touch
+            Contact
           </>
         }
         description="Email us about sponsorships, research, demos, event invites, or press."
-        actions={
-          <>
+        belowDescription={
+          <article className="detail-card">
+            <h2>Email</h2>
             <a
               href={`mailto:${siteContact.email}`}
-              className="link-button link-button--primary"
+              className="detail-card__link"
             >
-              <span className="link-button__label">{siteContact.email}</span>
+              {siteContact.email}
             </a>
-            <LinkButton href="/socials" label="Follow updates" variant="secondary" />
-          </>
+            <p>We&apos;ll get it to the right person.</p>
+            <h2 style={{ marginTop: "1.6rem" }}>Location</h2>
+            <address className="detail-card__address">
+              <span>The Intelligent Robotics Lab, University of Amsterdam</span>
+              {siteContact.addressLines.map((line) => (
+                <span key={line}>{line}</span>
+              ))}
+            </address>
+          </article>
         }
         aside={
           <div className="page-note">
@@ -42,7 +49,6 @@ export default function ContactPage() {
                 sizes="(max-width: 1024px) 100vw, 30vw"
               />
             </figure>
-            <p>Membership update</p>
             <h2>Applications are closed for now.</h2>
             <span>
               We&apos;ll post on our channels when we open them again.
@@ -50,52 +56,6 @@ export default function ContactPage() {
           </div>
         }
       />
-
-      <section className="site-section site-section--tight-top">
-        <div className="site-container contact-layout">
-          <div className="contact-stack">
-            <article className="detail-card">
-              <p className="detail-card__eyebrow">Contact</p>
-              <h2>Email</h2>
-              <a href={`mailto:${siteContact.email}`} className="detail-card__link">
-                {siteContact.email}
-              </a>
-              <p>
-                We&apos;ll get it to the right person.
-              </p>
-            </article>
-          </div>
-
-          <aside className="contact-stack">
-            <article className="detail-card">
-              <p className="detail-card__eyebrow">Location</p>
-              <h2>University of Amsterdam</h2>
-              <p>The Intelligent Robotics Lab at Science Park.</p>
-              <address className="detail-card__address">
-                {siteContact.addressLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </address>
-            </article>
-
-            <article className="detail-card">
-              <p className="detail-card__eyebrow">Follow</p>
-              <h2>Channels</h2>
-              <p>
-                For updates and demos, follow us on our socials.
-              </p>
-              <div className="detail-card__actions">
-                <LinkButton href="/socials" label="Socials" variant="secondary" />
-                <LinkButton
-                  href="/publications"
-                  label="Publications"
-                  variant="secondary"
-                />
-              </div>
-            </article>
-          </aside>
-        </div>
-      </section>
     </div>
   );
 }

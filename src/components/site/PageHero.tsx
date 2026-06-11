@@ -10,6 +10,7 @@ type PageHeroProps = {
   description: ReactNode;
   metrics?: PageHeroMetric[];
   actions?: ReactNode;
+  belowDescription?: ReactNode;
   aside?: ReactNode;
 };
 
@@ -18,6 +19,7 @@ export default function PageHero({
   description,
   metrics,
   actions,
+  belowDescription,
   aside,
 }: PageHeroProps) {
   return (
@@ -26,6 +28,9 @@ export default function PageHero({
         <div className="page-hero__content">
           <h1 className="page-hero__title">{title}</h1>
           <p className="page-hero__description">{description}</p>
+          {belowDescription ? (
+            <div className="page-hero__below">{belowDescription}</div>
+          ) : null}
           {actions ? <div className="page-hero__actions">{actions}</div> : null}
           {metrics?.length ? (
             <dl className="page-hero__metrics">

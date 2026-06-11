@@ -352,6 +352,11 @@ img {
   margin-top: 2rem;
 }
 
+.page-hero__below {
+  margin-top: 2rem;
+  max-width: 30rem;
+}
+
 .home-hero__media,
 .page-hero__photo {
   position: relative;
@@ -1690,7 +1695,7 @@ body.lightbox-open {
 .detail-card__address {
   display: grid;
   gap: 0.2rem;
-  margin-top: 0.9rem;
+  margin-top: 0.5rem;
   color: var(--ww-muted-strong);
   font-style: normal;
 }
