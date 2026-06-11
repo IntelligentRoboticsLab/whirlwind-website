@@ -44,7 +44,7 @@ export default async function Home() {
             </figure>
             {highlightedEvent.newsSlug ? (
               <Link
-                href={`/news#${highlightedEvent.newsSlug}`}
+                href={`/news/${highlightedEvent.newsSlug}`}
                 className="home-hero__floating-card home-hero__floating-card--link"
               >
                 <p>Latest result</p>
