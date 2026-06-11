@@ -22,14 +22,6 @@ export default function SponsorsPage() {
           </>
         }
         description="The organisations that help us build the robots and get them to competitions."
-        metrics={[
-          { label: "Partner tiers", value: `${sponsorTiers.length}` },
-          {
-            label: "Current partners",
-            value: `${sponsorTiers.reduce((sum, tier) => sum + tier.sponsors.length, 0)}`,
-          },
-          { label: "Base", value: "Amsterdam" },
-        ]}
         actions={
           <LinkButton
             href="/contact"

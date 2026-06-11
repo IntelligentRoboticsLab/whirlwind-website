@@ -17,7 +17,7 @@ export default function SiteFooter() {
         <div className="site-footer__column">
           <p className="site-footer__label">Navigate</p>
           <Link href="/#team">Team</Link>
-          <Link href="/#results">Results</Link>
+          <Link href="/#news">News</Link>
           <Link href="/publications">Publications</Link>
           <Link href="/socials">Socials</Link>
         </div>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import LinkButton from "@/components/LinkButton";
 import PageHero from "@/components/site/PageHero";
 import PhotoCollage from "@/components/site/PhotoCollage";
+import SectionIntro from "@/components/site/SectionIntro";
 import SocialCard from "@/components/site/SocialCard";
 import {
   homePhotos,
@@ -55,6 +56,15 @@ export default function SocialsPage() {
 
       <section className="site-section site-section--deep">
         <div className="site-container">
+          <SectionIntro
+            eyebrow="Gallery"
+            title={
+              <>
+                Photo <span>gallery.</span>
+              </>
+            }
+            description="Moments from competitions, demos, and life in the lab."
+          />
           <PhotoCollage photos={socialCollagePhotos} variant="gallery" />
         </div>
       </section>

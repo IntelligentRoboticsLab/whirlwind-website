@@ -1,7 +1,10 @@
+import Image from "next/image";
+
 import LinkButton from "@/components/LinkButton";
 import type { Metadata } from "next";
 import PageHero from "@/components/site/PageHero";
 import { contactTopics, siteContact } from "@/lib/site-content";
+import lab42Photo from "@/assets/photos/2026-06-LAB42/LAB42-172.jpg";
 
 export const metadata: Metadata = {
   title: "Contact | Team whIRLwind",
@@ -37,6 +40,14 @@ export default function ContactPage() {
         }
         aside={
           <div className="page-note">
+            <figure className="page-note__image">
+              <Image
+                src={lab42Photo}
+                alt="Team members at work in LAB42."
+                placeholder="blur"
+                sizes="(max-width: 1024px) 100vw, 30vw"
+              />
+            </figure>
             <p>Membership update</p>
             <h2>Applications are closed for now.</h2>
             <span>

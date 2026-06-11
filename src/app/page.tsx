@@ -3,24 +3,25 @@ import Link from "next/link";
 
 import LinkButton from "@/components/LinkButton";
 import SponsorCard from "@/components/SponsorCard";
+import NewsCard from "@/components/site/NewsCard";
 import PublicationCard from "@/components/site/PublicationCard";
-import ResultTimeline from "@/components/site/ResultTimeline";
 import SectionIntro from "@/components/site/SectionIntro";
 import {
   highlightedEvent,
   homePhotos,
   siteContact,
-  siteEvents,
   sponsorTiers,
 } from "@/lib/site-content";
 import {
   getLatestPublications,
   getPublicationCount,
 } from "@/lib/publications/helpers";
+import { getAllNewsPosts } from "@/lib/news/news";
 
-export default function Home() {
+export default async function Home() {
   const latestPublications = getLatestPublications(4);
   const publicationCount = getPublicationCount();
+  const latestNews = (await getAllNewsPosts()).slice(0, 4);
   const heroMetrics = [
     { value: "15", label: "Active members" },
     { value: "2025", label: "Founded" },
@@ -132,29 +133,68 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="results" className="site-section site-section--deep">
+      <section id="news" className="site-section site-section--deep">
         <div className="site-container">
           <SectionIntro
-            eyebrow="Results"
+            eyebrow="News"
             title={
               <>
-                Recent <span>results</span>
+                Recent <span>news</span>
               </>
             }
-            description="What we've competed in so far."
+            description="The latest updates from the team."
             action={
-              <LinkButton
-                href="/publications"
-                label="Research archive"
-                variant="inline"
-              />
+              <LinkButton href="/news" label="All news" variant="inline" />
             }
           />
-          <ResultTimeline results={siteEvents} />
+          <div className="news-preview-grid">
+            {latestNews.map((post) => (
+              <NewsCard key={post.slug} post={post} />
+            ))}
+          </div>
         </div>
       </section>
 
       <section id="team" className="site-section">
+        <div className="site-container home-team">
+          <div className="home-team__photos">
+            {homePhotos.team.map((photo, index) => (
+              <figure
+                key={photo.alt}
+                className={`home-team__media${
+                  index === 0 ? " home-team__media--lead" : ""
+                }`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  placeholder="blur"
+                  sizes="(max-width: 1024px) 100vw, 24vw"
+                  className="home-team__image"
+                />
+              </figure>
+            ))}
+          </div>
+          <div className="home-team__content">
+            <SectionIntro
+              eyebrow="Team"
+              title={
+                <>
+                  The <span>team</span>
+                </>
+              }
+              description="whIRLwind is run by bachelor and master students at the University of Amsterdam. We come from computer science and AI backgrounds, and spend our spare time programming humanoid robots to compete in RoboCup. No prior robotics experience required, just curiosity and the drive to make robots walk, see, and play football."
+              compact
+            />
+            <div className="home-team__actions">
+              <LinkButton href="/contact" label="Join us" variant="primary" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="site-section">
         <div className="site-container team-showcase">
           <div className="team-showcase__intro">
             <SectionIntro

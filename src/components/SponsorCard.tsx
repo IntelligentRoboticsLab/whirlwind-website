@@ -26,7 +26,11 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
   return (
     <article className="sponsor-card">
       <div className="sponsor-card__media">
-        <div className="sponsor-card__logo">
+        <div
+          className={`sponsor-card__logo${
+            sponsor.logoDarkBackground ? " sponsor-card__logo--dark" : ""
+          }`}
+        >
           <Image
             src={sponsor.logo}
             alt={sponsor.logoAlt ?? `${sponsor.name} logo`}

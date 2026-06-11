@@ -75,6 +75,7 @@ export type Sponsor = {
   logoHeight: number;
   logoMaxWidth?: string;
   logoDisplayHeight?: string;
+  logoDarkBackground?: boolean;
   contribution?: string;
 };
 
@@ -191,6 +192,7 @@ export const sponsorTiers: SponsorTier[] = [
         logoHeight: 28,
         logoMaxWidth: "420px",
         logoDisplayHeight: "96px",
+        logoDarkBackground: true,
       },
     ],
   },
@@ -437,6 +439,20 @@ export const homePhotos = {
     src: PhotoTeamSetup,
     alt: "The full team set up at the German Open with the RoboCup sign behind them.",
   },
+  team: [
+    {
+      src: PhotoGermanOpenWalking,
+      alt: "Robot walking on the field at the German Open.",
+    },
+    {
+      src: PhotoTeamWorkingAtPitch,
+      alt: "Two team members working on a robot at pitch level during a match.",
+    },
+    {
+      src: PhotoGermanOpenMember,
+      alt: "Team member with a robot at the German Open.",
+    },
+  ],
   supportA: {
     src: PhotoRobotWalking,
     alt: "Team member guiding a walking robot near the goal.",
