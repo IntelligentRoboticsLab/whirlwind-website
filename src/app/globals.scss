@@ -1313,6 +1313,29 @@ body.lightbox-open {
   background: var(--ww-surface);
 }
 
+.news-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 1108px;
+}
+
+.news-detail__back {
+  align-self: flex-start;
+  color: var(--ww-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.news-detail__back:hover,
+.news-detail__back:focus-visible {
+  color: var(--ww-orange-soft);
+}
+
 .news-post {
   padding: 1.75rem clamp(1.25rem, 3vw, 2.25rem);
   border: 1px solid var(--ww-line);

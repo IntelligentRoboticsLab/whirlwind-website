@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/site/PageHero";
-import NewsPost from "@/components/site/NewsPost";
+import NewsCard from "@/components/site/NewsCard";
 import { getAllNewsPosts } from "@/lib/news/news";
 
 export const metadata: Metadata = {
@@ -21,11 +21,15 @@ export default async function NewsPage() {
       />
 
       <section className="site-section site-section--deep site-section--tight-top">
-        <div className="site-container news-feed">
+        <div className="site-container">
           {posts.length === 0 ? (
             <p className="news-feed__empty">No news yet.</p>
           ) : (
-            posts.map((post) => <NewsPost key={post.slug} post={post} />)
+            <div className="news-preview-grid">
+              {posts.map((post) => (
+                <NewsCard key={post.slug} post={post} />
+              ))}
+            </div>
           )}
         </div>
       </section>

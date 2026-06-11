@@ -18,7 +18,7 @@ function formatDate(date: string): string {
 
 export default function NewsCard({ post }: NewsCardProps) {
   return (
-    <Link href={`/news#${post.slug}`} className="news-card">
+    <Link href={`/news/${post.slug}`} className="news-card">
       {post.coverImage ? (
         <figure className="news-card__cover">
           <Image

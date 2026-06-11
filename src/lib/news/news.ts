@@ -92,3 +92,10 @@ async function loadNewsPosts(): Promise<NewsPost[]> {
 }
 
 export const getAllNewsPosts = cache(loadNewsPosts);
+
+export async function getNewsPostBySlug(
+  slug: string,
+): Promise<NewsPost | undefined> {
+  const posts = await getAllNewsPosts();
+  return posts.find((post) => post.slug === slug);
+}
