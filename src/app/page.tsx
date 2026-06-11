@@ -304,7 +304,7 @@ export default async function Home() {
           <div>
             <span className="section-intro__eyebrow">Contact</span>
             <h2 className="contact-banner__title">
-              Get in <span>touch.</span>
+              Get in touch
             </h2>
             <p className="contact-banner__description">
               Partnerships, research, demos, press. Email us.

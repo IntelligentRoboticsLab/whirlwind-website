@@ -18,7 +18,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Get in <span>touch.</span>
+            Get in touch
           </>
         }
         description="Email us about sponsorships, research, demos, event invites, or press."
