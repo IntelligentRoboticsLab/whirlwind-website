@@ -14,11 +14,10 @@ type SponsorCardProps = {
 };
 
 export default function SponsorCard({ sponsor }: SponsorCardProps) {
-  const logoMaxWidth = sponsor.logoMaxWidth ?? "240px";
   const logoDisplayHeight = sponsor.logoDisplayHeight ?? "80px";
   const imageStyle = {
     width: "auto" as const,
-    maxWidth: logoMaxWidth,
+    maxWidth: "100%",
     height: logoDisplayHeight,
   };
   const hasDetails = Boolean(sponsor.contribution);

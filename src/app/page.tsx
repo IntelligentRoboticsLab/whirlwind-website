@@ -79,18 +79,17 @@ export default async function Home() {
                   href={sponsor.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="sponsor-rail__logo-card"
+                  className={`sponsor-rail__logo-card${
+                    sponsor.logoDarkBackground
+                      ? " sponsor-rail__logo-card--bare"
+                      : ""
+                  }`}
                 >
                   <Image
                     src={sponsor.logo}
                     alt={sponsor.logoAlt}
                     width={sponsor.logoWidth}
                     height={sponsor.logoHeight}
-                    style={{
-                      width: "auto",
-                      height: sponsor.logoDisplayHeight ?? "46px",
-                      maxWidth: sponsor.logoMaxWidth ?? "180px",
-                    }}
                   />
                 </Link>
               ))}

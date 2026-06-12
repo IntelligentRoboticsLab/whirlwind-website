@@ -73,7 +73,6 @@ export type Sponsor = {
   logoAlt: string;
   logoWidth: number;
   logoHeight: number;
-  logoMaxWidth?: string;
   logoDisplayHeight?: string;
   logoDarkBackground?: boolean;
   contribution?: string;
@@ -188,10 +187,9 @@ export const sponsorTiers: SponsorTier[] = [
         website: "https://rerun.io",
         logo: rerunLogo,
         logoAlt: "Rerun logo",
-        logoWidth: 94,
-        logoHeight: 28,
-        logoMaxWidth: "420px",
-        logoDisplayHeight: "96px",
+        logoWidth: 186,
+        logoHeight: 45,
+        logoDisplayHeight: "56px",
         logoDarkBackground: true,
       },
     ],

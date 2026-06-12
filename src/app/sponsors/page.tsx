@@ -15,14 +15,8 @@ export default function SponsorsPage() {
   return (
     <div className="page-shell">
       <PageHero
-        title={
-          <>
-            Who keeps us
-            <br />
-            on the field
-          </>
-        }
-        description="The organisations that help us build the robots and get them to competitions."
+        title="Our sponsors"
+        description="The organisations that keep whIRLwind running, from hardware to travel."
         aside={
           <figure className="page-hero__photo">
             <Image
