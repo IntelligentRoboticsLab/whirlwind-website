@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import logoLight from "@/assets/logo_light.svg";
 
@@ -12,6 +13,7 @@ import NavLinks from "./NavLinks";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.classList.toggle("mobile-nav-open", open);
@@ -40,7 +42,7 @@ export default function SiteHeader() {
 
   return (
     <header className={`site-header ${open ? "site-header--open" : ""}`}>
-      <div className="nav w-full px-8 py-4 sm:px-10 lg:px-12 xl:mx-auto xl:max-w-[1120px] xl:px-4">
+      <div className="site-container nav">
         <Link
           href="/"
           className="brand"
@@ -62,14 +64,15 @@ export default function SiteHeader() {
         <nav
           id="primary-navigation"
           aria-label="Primary"
-          className="nav-list-container"
+          className={`nav-list-container${open ? " is-open" : ""}`}
         >
-          <NavLinks onNavigate={closeMenu} />
+          <NavLinks onNavigate={closeMenu} currentPath={pathname} />
 
           <LinkButton
             href="/contact"
             label="Get in touch"
-            className="nav-link--cta nav-link--cta-mobile"
+            variant="primary"
+            className="nav-cta nav-cta--mobile"
             ariaLabel="Get in touch"
             onNavigate={closeMenu}
           />
@@ -78,7 +81,8 @@ export default function SiteHeader() {
         <LinkButton
           href="/contact"
           label="Get in touch"
-          className="nav-link--cta nav-link--cta-desktop"
+          variant="primary"
+          className="nav-cta nav-cta--desktop"
           ariaLabel="Get in touch"
         />
       </div>

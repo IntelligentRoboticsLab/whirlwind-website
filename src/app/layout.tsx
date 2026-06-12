@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import "./globals.scss";
 
 const logoSingleDark = new URL(
@@ -8,9 +9,9 @@ const logoSingleDark = new URL(
 ).toString();
 
 export const metadata: Metadata = {
-  title: "Team whIRLwind",
+  title: "whIRLwind Amsterdam",
   description:
-    "Humanoid robotics team from the University of Amsterdam Intelligent Robotics Lab.",
+    "Humanoid robotics team from the Intelligent Robotics Lab at the University of Amsterdam.",
   icons: {
     icon: [
       { url: logoSingleDark, type: "image/svg+xml" },
@@ -24,14 +25,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Team whIRLwind at the University of Amsterdam",
+    title: "whIRLwind Amsterdam",
     description:
-      "Humanoid robotics team from the University of Amsterdam Intelligent Robotics Lab.",
+      "Humanoid robotics team from the Intelligent Robotics Lab at the University of Amsterdam.",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#0a1833",
 };
 
 export default function RootLayout({
@@ -41,17 +42,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
+      <body>
         <div className="site-background" aria-hidden="true" />
         <SiteHeader />
 
         <main className="site-main">{children}</main>
 
-        <footer className="site-footer">
-          <div className="footer-inner w-full px-8 text-left sm:px-10 lg:px-12">
-            <p>Made with ❤️ by Team whIRLwind — University of Amsterdam</p>
-          </div>
-        </footer>
+        <SiteFooter />
       </body>
     </html>
   );
