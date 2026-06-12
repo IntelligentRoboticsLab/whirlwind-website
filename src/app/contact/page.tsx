@@ -51,7 +51,8 @@ export default function ContactPage() {
             </figure>
             <h2>Applications are closed for now.</h2>
             <span>
-              We&apos;ll post on our channels when we open them again.
+              We&apos;ll announce it on Instagram and LinkedIn when they open
+              again.
             </span>
           </div>
         }

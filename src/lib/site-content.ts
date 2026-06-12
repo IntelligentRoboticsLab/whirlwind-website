@@ -42,11 +42,6 @@ import PhotoStartupRobot from "@/assets/photos/2026-04-Startup-demo/Startup Vill
 import PhotoStartupCloseUp from "@/assets/photos/2026-04-Startup-demo/Startup Villa Science park Amsterdam 18032026 ph by @ilsoovandijk-08735.jpg";
 import PhotoAmaliaVisit from "@/assets/photos/2026-05-Prinses-Amalia/003uvabezoekamaliasciencepark.jpg";
 
-export type SiteMetric = {
-  value: string;
-  label: string;
-};
-
 export type SiteEvent = {
   id: string;
   dateLabel: string;
@@ -58,12 +53,6 @@ export type SiteEvent = {
   highlight?: boolean;
   // Slug of a related news post (filename without `.md`); links the event to its article.
   newsSlug?: string;
-};
-
-export type TeamPillar = {
-  index: string;
-  title: string;
-  description: string;
 };
 
 export type Sponsor = {
@@ -98,13 +87,6 @@ export type CollagePhoto = {
   alt: string;
   layout: "wide" | "tall" | "square" | "panorama";
 };
-
-export const siteMetrics: SiteMetric[] = [
-  { value: "15", label: "Active members" },
-  { value: "2025", label: "Founded in Amsterdam" },
-  { value: "3rd", label: "German Open 2026 finish" },
-  { value: "2", label: "Global competitions entered" },
-];
 
 export const siteEvents: SiteEvent[] = [
   {
@@ -150,37 +132,11 @@ export const siteEvents: SiteEvent[] = [
 export const highlightedEvent =
   siteEvents.find((event) => event.highlight) ?? siteEvents[0];
 
-export const teamPillars: TeamPillar[] = [
-  {
-    index: "01",
-    title: "Competition software",
-    description:
-      "Vision, behaviours, RL policies, simulation, and the tests that keep it all working.",
-  },
-  {
-    index: "02",
-    title: "Hardware and repairs",
-    description:
-      "Assembly, calibration, maintenance, and fixing whatever breaks during a competition.",
-  },
-  {
-    index: "03",
-    title: "Match operations",
-    description:
-      "Travel, field-side debugging, demos, and the logistics of running a team at an event.",
-  },
-  {
-    index: "04",
-    title: "Research and outreach",
-    description:
-      "Reports, theses, and the research we publish alongside the competition work.",
-  },
-];
-
 export const sponsorTiers: SponsorTier[] = [
   {
     name: "Premier Partner",
-    description: "Backs the team's infrastructure and competitions.",
+    description:
+      "Covers our biggest costs: the robots and getting them to competitions.",
     sponsors: [
       {
         name: "Rerun",
@@ -196,7 +152,7 @@ export const sponsorTiers: SponsorTier[] = [
   },
   {
     name: "Supporting Partners",
-    description: "Support the lab, the team, and the space we work in.",
+    description: "Give us a place to work and help with the costs.",
     sponsors: [
       {
         name: "StartUp Village",
@@ -225,7 +181,7 @@ export const socialChannels: SocialChannel[] = [
     handle: "whIRLwind Amsterdam",
     logo: LinkedInLogo,
     logoAlt: "LinkedIn logo",
-    description: "Announcements and partnership updates.",
+    description: "Results and team announcements.",
   },
   {
     name: "Instagram",
@@ -460,21 +416,6 @@ export const homePhotos = {
     alt: "Visitors gathered around the team during a workshop demo.",
   },
 };
-
-export const contactTopics = [
-  {
-    title: "Research and demos",
-    description: "Talks, lab demos, or student events.",
-  },
-  {
-    title: "Sponsoring",
-    description: "Sponsorships, hardware, or tooling partnerships.",
-  },
-  {
-    title: "Media and press",
-    description: "Interviews, photos, articles.",
-  },
-];
 
 export const siteContact = {
   email: "info@whirlwind.team",

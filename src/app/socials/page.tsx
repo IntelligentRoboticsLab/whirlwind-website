@@ -27,9 +27,9 @@ export default function SocialsPage() {
             follow us
           </>
         }
-        description="Where we post competition travel, demos, progress, and the code behind it."
+        description="We post from competitions, demos, and the lab. The code is on GitHub."
         actions={
-          <LinkButton href="/contact" label="Reach the team" variant="secondary" />
+          <LinkButton href="/contact" label="Contact us" variant="secondary" />
         }
         aside={
           <figure className="page-hero__photo">
@@ -61,7 +61,7 @@ export default function SocialsPage() {
                 Photo gallery
               </>
             }
-            description="Moments from competitions, demos, and life in the lab."
+            description="Photos from competitions, demos, and the lab."
           />
           <PhotoCollage photos={socialCollagePhotos} variant="gallery" />
         </div>

@@ -19,7 +19,7 @@ export default function PublicationsPage() {
             and qualification docs
           </>
         }
-        description="Team reports, student theses, and technical papers from the team and the lab."
+        description="Theses, competition reports, and papers from the team and the lab."
       />
 
       <section className="site-section site-section--deep site-section--tight-top">

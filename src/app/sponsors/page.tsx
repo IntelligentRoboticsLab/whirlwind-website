@@ -62,7 +62,7 @@ export default function SponsorsPage() {
           <div className="contact-banner__actions">
             <LinkButton
               href="/contact"
-              label="Start the conversation"
+              label="Email us"
               variant="primary"
             />
           </div>

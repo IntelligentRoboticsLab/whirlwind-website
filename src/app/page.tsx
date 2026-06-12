@@ -128,10 +128,8 @@ export default async function Home() {
                 robots to compete in RoboCup.
               </p>
               <p className="section-intro__description">
-                If you&apos;re interested in joining us on the field don&apos;t
-                hesitate to send us a message! No prior robotics experience is
-                required, just curiosity and the drive to make robots walk, see,
-                and play football.
+                Want to join? Send us a message. You don&apos;t need any
+                robotics experience; most of us started without it.
               </p>
             </div>
             <div className="home-team__actions">
