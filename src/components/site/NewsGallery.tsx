@@ -76,6 +76,10 @@ export default function NewsGallery({ images }: NewsGalleryProps) {
           <SiteIcon name="arrow-right" size={20} />
         </button>
 
+        {current.credit ? (
+          <span className="news-gallery__credit">{current.credit}</span>
+        ) : null}
+
         <span className="news-gallery__counter">
           {index + 1} / {total}
         </span>

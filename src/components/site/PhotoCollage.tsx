@@ -123,7 +123,12 @@ export default function PhotoCollage({
               sizes="90vw"
               className="lightbox__image"
             />
-            <figcaption className="lightbox__caption">{active.alt}</figcaption>
+            <figcaption className="lightbox__caption">
+              {active.alt}
+              {active.credit ? (
+                <span className="lightbox__credit">{active.credit}</span>
+              ) : null}
+            </figcaption>
           </figure>
 
           {total > 1 ? (

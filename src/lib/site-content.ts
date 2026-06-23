@@ -41,6 +41,10 @@ import PhotoStartupPresenting from "@/assets/photos/2026-04-Startup-demo/Startup
 import PhotoStartupRobot from "@/assets/photos/2026-04-Startup-demo/Startup Villa Science park Amsterdam 18032026-08758.jpg";
 import PhotoStartupCloseUp from "@/assets/photos/2026-04-Startup-demo/Startup Villa Science park Amsterdam 18032026 ph by @ilsoovandijk-08735.jpg";
 import PhotoAmaliaVisit from "@/assets/photos/2026-05-Prinses-Amalia/003uvabezoekamaliasciencepark.jpg";
+import PhotoEuVisitDemo from "@/assets/photos/2026-06-EU-visit/095_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import PhotoEuVisitZaharieva from "@/assets/photos/2026-06-EU-visit/102_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import PhotoEuVisitRobotDribbling from "@/assets/photos/2026-06-EU-visit/106_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import PhotoEuVisitExplaining from "@/assets/photos/2026-06-EU-visit/111_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
 
 export type SiteEvent = {
   id: string;
@@ -86,6 +90,7 @@ export type CollagePhoto = {
   src: StaticImageData;
   alt: string;
   layout: "wide" | "tall" | "square" | "panorama";
+  credit?: string;
 };
 
 export const siteEvents: SiteEvent[] = [
@@ -205,6 +210,31 @@ export const socialChannels: SocialChannel[] = [
 // reads newest-to-oldest top to bottom. The gallery variant lays these out in a
 // uniform grid, so `layout` is unused there but kept for the editorial variant.
 export const socialCollagePhotos: CollagePhoto[] = [
+  // 2026-06 — European Commissioner visit, UvA Science Park
+  {
+    src: PhotoEuVisitDemo,
+    alt: "Robot football demo for European Commissioner Zaharieva and the delegation at UvA Science Park.",
+    layout: "panorama",
+    credit: "Photo: Ljilja Suvajdžić",
+  },
+  {
+    src: PhotoEuVisitZaharieva,
+    alt: "European Commissioner Ekaterina Zaharieva with the delegation during the visit to UvA Science Park.",
+    layout: "wide",
+    credit: "Photo: Ljilja Suvajdžić",
+  },
+  {
+    src: PhotoEuVisitRobotDribbling,
+    alt: "Close-up of a robot dribbling the ball during the demo for the European Commissioner.",
+    layout: "wide",
+    credit: "Photo: Ljilja Suvajdžić",
+  },
+  {
+    src: PhotoEuVisitExplaining,
+    alt: "A team member explaining the robots to the European Commissioner's delegation.",
+    layout: "wide",
+    credit: "Photo: Ljilja Suvajdžić",
+  },
   // 2026-05 — Princess Amalia visit, UvA Science Park
   {
     src: PhotoAmaliaVisit,

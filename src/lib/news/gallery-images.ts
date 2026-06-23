@@ -26,15 +26,37 @@ import GermanOpenWalking from "@/assets/photos/2026-03-German-Open/133-DSC09261.
 import GermanOpenWalking2 from "@/assets/photos/2026-03-German-Open/135-DSC09259.jpg";
 import GermanOpenMember2 from "@/assets/photos/2026-03-German-Open/63-DSC09331~2.jpg";
 
+import EuVisitZaharievaDijkgraaf from "@/assets/photos/2026-06-EU-visit/102_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import EuVisitExplaining from "@/assets/photos/2026-06-EU-visit/111_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import EuVisitDemo from "@/assets/photos/2026-06-EU-visit/097_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import EuVisitRobotsPlaying from "@/assets/photos/2026-06-EU-visit/099_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import EuVisitRobotDribbling from "@/assets/photos/2026-06-EU-visit/106_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import EuVisitRobotWithBall from "@/assets/photos/2026-06-EU-visit/101_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import EuVisitDelegation from "@/assets/photos/2026-06-EU-visit/092_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import EuVisitApplause from "@/assets/photos/2026-06-EU-visit/109_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import EuVisitApplause2 from "@/assets/photos/2026-06-EU-visit/110_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+
 export type GalleryImage = {
   src: StaticImageData;
   alt: string;
+  credit?: string;
 };
 
 // Maps a news post slug (the markdown filename without `.md`) to an ordered list
 // of images shown in a slideshow below the post body. Add an entry here when a
 // post should display a photo gallery.
 export const galleryImages: Record<string, GalleryImage[]> = {
+  "2026-06-18-european-commissioner-visit": [
+    { src: EuVisitZaharievaDijkgraaf, alt: "A close-up of the delegation during the robot football match.", credit: "Photo: Ljilja Suvajdžić" },
+    { src: EuVisitExplaining, alt: "A team member explaining the robots to the delegation at the side of the pitch.", credit: "Photo: Ljilja Suvajdžić" },
+    { src: EuVisitDemo, alt: "The delegation watching a robot football demo in RoboLab.", credit: "Photo: Ljilja Suvajdžić" },
+    { src: EuVisitRobotsPlaying, alt: "Robots positioning for kick-off.", credit: "Photo: Ljilja Suvajdžić" },
+    { src: EuVisitRobotDribbling, alt: "Close-up of a robot kicking the ball during the demo.", credit: "Photo: Ljilja Suvajdžić" },
+    { src: EuVisitRobotWithBall, alt: "A robot bringing the ball forward.", credit: "Photo: Ljilja Suvajdžić" },
+    { src: EuVisitDelegation, alt: "The delegation lined up alongside the pitch with a robot in front.", credit: "Photo: Ljilja Suvajdžić" },
+    { src: EuVisitApplause, alt: "The delegation applauding the robots after the match.", credit: "Photo: Ljilja Suvajdžić" },
+    { src: EuVisitApplause2, alt: "The delegation applauding during the robot football demo.", credit: "Photo: Ljilja Suvajdžić" },
+  ],
   "2025-08-15-world-humanoid-robot-games-quarter-finals": [
     { src: BeijingArena, alt: "Team competing at the World Humanoid Robot Games in Beijing." },
     { src: BeijingMatch, alt: "Team at work during a match in Beijing." },
