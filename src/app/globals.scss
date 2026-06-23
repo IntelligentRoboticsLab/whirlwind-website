@@ -1180,6 +1180,13 @@ img {
   text-align: center;
 }
 
+.lightbox__credit {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--ww-muted);
+}
+
 .lightbox__close {
   position: absolute;
   top: clamp(0.75rem, 2vw, 1.5rem);
@@ -1467,6 +1474,18 @@ body.lightbox-open {
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
   font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ww-cream);
+  background: rgba(15, 18, 28, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.news-gallery__credit {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
   font-size: 0.75rem;
   color: var(--ww-cream);
   background: rgba(15, 18, 28, 0.6);
