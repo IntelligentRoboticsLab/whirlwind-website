@@ -3,7 +3,7 @@ import Image from "next/image";
 import LinkButton from "@/components/LinkButton";
 import SponsorCard from "@/components/SponsorCard";
 import PageHero from "@/components/site/PageHero";
-import { sponsorTiers } from "@/lib/site-content";
+import { sponsors } from "@/lib/site-content";
 import jerseyPhoto from "@/assets/photos/2026-03-German-Open/74-DSC09320.jpg";
 
 export const metadata: Metadata = {
@@ -32,19 +32,9 @@ export default function SponsorsPage() {
       />
 
       <section className="site-section site-section--tight-top">
-        <div className="site-container sponsor-tier-grid">
-          {sponsorTiers.map((tier) => (
-            <section key={tier.name} className="tier-block tier-block--page">
-              <div className="tier-block__heading">
-                <p>{tier.name}</p>
-                <span>{tier.description}</span>
-              </div>
-              <div className="tier-block__cards">
-                {tier.sponsors.map((sponsor) => (
-                  <SponsorCard key={sponsor.name} sponsor={sponsor} />
-                ))}
-              </div>
-            </section>
+        <div className="site-container sponsor-grid">
+          {sponsors.map((sponsor) => (
+            <SponsorCard key={sponsor.name} sponsor={sponsor} />
           ))}
         </div>
       </section>
