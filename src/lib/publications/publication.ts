@@ -10,6 +10,7 @@ const PUBLICATION_TYPE_SCHEMA = z.enum([
   "inproceedings",
   "manual",
   "mastersthesis",
+  "bachelorthesis",
   "misc",
   "phdthesis",
   "proceedings",
