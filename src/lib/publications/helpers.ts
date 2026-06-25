@@ -20,6 +20,7 @@ export function formatPublicationType(type?: string): string {
     inproceedings: "Conference Paper",
     manual: "Manual",
     mastersthesis: "Master's Thesis",
+    bachelorthesis: "Bachelor Thesis",
     msc: "Master Thesis",
     misc: "Miscellaneous",
     phdthesis: "PhD Thesis",
