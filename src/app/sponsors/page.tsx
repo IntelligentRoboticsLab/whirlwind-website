@@ -43,7 +43,7 @@ export default function SponsorsPage() {
         <div className="site-container contact-banner">
           <div>
             <h2 className="contact-banner__title">
-              Want to sponsor?
+              Want to become a sponsor?
             </h2>
             <p className="contact-banner__description">
               Email us. We can figure out a sponsorship that fits.
