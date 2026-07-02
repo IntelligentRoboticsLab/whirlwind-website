@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 
 import rerunLogo from "@/assets/sponsors/rerun.svg";
-import startupVillageLogo from "@/assets/sponsors/startup_village.webp";
+import startupVillageLogo from "@/assets/sponsors/startupvillage_logo_white.webp";
 import uvaLogo from "@/assets/sponsors/uva.png";
 import GitHubLogo from "@/assets/socials/github.svg";
 import InstagramLogo from "@/assets/socials/instagram.svg";
@@ -71,12 +71,6 @@ export type Sponsor = {
   contribution?: string;
 };
 
-export type SponsorTier = {
-  name: string;
-  description: string;
-  sponsors: Sponsor[];
-};
-
 export type SocialChannel = {
   name: string;
   url: string;
@@ -137,45 +131,36 @@ export const siteEvents: SiteEvent[] = [
 export const highlightedEvent =
   siteEvents.find((event) => event.highlight) ?? siteEvents[0];
 
-export const sponsorTiers: SponsorTier[] = [
+export const sponsors: Sponsor[] = [
   {
-    name: "Premier Partner",
-    description:
-      "Covers our biggest costs: the robots and getting them to competitions.",
-    sponsors: [
-      {
-        name: "Rerun",
-        website: "https://rerun.io",
-        logo: rerunLogo,
-        logoAlt: "Rerun logo",
-        logoWidth: 186,
-        logoHeight: 45,
-        logoDisplayHeight: "56px",
-        logoDarkBackground: true,
-      },
-    ],
+    name: "University of Amsterdam",
+    website: "https://uva.nl",
+    logo: uvaLogo,
+    logoAlt: "University of Amsterdam logo",
+    logoWidth: 2664,
+    logoHeight: 595,
+    logoDisplayHeight: "56px",
+    logoDarkBackground: true,
   },
   {
-    name: "Supporting Partners",
-    description: "Give us a place to work and help with the costs.",
-    sponsors: [
-      {
-        name: "StartUp Village",
-        website: "https://startupvillage.nl",
-        logo: startupVillageLogo,
-        logoAlt: "StartUp Village logo",
-        logoWidth: 480,
-        logoHeight: 242,
-      },
-      {
-        name: "University of Amsterdam",
-        website: "https://uva.nl",
-        logo: uvaLogo,
-        logoAlt: "University of Amsterdam logo",
-        logoWidth: 480,
-        logoHeight: 242,
-      },
-    ],
+    name: "Rerun",
+    website: "https://rerun.io",
+    logo: rerunLogo,
+    logoAlt: "Rerun logo",
+    logoWidth: 186,
+    logoHeight: 45,
+    logoDisplayHeight: "56px",
+    logoDarkBackground: true,
+  },
+  {
+    name: "StartUp Village",
+    website: "https://startupvillage.nl",
+    logo: startupVillageLogo,
+    logoAlt: "StartUp Village logo",
+    logoWidth: 1581,
+    logoHeight: 797,
+    logoDisplayHeight: "64px",
+    logoDarkBackground: true,
   },
 ];
 

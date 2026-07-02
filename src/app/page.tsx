@@ -7,7 +7,7 @@ import SectionIntro from "@/components/site/SectionIntro";
 import {
   highlightedEvent,
   homePhotos,
-  sponsorTiers,
+  sponsors,
 } from "@/lib/site-content";
 import { getAllNewsPosts } from "@/lib/news/news";
 
@@ -71,28 +71,26 @@ export default async function Home() {
         <div className="site-container sponsor-rail__inner">
           <p>Backed by</p>
           <div className="sponsor-rail__logos">
-            {sponsorTiers
-              .flatMap((tier) => tier.sponsors)
-              .map((sponsor) => (
-                <Link
-                  key={sponsor.name}
-                  href={sponsor.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`sponsor-rail__logo-card${
-                    sponsor.logoDarkBackground
-                      ? " sponsor-rail__logo-card--bare"
-                      : ""
-                  }`}
-                >
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.logoAlt}
-                    width={sponsor.logoWidth}
-                    height={sponsor.logoHeight}
-                  />
-                </Link>
-              ))}
+            {sponsors.map((sponsor) => (
+              <Link
+                key={sponsor.name}
+                href={sponsor.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`sponsor-rail__logo-card${
+                  sponsor.logoDarkBackground
+                    ? " sponsor-rail__logo-card--bare"
+                    : ""
+                }`}
+              >
+                <Image
+                  src={sponsor.logo}
+                  alt={sponsor.logoAlt}
+                  width={sponsor.logoWidth}
+                  height={sponsor.logoHeight}
+                />
+              </Link>
+            ))}
           </div>
         </div>
       </section>

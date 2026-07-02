@@ -417,7 +417,6 @@ img {
 
 .home-hero__floating-card p,
 .page-note p,
-.tier-block__heading p,
 .detail-card__eyebrow,
 .publication-year-block__header span,
 .site-footer__label,
@@ -529,7 +528,7 @@ img {
 }
 
 .sponsor-rail__logo-card--bare img {
-  height: 32px;
+  height: 40px;
 }
 
 .sponsor-rail__logo-card:hover,
@@ -599,7 +598,6 @@ img {
 .pillar-card h3,
 .publication-card__title,
 .social-card h3,
-.tier-block__heading p,
 .site-footer__summary,
 .detail-card h2,
 .topic-list__item h3 {
@@ -614,7 +612,6 @@ img {
 .result-card__main p,
 .pillar-card > p:last-child,
 .social-card__description,
-.tier-block__heading span,
 .detail-card p,
 .topic-list__item p,
 .site-footer__summary {
@@ -940,30 +937,7 @@ img {
   color: #c7f1d7;
 }
 
-.sponsor-tier-grid {
-  display: grid;
-  gap: 3.5rem;
-}
-
-.tier-block {
-  display: grid;
-  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
-  gap: 1.25rem;
-}
-
-.tier-block__heading {
-  max-width: 16rem;
-}
-
-.tier-block__heading p {
-  color: var(--ww-orange-soft);
-}
-
-.tier-block__heading span {
-  display: block;
-}
-
-.tier-block__cards {
+.sponsor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
@@ -1782,7 +1756,6 @@ body.lightbox-open {
   .home-team,
   .socials-showcase,
   .contact-layout,
-  .tier-block,
   .site-footer__grid {
     grid-template-columns: 1fr;
   }
