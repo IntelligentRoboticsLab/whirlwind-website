@@ -234,7 +234,7 @@ export const socialCollagePhotos: CollagePhoto[] = [
   },
   {
     src: PhotoStartupVisitors,
-    alt: "Visitors gathered around the robots at the startup demo.",
+    alt: "Visitors gathered around the robots at the Startup Village demo.",
     layout: "square",
   },
   {
@@ -249,7 +249,7 @@ export const socialCollagePhotos: CollagePhoto[] = [
   },
   {
     src: PhotoStartupCloseUp,
-    alt: "Close-up of the robots during the startup demo.",
+    alt: "Close-up of the robots during the Startup Village demo.",
     layout: "wide",
   },
   // 2026-03 — German Open
@@ -395,10 +395,10 @@ export const socialCollagePhotos: CollagePhoto[] = [
     alt: "Team watching from the sidelines during a match in Beijing.",
     layout: "square",
   },
-  // 2025-07 — RoboCup, Salvador
+    // 2025-03 — German Open
   {
     src: PhotoGermanOpen,
-    alt: "Team looking on during a match at RoboCup in Salvador.",
+    alt: "Team looking on during a match at RoboCup in Nuremberg.",
     layout: "panorama",
   },
 ];
