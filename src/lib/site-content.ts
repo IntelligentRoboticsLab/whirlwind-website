@@ -89,6 +89,17 @@ export type CollagePhoto = {
 
 export const siteEvents: SiteEvent[] = [
   {
+    id: "robocup-2026",
+    dateLabel: "Jul 2026",
+    startDate: "2026-07-02",
+    event: "RoboCup 2026",
+    location: "Incheon",
+    result: "4th place",
+    detail: "The first edition of the Humanoid Soccer League.",
+    highlight: true,
+    newsSlug: "2026-07-02-robocup-fourth-place",
+  },
+  {
     id: "qualification-document-2026",
     dateLabel: "Mar 2026",
     startDate: "2026-03-17",
@@ -96,15 +107,6 @@ export const siteEvents: SiteEvent[] = [
     location: "Amsterdam",
     result: "Season active",
     detail: "Technical roadmap and team description for the season.",
-  },
-  {
-    id: "world-humanoid-robot-games-2025",
-    dateLabel: "Oct 2025",
-    startDate: "2025-10-01",
-    event: "World Humanoid Robot Games",
-    location: "Beijing",
-    result: "International debut",
-    detail: "Our first international competition with the new team.",
   },
   {
     id: "german-open-2026",
@@ -116,6 +118,15 @@ export const siteEvents: SiteEvent[] = [
     detail: "Two weeks with the robots and we got on the podium.",
     highlight: true,
     newsSlug: "2026-03-14-german-open-third-place",
+  },
+  {
+    id: "world-humanoid-robot-games-2025",
+    dateLabel: "Oct 2025",
+    startDate: "2025-10-01",
+    event: "World Humanoid Robot Games",
+    location: "Beijing",
+    result: "International debut",
+    detail: "Our first international competition with the new team.",
   },
   {
     id: "team-launched-2025",

@@ -5,10 +5,12 @@ import ScienceParkScienceDay from "@/assets/photos/2025-10-Dag_vd_wetenschap/UvA
 import WorldHumanoidRobotGames from "@/assets/photos/2025-08-RCAP-Beijing/NAN13334_3613110639-rp3914172363-opq3915542285.jpg";
 import GermanOpen from "@/assets/photos/2026-03-German-Open/55142547581_39130691ce_o.jpg";
 import EuropeanCommissionerVisit from "@/assets/photos/2026-06-EU-visit/095_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
+import RoboCupIncheon from "@/assets/photos/2026-07-Robocup-Incheon/team-photo2.jpg";
 
 // Maps a news post slug (the markdown filename without `.md`) to a cover image
 // imported from `src/assets`. Add an entry here when a post needs a cover.
 export const coverImages: Record<string, StaticImageData> = {
+  "2026-07-02-robocup-fourth-place": RoboCupIncheon,
   "2026-06-18-european-commissioner-visit": EuropeanCommissionerVisit,
   "2026-04-16-princess-of-orange-visit": PrincessAmaliaVisit,
   "2025-10-04-science-park-science-day": ScienceParkScienceDay,

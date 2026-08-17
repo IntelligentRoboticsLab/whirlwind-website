@@ -36,6 +36,10 @@ import EuVisitDelegation from "@/assets/photos/2026-06-EU-visit/092_UvASciencePa
 import EuVisitApplause from "@/assets/photos/2026-06-EU-visit/109_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
 import EuVisitApplause2 from "@/assets/photos/2026-06-EU-visit/110_UvAScienceParkVisitEuropeanCommissioner2026.jpg";
 
+import IncheonBHumanMatch from "@/assets/photos/2026-07-Robocup-Incheon/12_AL_RC2026_D5_BhumanWhirlwind_09.jpg";
+import IncheonGoalmouth from "@/assets/photos/2026-07-Robocup-Incheon/robocup_2.jpg";
+import IncheonPitchside from "@/assets/photos/2026-07-Robocup-Incheon/robocup_1.jpg";
+
 export type GalleryImage = {
   src: StaticImageData;
   alt: string;
@@ -46,6 +50,11 @@ export type GalleryImage = {
 // of images shown in a slideshow below the post body. Add an entry here when a
 // post should display a photo gallery.
 export const galleryImages: Record<string, GalleryImage[]> = {
+  "2026-07-02-robocup-fourth-place": [
+    { src: IncheonBHumanMatch, alt: "Two humanoid robots challenging for the ball in front of a packed crowd at RoboCup 2026.", credit: "Photo: Ayleen Lührsen (B-Human)" },
+    { src: IncheonGoalmouth, alt: "Two humanoid robots in the goalmouth during a match in Incheon." },
+    { src: IncheonPitchside, alt: "Team members working on the robots at the side of the pitch between matches." },
+  ],
   "2026-06-18-european-commissioner-visit": [
     { src: EuVisitZaharievaDijkgraaf, alt: "A close-up of the delegation during the robot football match.", credit: "Photo: Ljilja Suvajdžić" },
     { src: EuVisitExplaining, alt: "A team member explaining the robots to the delegation at the side of the pitch.", credit: "Photo: Ljilja Suvajdžić" },
