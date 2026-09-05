@@ -3,7 +3,7 @@ title: "Robot football at Science Park Science Day"
 date: 2025-10-04
 summary: "We demoed our robots playing football all day at the Science Park Science Day, part of the Weekend of Science."
 author: "Team whIRLwind"
-tags: ["event", "demo", "2025"]
+tags: ["Event", "Demo", "2025"]
 coverCredit: "Photo: Liesbeth Dingemans"
 ---
 

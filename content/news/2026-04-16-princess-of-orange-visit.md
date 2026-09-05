@@ -3,7 +3,7 @@ title: "Demo for the Princess of Orange"
 date: 2026-04-16
 summary: "Princess Amalia watched our robots play a 3x3 match during her visit to Amsterdam Science Park."
 author: "Team whIRLwind"
-tags: ["event", "demo", "2026"]
+tags: ["Event", "Demo", "2026"]
 coverCredit: "Photo: Ljilja Suvajdžić"
 ---
 

@@ -1,62 +1,93 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import LinkButton from "@/components/LinkButton";
-import SponsorCard from "@/components/SponsorCard";
-import PageHero from "@/components/site/PageHero";
-import { sponsors } from "@/lib/site-content";
-import jerseyPhoto from "@/assets/photos/2026-03-German-Open/74-DSC09320.jpg";
+
+import Figure from "@/components/Figure";
+import Name from "@/components/Name";
+import Opener from "@/components/Opener";
+import { photo } from "@/lib/photos";
+import { siteContact, sponsors } from "@/lib/site-content";
 
 export const metadata: Metadata = {
-  title: "Sponsors | Team whIRLwind",
-  description: "Organisations supporting Team whIRLwind.",
+  title: "Sponsors",
+  description:
+    "The organisations that support whIRLwind, and how to become one of them.",
 };
+
+const host = (url: string) =>
+  url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
 export default function SponsorsPage() {
   return (
-    <div className="page-shell">
-      <PageHero
-        title="Our sponsors"
-        description="The organisations that keep whIRLwind running, from hardware to travel."
-        aside={
-          <figure className="page-hero__photo">
-            <Image
-              src={jerseyPhoto}
-              alt="Back of a whIRLwind jersey showing the sponsor placements."
-              fill
-              placeholder="blur"
-              sizes="(max-width: 1024px) 100vw, 28vw"
-              className="media-panel__image"
-            />
-          </figure>
-        }
-      />
-
-      <section className="site-section site-section--tight-top">
-        <div className="site-container sponsor-grid">
-          {sponsors.map((sponsor) => (
-            <SponsorCard key={sponsor.name} sponsor={sponsor} />
-          ))}
+    <div className="page">
+      <section className="container opening" aria-label="Introduction">
+        <div className="opening__text">
+          <h1 className="t-title">Sponsors</h1>
+          <p className="t-lede">
+            The organisations that support <Name />. They keep the robots
+            running and get us to competitions.
+          </p>
         </div>
       </section>
 
-      <section className="site-section site-section--deep">
-        <div className="site-container contact-banner">
-          <div>
-            <h2 className="contact-banner__title">
-              Want to become a sponsor?
-            </h2>
-            <p className="contact-banner__description">
-              Email us. We can figure out a sponsorship that fits.
-            </p>
-          </div>
-          <div className="contact-banner__actions">
-            <LinkButton
-              href="/contact"
-              label="Email us"
-              variant="primary"
-            />
-          </div>
+      <section className="container section" aria-labelledby="sponsors-heading">
+        <Opener
+          id="sponsors-heading"
+          title="Supported by"
+          artwork="k1-body"
+          at={30}
+        />
+        <ul className="sponsor-list">
+          {sponsors.map((sponsor) => (
+            <li key={sponsor.name} className="sponsor-row">
+              <a
+                className="sponsor sponsor--row"
+                href={sponsor.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={sponsor.name}
+                style={{
+                  ["--logo" as string]: `url(${sponsor.logo.src})`,
+                  aspectRatio: `${sponsor.logoWidth} / ${sponsor.logoHeight}`,
+                }}
+              />
+              <div className="sponsor-row__text">
+                <a
+                  className="t-subheading"
+                  href={sponsor.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {sponsor.name}
+                </a>
+                <span className="t-meta">{host(sponsor.website)}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="container section" aria-labelledby="become-heading">
+        <div className="stack">
+          <h2 id="become-heading" className="t-heading">
+            Become a sponsor
+          </h2>
+          <p className="t-body">
+            Robots, spare parts and travel to competitions are what a student
+            team spends its money on. If your organisation wants to be part of
+            that, email us. We can figure out a sponsorship that fits.
+          </p>
+          <p className="t-body">
+            <a className="button" href={`mailto:${siteContact.email}`}>
+              <span>Email us</span>
+            </a>
+          </p>
         </div>
+        {/* what a sponsor gets: the placements on the back of the jersey */}
+        <Figure
+          src={photo("2026-03-German-Open/74-DSC09320.jpg").src}
+          alt="The back of a whIRLwind jersey with the sponsor logos printed across the shoulders."
+          caption="Sponsor placements on the back of the jersey. RoboCup German Open, Cologne, March 2026."
+          sizes="(max-width: 80rem) 100vw, 72rem"
+        />
       </section>
     </div>
   );

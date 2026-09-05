@@ -3,7 +3,7 @@ title: "whIRLwind Amsterdam takes 3rd place at the German Open! 🥉"
 date: 2026-03-14
 summary: "We got 3rd in the SPL at German Open, two weeks after first getting our robots."
 author: "Team whIRLwind"
-tags: ["competition", "german-open", "2026"]
+tags: ["Competition", "German Open", "2026"]
 ---
 
 We got 3rd in the SPL at the 2026 RoboCup German Open.
