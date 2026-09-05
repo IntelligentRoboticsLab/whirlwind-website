@@ -1,159 +1,60 @@
-import Image from "next/image";
 import Link from "next/link";
 
-import LinkButton from "@/components/LinkButton";
-import NewsCard from "@/components/site/NewsCard";
-import SectionIntro from "@/components/site/SectionIntro";
-import {
-  highlightedEvent,
-  homePhotos,
-  sponsors,
-} from "@/lib/site-content";
+import Lineup from "@/components/Lineup";
+import Opener from "@/components/Opener";
+import Name from "@/components/Name";
+import NewsRow from "@/components/NewsRow";
+import SeasonList from "@/components/SeasonList";
 import { getAllNewsPosts } from "@/lib/news/news";
+import { latestReport, seasons } from "@/lib/seasons";
 
 export default async function Home() {
-  const latestNews = (await getAllNewsPosts()).slice(0, 4);
+  const latestNews = (await getAllNewsPosts()).slice(0, 3);
+  const report = latestReport();
 
   return (
-    <div className="home-page">
-      <section className="home-hero">
-        <div className="site-container home-hero__grid">
-          <div className="home-hero__content">
-            <h1 className="home-hero__title">
-              Teaching robots
-              <br />
-              to play football
-            </h1>
-            <p className="home-hero__description">
-              whIRLwind is the humanoid robotics team at the University of
-              Amsterdam.
+    <div className="page page--home">
+      <section aria-label="Introduction" className="section">
+        <Lineup />
+        <div className="container lineup-text">
+          <h1 className="t-lede">
+            <Name /> is the humanoid robotics team of the Intelligent Robotics
+            Lab at the University of Amsterdam. We play in the RoboCup Humanoid
+            Soccer League.
+          </h1>
+          {report?.newsSlug ? (
+            <p className="t-body">
+              <Link href={`/news/${report.newsSlug}`}>
+                Read the latest news
+              </Link>
             </p>
-          </div>
-
-          <div className="home-hero__media">
-            <figure className="home-hero__image-frame">
-              <Image
-                src={homePhotos.hero.src}
-                alt={homePhotos.hero.alt}
-                fill
-                priority
-                placeholder="blur"
-                sizes="(max-width: 1024px) 100vw, 38vw"
-                className="home-hero__image"
-              />
-            </figure>
-            {highlightedEvent.newsSlug ? (
-              <Link
-                href={`/news/${highlightedEvent.newsSlug}`}
-                className="home-hero__floating-card home-hero__floating-card--link"
-              >
-                <p>Latest result</p>
-                <h2>{highlightedEvent.result}</h2>
-                <span>
-                  {highlightedEvent.event} / {highlightedEvent.location}
-                </span>
-              </Link>
-            ) : (
-              <div className="home-hero__floating-card">
-                <p>Latest result</p>
-                <h2>{highlightedEvent.result}</h2>
-                <span>
-                  {highlightedEvent.event} / {highlightedEvent.location}
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
-
-      </section>
-
-      <section className="sponsor-rail">
-        <div className="site-container sponsor-rail__inner">
-          <p>Backed by</p>
-          <div className="sponsor-rail__logos">
-            {sponsors.map((sponsor) => (
-              <Link
-                key={sponsor.name}
-                href={sponsor.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`sponsor-rail__logo-card${
-                  sponsor.logoDarkBackground
-                    ? " sponsor-rail__logo-card--bare"
-                    : ""
-                }`}
-              >
-                <Image
-                  src={sponsor.logo}
-                  alt={sponsor.logoAlt}
-                  width={sponsor.logoWidth}
-                  height={sponsor.logoHeight}
-                />
-              </Link>
-            ))}
-          </div>
+          ) : null}
         </div>
       </section>
 
-      <section id="team" className="site-section site-section--deep">
-        <div className="site-container home-team">
-          <div className="home-team__photos">
-            {homePhotos.team.map((photo, index) => (
-              <figure
-                key={photo.alt}
-                className={`home-team__media${
-                  index === 0 ? " home-team__media--lead" : ""
-                }`}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  placeholder="blur"
-                  sizes="(max-width: 1024px) 100vw, 24vw"
-                  className="home-team__image"
-                />
-              </figure>
-            ))}
-          </div>
-          <div className="home-team__content">
-            <SectionIntro title={<>The team</>} compact />
-            <div className="home-team__copy">
-              <p className="section-intro__description">
-                whIRLwind is run by bachelor and master students at the
-                University of Amsterdam. We come from computer science and AI
-                backgrounds, and spend our spare time programming humanoid
-                robots to compete in RoboCup.
-              </p>
-              <p className="section-intro__description">
-                Want to join? Send us a message. You don&apos;t need any
-                robotics experience; most of us started without it.
-              </p>
-            </div>
-            <div className="home-team__actions">
-              <LinkButton href="/contact" label="Join us" variant="primary" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="news" className="site-section">
-        <div className="site-container">
-          <SectionIntro
-            title={
-              <>
-                Recent news
-              </>
-            }
-            action={
-              <LinkButton href="/news" label="All news" variant="inline" />
-            }
+      <section className="container section" aria-label="Seasons">
+        {seasons.map((season, i) => (
+          <SeasonList
+            key={season.id}
+            season={season}
+            artwork={i === 0 ? "k1-keeper-step" : undefined}
+            at={72}
           />
-          <div className="news-preview-grid">
-            {latestNews.map((post) => (
-              <NewsCard key={post.slug} post={post} />
-            ))}
-          </div>
+        ))}
+      </section>
+
+      <section className="container section" aria-labelledby="news-heading">
+        <Opener
+          id="news-heading"
+          title="News"
+          artwork="k1-kick-follow"
+          at={38}
+          aside={<Link href="/news">All news</Link>}
+        />
+        <div className="news">
+          {latestNews.map((post) => (
+            <NewsRow key={post.slug} post={post} />
+          ))}
         </div>
       </section>
     </div>

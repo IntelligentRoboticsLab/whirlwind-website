@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
     // [75]). We render some images at 85, so both must be declared.
     qualities: [75, 85],
   },
+  async redirects() {
+    return [
+      // Old route from before the redesign: socials became the Team page.
+      { source: "/socials", destination: "/team", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

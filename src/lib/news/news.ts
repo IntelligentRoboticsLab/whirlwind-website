@@ -9,6 +9,7 @@ import remarkHtml from "remark-html";
 import type { StaticImageData } from "next/image";
 import { z } from "zod";
 
+import { markNameInHtml } from "@/lib/name";
 import { coverImages } from "./cover-images";
 import { galleryImages, type GalleryImage } from "./gallery-images";
 
@@ -21,6 +22,8 @@ const Frontmatter = z.object({
   author: z.string().optional(),
   tags: z.array(z.string()).optional(),
   coverCredit: z.string().optional(),
+  // What the cover shows, where and when. Optional; shown under the lead photo.
+  coverCaption: z.string().optional(),
 });
 
 export type NewsPost = {
@@ -32,6 +35,7 @@ export type NewsPost = {
   tags?: string[];
   coverImage?: StaticImageData;
   coverCredit?: string;
+  coverCaption?: string;
   gallery?: GalleryImage[];
   contentHtml: string;
 };
@@ -42,7 +46,7 @@ async function renderMarkdown(body: string): Promise<string> {
     .use(remarkBreaks)
     .use(remarkHtml)
     .process(body);
-  return String(file);
+  return markNameInHtml(String(file));
 }
 
 async function loadNewsPosts(): Promise<NewsPost[]> {
@@ -82,6 +86,7 @@ async function loadNewsPosts(): Promise<NewsPost[]> {
         tags: fm.tags,
         coverImage: coverImages[slug],
         coverCredit: fm.coverCredit,
+        coverCaption: fm.coverCaption,
         gallery: galleryImages[slug],
         contentHtml,
       } satisfies NewsPost;

@@ -3,7 +3,7 @@ title: "European Commissioner Zaharieva watches robot football during visit to U
 date: 2026-06-23
 summary: "European Commissioner Ekaterina Zaharieva watched a robot football match during a visit to UvA at Amsterdam Science Park."
 author: "Team whIRLwind"
-tags: ["event", "demo", "2026"]
+tags: ["Event", "Demo", "2026"]
 coverCredit: "Photo: Ljilja Suvajdžić"
 ---
 

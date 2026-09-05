@@ -5,86 +5,94 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import logoDark from "@/assets/logo_dark_full.svg";
 import logoLight from "@/assets/logo_light.svg";
 
-import NavToggle from "./NavToggle";
-import LinkButton from "./LinkButton";
-import NavLinks from "./NavLinks";
+const navLinks = [
+  { href: "/team", label: "Team" },
+  { href: "/news", label: "News" },
+  { href: "/publications", label: "Publications" },
+  { href: "/sponsors", label: "Sponsors" },
+  { href: "/press", label: "Press" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    document.body.classList.toggle("mobile-nav-open", open);
-    return () => {
-      document.body.classList.remove("mobile-nav-open");
-    };
-  }, [open]);
-
-  useEffect(() => {
     if (!open) return;
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
     };
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [open]);
-
-  const toggleMenu = () => setOpen((prev) => !prev);
-  const closeMenu = () => setOpen(false);
 
   return (
-    <header className={`site-header ${open ? "site-header--open" : ""}`}>
-      <div className="site-container nav">
-        <Link
-          href="/"
-          className="brand"
-          aria-label="Team whIRLwind home"
-          onClick={closeMenu}
-        >
+    <header className={`header${open ? " header--open" : ""}`}>
+      <div className="container header__inner">
+        <Link href="/" className="brand" aria-label="whIRLwind home">
+          <Image
+            src={logoDark}
+            alt="whIRLwind"
+            height={54}
+            width={150}
+            className="only-light"
+            priority
+          />
           <Image
             src={logoLight}
-            width={240}
-            height={80}
-            alt="WhIRLwind logo"
-            className="logo"
+            alt="whIRLwind"
+            height={54}
+            width={150}
+            className="only-dark"
             priority
           />
         </Link>
 
-        <NavToggle open={open} onToggle={toggleMenu} />
-
-        <nav
-          id="primary-navigation"
-          aria-label="Primary"
-          className={`nav-list-container${open ? " is-open" : ""}`}
+        <button
+          type="button"
+          className="nav__toggle"
+          aria-label="Menu"
+          aria-expanded={open}
+          aria-controls="primary-navigation"
+          onClick={() => setOpen((v) => !v)}
         >
-          <NavLinks onNavigate={closeMenu} currentPath={pathname} />
+          {/* three lines that turn into a cross while open; see globals.css, .nav__icon */}
+          <svg
+            className="nav__icon"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <rect x="3" y="5" width="18" height="2" />
+            <rect x="3" y="11" width="18" height="2" />
+            <rect x="3" y="17" width="18" height="2" />
+          </svg>
+        </button>
 
-          <LinkButton
-            href="/contact"
-            label="Get in touch"
-            variant="primary"
-            className="nav-cta nav-cta--mobile"
-            ariaLabel="Get in touch"
-            onNavigate={closeMenu}
-          />
+        <nav id="primary-navigation" className="nav" aria-label="Primary">
+          <div className="nav__list">
+            {navLinks.map((link) => {
+              const current =
+                pathname === link.href || pathname.startsWith(link.href + "/");
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={current ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
         </nav>
-
-        <LinkButton
-          href="/contact"
-          label="Get in touch"
-          variant="primary"
-          className="nav-cta nav-cta--desktop"
-          ariaLabel="Get in touch"
-        />
       </div>
     </header>
   );

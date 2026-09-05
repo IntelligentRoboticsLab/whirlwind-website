@@ -1,38 +1,58 @@
 import type { Metadata, Viewport } from "next";
+import { TikTok_Sans } from "next/font/google";
+
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import "./globals.scss";
+import "@/styles/brand.css";
+import "./globals.css";
 
-const logoSingleDark = new URL(
-  "../assets/logo_single_dark.svg",
-  import.meta.url,
-).toString();
+// One family for everything. Variable weight; the optical size, slant and
+// width axes are what the wordmark slant (.t-result) and the scoreboard
+// numerals (.t-score) use. See DESIGN.md, section 5.
+const tiktokSans = TikTok_Sans({
+  subsets: ["latin", "latin-ext"],
+  axes: ["opsz", "slnt", "wdth"],
+  variable: "--font-sans",
+  display: "swap",
+  // Google has no metrics for a synthetic fallback yet; use the plain stack.
+  adjustFontFallback: false,
+  fallback: ["Helvetica Neue", "Arial", "sans-serif"],
+});
+
+const description =
+  "whIRLwind is the humanoid robotics team of the Intelligent Robotics Lab at the University of Amsterdam. We play in the RoboCup Humanoid Soccer League with Booster K1 robots.";
 
 export const metadata: Metadata = {
-  title: "whIRLwind Amsterdam",
-  description:
-    "Humanoid robotics team from the Intelligent Robotics Lab at the University of Amsterdam.",
+  metadataBase: new URL("https://whirlwind.team"),
+  title: {
+    default: "whIRLwind Amsterdam",
+    template: "%s | whIRLwind Amsterdam",
+  },
+  description,
   icons: {
+    // favicon.svg switches the indigo blades to white under
+    // prefers-color-scheme: dark; the .ico is the fallback for browsers
+    // without SVG icon support.
     icon: [
-      { url: logoSingleDark, type: "image/svg+xml" },
-      {
-        url: logoSingleDark,
-        rel: "shortcut icon",
-        type: "image/svg+xml",
-      },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "48x48 32x32 16x16" },
     ],
-    apple: logoSingleDark,
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
+    siteName: "whIRLwind Amsterdam",
     title: "whIRLwind Amsterdam",
-    description:
-      "Humanoid robotics team from the Intelligent Robotics Lab at the University of Amsterdam.",
+    description,
+    images: [{ url: "/og.jpg", width: 2048, height: 1152, alt: "The Booster K1, rendered from its model." }],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a1833",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf9f6" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d0c22" },
+  ],
 };
 
 export default function RootLayout({
@@ -41,13 +61,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={tiktokSans.variable}>
       <body>
-        <div className="site-background" aria-hidden="true" />
+        <div className="top-bar" aria-hidden="true" />
         <SiteHeader />
-
-        <main className="site-main">{children}</main>
-
+        <main id="main" className="site-main">
+          {children}
+        </main>
         <SiteFooter />
       </body>
     </html>

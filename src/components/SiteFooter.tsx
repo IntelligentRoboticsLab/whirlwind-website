@@ -1,32 +1,58 @@
-import Link from "next/link";
-
-import { siteContact } from "@/lib/site-content";
+import FooterCrest from "./FooterCrest";
+import Name from "./Name";
+import { siteContact, socialChannels, sponsors } from "@/lib/site-content";
 
 export default function SiteFooter() {
   return (
-    <footer className="site-footer">
-      <div className="site-container site-footer__grid">
-        <div className="site-footer__brand">
-          <p className="site-footer__kicker">whIRLwind Amsterdam</p>
-          <p className="site-footer__summary">
-            The humanoid robotics team of the Intelligent Robotics Lab at the
-            University of Amsterdam.
+    <footer className="footer">
+      <FooterCrest />
+      <div className="container footer__inner">
+        <div className="footer__col">
+          <p className="t-body">
+            <Name /> is the humanoid robotics team of the Intelligent Robotics
+            Lab, University of Amsterdam.
           </p>
+          <div className="sponsors">
+            <span className="t-meta">Supported by</span>
+            {sponsors.map((sponsor) => (
+              <a
+                key={sponsor.name}
+                className="sponsor"
+                href={sponsor.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={sponsor.name}
+                style={{
+                  ["--logo" as string]: `url(${sponsor.logo.src})`,
+                  aspectRatio: `${sponsor.logoWidth} / ${sponsor.logoHeight}`,
+                }}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="site-footer__column">
-          <p className="site-footer__label">Navigate</p>
-          <Link href="/#team">Team</Link>
-          <Link href="/#news">News</Link>
-          <Link href="/publications">Publications</Link>
-          <Link href="/socials">Socials</Link>
+        <div className="footer__col t-body">
+          {socialChannels.map((channel) => (
+            <a
+              key={channel.name}
+              href={channel.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {channel.name}
+            </a>
+          ))}
         </div>
 
-        <div className="site-footer__column">
-          <p className="site-footer__label">Contact</p>
+        <div className="footer__col t-body">
+          <address>
+            {siteContact.addressLines.map((line) => (
+              <span key={line} style={{ display: "block" }}>
+                {line}
+              </span>
+            ))}
+          </address>
           <a href={`mailto:${siteContact.email}`}>{siteContact.email}</a>
-          <Link href="/contact">Contact page</Link>
-          <p>{siteContact.addressLines.join(", ")}</p>
         </div>
       </div>
     </footer>

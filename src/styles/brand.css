@@ -1,0 +1,539 @@
+/*
+ * whIRLwind brand tokens and type roles.
+ * The prose rules live in DESIGN.md at the repo root. This file is the
+ * mechanical half: read these tokens with var(), use these role classes,
+ * and do not declare parallel ones in page CSS.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* The two brand colours, from the logo. Constant in both modes. */
+  --orange: #f26722;
+  --indigo: #2c3086;
+
+  /* Light canvas */
+  --paper: #faf9f6;
+  --ink: var(--indigo);
+  --ink-2: #55537a;
+  --rule: #e2e0ea;
+
+  /* Type */
+  /* --font-sans is set by next/font in layout.tsx; this is the fallback stack. */
+  --font-fallback: "TikTok Sans", "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing, 4px base */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Shape */
+  --radius: 4px; /* inputs only; buttons are cut, photographs are square */
+
+  /* Layout */
+  --container: min(72rem, 100% - 3rem);
+  --measure: 65ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0d0c22;
+    --ink: #f2f0ea;
+    --ink-2: #aeabc6;
+    --rule: #2a2846;
+  }
+}
+
+/* Base */
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans, var(--font-fallback));
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Links: marker-pen. A 2px orange bar under the word that rises to fill it on hover,
+   cut at the wordmark's slant. Nav links (.nav a) show the bar only on the current page. */
+a,
+.link {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block; /* shrink-to-fit so the bar hugs the word; long link text wraps inside */
+  max-width: 100%;
+  z-index: 0;
+}
+
+a::before,
+.link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: skewX(-6deg);
+  z-index: -1;
+}
+
+a:hover::before,
+.link:hover::before {
+  height: 100%;
+}
+
+a:hover,
+.link:hover {
+  color: var(--indigo);
+}
+
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Type roles. Ten of them. All in --ink; hierarchy is size, weight and space. Do not add sizes or weights outside this list. */
+
+.t-display {
+  font-size: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.t-title {
+  font-size: clamp(2rem, 1.4rem + 1.6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.t-heading {
+  font-size: 1.5rem;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.t-subheading {
+  font-size: 1.125rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.t-lede {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.45;
+  max-width: var(--measure);
+}
+
+.t-body {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: var(--measure);
+}
+
+.t-caption {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+.t-meta {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The wordmark's style, allowed only on finishing positions such as "3rd". */
+.t-result {
+  font-weight: 900;
+  font-variation-settings: "slnt" -6; /* the wordmark's slant, from the font's own axis */
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Match scores: the one extended setting on the site. Ours, colon, theirs. */
+.t-score {
+  font-weight: 800;
+  font-stretch: 150%;
+  font-variation-settings: "wdth" 150;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.t-score .colon {
+  color: var(--orange);
+}
+
+/* The orange line: 4px above the header on every page, and on the left of the next fixture. */
+.top-bar {
+  height: 4px;
+  background: var(--orange);
+}
+
+.is-next {
+  position: relative; /* the bar sits in the left gutter so the row's columns stay aligned with its neighbours */
+}
+
+.is-next::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-4));
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--orange);
+}
+
+/* Theme-only content: an element shown in one theme and hidden in the other,
+   for images that exist in two versions (logo, mark, artwork). */
+.only-light { display: block; }
+.only-dark { display: none; }
+
+@media (prefers-color-scheme: dark) {
+  .only-light { display: none; }
+  .only-dark { display: block; }
+}
+
+/* Layout primitives */
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--space-6);
+}
+
+@media (min-width: 40rem) {
+  .grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+
+/* The bib. One primary button per page at most: solid orange, ink text,
+   cut at the wordmark's slant. Markup: <a class="button"><span>Label</span></a> */
+
+.button {
+  display: inline-block;
+  padding: var(--space-3) calc(var(--space-4) + 0.2rem);
+  border: 0;
+  border-radius: 0;
+  background: var(--orange);
+  color: var(--indigo);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transform: skewX(-6deg);
+}
+
+.button::before {
+  content: none;
+}
+
+.button > span {
+  display: inline-block;
+  transform: skewX(6deg);
+}
+
+.button:hover {
+  color: var(--indigo);
+}
+
+/* Photographs: square corners, no frame, caption below. */
+
+.figure {
+  margin: 0;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure figcaption {
+  margin-top: var(--space-3);
+}
+
+/* Motion: only the underline transition, and none if the visitor asks. */
+
+@media (prefers-reduced-motion: no-preference) {
+  a::before,
+  .link::before {
+    transition: height 150ms ease;
+  }
+  a,
+  .link {
+    transition: color 150ms ease;
+  }
+}
+
+/* Header: logo at 3.4rem, nav items plain at rest; the current page carries the
+   skewed bar, and hover fills the word like any link. */
+.brand .logo {
+  height: 3.4rem;
+  width: auto;
+}
+
+.brand::before {
+  content: none;
+}
+
+.nav a {
+  font-weight: 500;
+  padding: var(--space-1) 0.4rem;
+  margin: 0 -0.4rem;
+}
+
+.nav a::before {
+  height: 0;
+}
+
+.nav a[aria-current="page"]::before {
+  height: 2px;
+}
+
+.nav a:hover::before {
+  height: 100%;
+}
+
+/* Links inside running text (paragraphs, list items, table cells, season rows)
+   flow inline so they wrap with the sentence. The same bar and fill, drawn as
+   backgrounds so every line fragment gets its own: a 2px bar at rest, and on
+   hover a fill cut at the wordmark's slant. The fill is a 96deg gradient whose
+   ends are inset by 0.16em, the fill's height (about 1.55em) times sin 6deg,
+   which gives the same parallelogram the skewed standalone links have. */
+p a,
+li a,
+td a,
+.result a {
+  display: inline;
+  padding: 0.12em 0.1em 0.14em;
+  margin-inline: -0.1em;
+  --fill: linear-gradient(
+    96deg,
+    transparent 0.16em,
+    var(--orange) 0.16em calc(100% - 0.16em),
+    transparent calc(100% - 0.16em)
+  );
+  background-image: var(--fill), linear-gradient(var(--orange), var(--orange));
+  background-repeat: no-repeat;
+  background-position: 0 100%, 0 100%;
+  background-size: 100% 0, 100% 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+p a::before,
+li a::before,
+td a::before,
+.result a::before {
+  content: none;
+}
+
+p a:hover,
+li a:hover,
+td a:hover,
+.result a:hover {
+  background-size: 100% 100%, 100% 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  p a,
+  li a,
+  td a,
+  .result a {
+    transition: background-size 150ms ease, color 150ms ease;
+  }
+}
+
+/* Selection, scrollbar and caret are orange too. */
+::selection {
+  background: var(--orange);
+  color: var(--indigo);
+}
+
+html {
+  scrollbar-color: var(--orange) var(--paper);
+}
+
+input,
+textarea {
+  caret-color: var(--orange);
+}
+
+/* The IRL in the name is always orange: wh<span class="irl">IRL</span>wind, in every role. */
+.irl {
+  color: var(--orange);
+}
+
+/* Meta lines separate items with the mark at x-height. */
+.meta-dots {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.meta-dots .dot {
+  height: 0.7em;
+  width: auto;
+}
+
+/* Sponsor logos: white logo files used as a mask, filled with --ink-2. Set --logo per element. */
+.sponsor {
+  display: block;
+  height: 28px;
+  width: auto;
+  background: var(--ink-2);
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  -webkit-mask-source-type: luminance;
+  mask: var(--logo) center / contain no-repeat;
+  mask-mode: luminance;
+}
+
+.sponsor::before {
+  content: none;
+}
+
+.sponsor:hover {
+  background: var(--ink);
+}
+
+/* The crest: the mark, large, cropped by the page edge behind the footer. */
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer > .container {
+  position: relative;
+  /* the container is layered above the crest; where its columns are not, clicks
+     fall through to the crest (for the six-seven, below) */
+  pointer-events: none;
+}
+
+.footer__col {
+  pointer-events: auto;
+}
+
+.footer {
+  padding-block: var(--space-16);
+}
+
+/* Columns are content-width with equal gaps; the right 18rem is kept free for the crest. */
+@media (min-width: 64rem) {
+  .footer > .container {
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    justify-content: space-between;
+    column-gap: var(--space-12);
+    padding-right: 18rem;
+  }
+}
+
+/* The mark's box is square and centred on the swirl, so about a tenth of it is
+   empty on the right and bottom; the offsets below put the swirl itself where it was. */
+/* 26rem wide, 8rem of it off the page: it stays inside the 18rem strip the columns leave free */
+.footer .crest {
+  position: absolute;
+  right: -8rem;
+  bottom: -7rem;
+  display: block;
+  width: 26rem;
+}
+
+/* the crest takes clicks (for the six-seven, below) but gives nothing away: no cursor,
+   no focus; the footer columns are layered above it, so links there are unaffected */
+.crest-hit {
+  display: contents;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Seven quick taps on the crest and the K1 does the six-seven in the middle of the
+   screen, head to hips, facing you: a sprite strip, one cycle of --frames frames,
+   stepped through --cycles times, then removed. Under prefers-reduced-motion the
+   first frame stands still instead. */
+.sixseven {
+  --h: min(30rem, 70vh);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  height: var(--h);
+  width: calc(var(--h) * var(--ratio));
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sixseven img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  animation: sixseven var(--cycle) steps(var(--frames)) var(--cycles);
+}
+
+@keyframes sixseven {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sixseven img {
+    animation: none;
+  }
+}
+
+.footer .crest img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 64rem) {
+  .footer .crest {
+    width: 18rem;
+    right: -6rem;
+    bottom: -5rem;
+  }
+}

@@ -3,7 +3,7 @@ title: "whIRLwind takes 4th place at RoboCup 2026 Incheon!"
 date: 2026-07-06
 summary: "We finished 4th in the first edition of the Humanoid Soccer League at RoboCup 2026 in Incheon, South Korea."
 author: "Team whIRLwind"
-tags: ["competition", "RoboCup", "2026"]
+tags: ["Competition", "RoboCup", "2026"]
 ---
 
 We finished 4th in the Humanoid Soccer League at RoboCup 2026 in Incheon, South Korea.
