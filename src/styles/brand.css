@@ -444,6 +444,13 @@ textarea {
 
 .footer > .container {
   position: relative;
+  /* the container is layered above the crest; where its columns are not, clicks
+     fall through to the crest (for the six-seven, below) */
+  pointer-events: none;
+}
+
+.footer__col {
+  pointer-events: auto;
 }
 
 .footer {
@@ -470,7 +477,51 @@ textarea {
   bottom: -7rem;
   display: block;
   width: 26rem;
+}
+
+/* the crest takes clicks (for the six-seven, below) but gives nothing away: no cursor,
+   no focus; the footer columns are layered above it, so links there are unaffected */
+.crest-hit {
+  display: contents;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Seven quick taps on the crest and the K1 does the six-seven in the middle of the
+   screen, head to hips, facing you: a sprite strip, one cycle of --frames frames,
+   stepped through --cycles times, then removed. Under prefers-reduced-motion the
+   first frame stands still instead. */
+.sixseven {
+  --h: min(30rem, 70vh);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  height: var(--h);
+  width: calc(var(--h) * var(--ratio));
+  transform: translate(-50%, -50%);
+  overflow: hidden;
   pointer-events: none;
+}
+
+.sixseven img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  animation: sixseven var(--cycle) steps(var(--frames)) var(--cycles);
+}
+
+@keyframes sixseven {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sixseven img {
+    animation: none;
+  }
 }
 
 .footer .crest img {

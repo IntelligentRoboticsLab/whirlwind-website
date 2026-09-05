@@ -1,12 +1,11 @@
-import Artwork from "./Artwork";
+import FooterCrest from "./FooterCrest";
 import Name from "./Name";
 import { siteContact, socialChannels, sponsors } from "@/lib/site-content";
 
 export default function SiteFooter() {
   return (
     <footer className="footer">
-      {/* the crest: the logo as a solid object, cropped by the page edges (DESIGN.md, section 3) */}
-      <Artwork name="mark-3d" className="crest" sizes="26rem" />
+      <FooterCrest />
       <div className="container footer__inner">
         <div className="footer__col">
           <p className="t-body">
