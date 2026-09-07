@@ -26,11 +26,13 @@ const sumSmall = figures.filter((f) => !f.optional).reduce((a, f) => a + f.src.w
 
 export default function Lineup() {
   return (
-    <div className="lineup">
+    <div
+      className="lineup"
+      style={{ ["--sum" as string]: sum.toFixed(2), ["--sum-small" as string]: sumSmall.toFixed(2) }}
+    >
       <NoiseField className="lineup__field" />
       <div
         className="lineup__row"
-        style={{ ["--sum" as string]: sum.toFixed(2), ["--sum-small" as string]: sumSmall.toFixed(2) }}
         role="img"
         aria-label="The K1 in five poses from left to right: walking, winding up, striking the ball, following through, and as goalkeeper taking the ball."
       >
