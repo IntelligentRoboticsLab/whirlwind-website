@@ -5,8 +5,8 @@ import fieldLight from "@/assets/artwork/field-light.jpg";
 
 import NoiseFieldCanvas from "./NoiseFieldCanvas";
 
-// The field under the landing lineup: slow noise and film grain in the brand
-// colours. A still frame of it (one per theme, from tools/artwork/field.py)
+// The field under the landing lineup: slow drifting smoke in orange and
+// indigo, no grain. A still frame of it (one per theme, from tools/artwork/field.py)
 // is always in the markup, so the view is complete before any script runs.
 // On top of it a WebGL canvas draws the moving version; without WebGL, or
 // with prefers-reduced-motion, the canvas is removed and the still stays.
