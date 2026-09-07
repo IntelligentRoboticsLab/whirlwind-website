@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """The still frames of the noise field under the home lineup, one per theme.
-Same maths as the WebGL shader in src/components/NoiseField.tsx at t = 7.
+Same maths as the WebGL shader in src/components/NoiseFieldCanvas.tsx at t = 7.
 usage: field.py [width] [height]   (default 1920 x 760) -> src/assets/artwork/field-{light,dark}.jpg"""
 
 import sys, numpy as np
@@ -45,20 +45,21 @@ ys, xs = np.mgrid[0:H, 0:W].astype(np.float64)
 uv = np.stack([(xs + 0.5) / W, (ys + 0.5) / H], -1)  # uv.y is 1 at the ground
 aspect = W / H
 q = np.stack([uv[..., 0] * aspect * 2.2 + T * 0.09, uv[..., 1] * 2.2 - T * 0.035], -1)
+# the smoke: warped noise, denser towards the ground
 n = fbm(q + 0.35 * fbm(q * 1.7 - T * 0.06)[..., None])
 g = np.clip((uv[..., 1] - 0.15) / 0.8, 0, 1)
 ground = g * g * (3 - 2 * g)
-n = (n - 0.42) * 1.6 * ground
+d = np.clip((n - 0.42) * 1.6 * ground, 0, 1)
+# its colour: a second, slower field says where it is orange (0) and where indigo (1),
+# about half each; indigo needs more weight than orange to show, most of all on the dark ground
+h = np.clip((fbm(q + [-T * 0.03, T * 0.02] + 4.0) - 0.40) / 0.16, 0, 1)
+k = h * h * (3 - 2 * h)
 orange = np.array([0.949, 0.404, 0.133])
 indigo = np.array([0.173, 0.188, 0.525])
-# grain: gl_FragCoord.y counts from the bottom
-frag = np.stack([xs + 0.5, (H - 1 - ys) + 0.5], -1)
-grain = hashv(frag + [np.mod(T * 61.0, 1) * 917.0, np.mod(T * 37.0, 1) * 613.0]) - 0.5
-for theme, paper in (("light", [0.980, 0.976, 0.965]), ("dark", [0.051, 0.047, 0.133])):
+for theme, paper, blue in (("light", [0.980, 0.976, 0.965], 0.65), ("dark", [0.051, 0.047, 0.133], 0.9)):
     c = np.broadcast_to(np.array(paper), (H, W, 3)).copy()
-    c = c + (orange - c) * (np.clip(n, 0, 1) * 0.55)[..., None]
-    c = c + (indigo - c) * (np.clip(n - 0.55, 0, 1) * 0.9)[..., None]
-    c = c + (grain * 0.09 * (0.35 + ground))[..., None]
+    c = c + (orange - c) * (d * 0.55 * (1 - k))[..., None]
+    c = c + (indigo - c) * (d * blue * k)[..., None]
     out = f"src/assets/artwork/field-{theme}.jpg"
     Image.fromarray((c.clip(0, 1) * 255).round().astype(np.uint8)).save(
         out, quality=88, subsampling=0, optimize=True

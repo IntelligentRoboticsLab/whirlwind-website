@@ -30,14 +30,17 @@ void main() {
   vec3 indigo = vec3(0.173, 0.188, 0.525);
   vec3 orange = vec3(0.949, 0.404, 0.133);
   vec2 q = vec2(uv.x * aspect * 2.2, uv.y * 2.2) + vec2(u_t * 0.09, -u_t * 0.035);
+  // the smoke: warped noise, denser towards the ground
   float n = fbm(q + 0.35 * fbm(q * 1.7 - u_t * 0.06));
   float ground = smoothstep(0.15, 0.95, uv.y);
-  n = (n - 0.42) * 1.6 * ground;
+  float d = clamp((n - 0.42) * 1.6 * ground, 0.0, 1.0);
+  // its colour: a second, slower field says where it is orange (0) and where indigo (1),
+  // about half each; indigo needs more weight than orange to show, most of all on the dark ground
+  float k = smoothstep(0.40, 0.56, fbm(q + vec2(-u_t * 0.03, u_t * 0.02) + 4.0));
+  float blue = mix(0.65, 0.9, step(0.5, u_dark));
   vec3 c = paper;
-  c = mix(c, orange, clamp(n, 0.0, 1.0) * 0.55);
-  c = mix(c, indigo, clamp(n - 0.55, 0.0, 1.0) * 0.9);
-  float g = hash(gl_FragCoord.xy + vec2(fract(u_t * 61.0) * 917.0, fract(u_t * 37.0) * 613.0)) - 0.5;
-  c = c + g * 0.09 * (0.35 + ground);
+  c = mix(c, orange, d * 0.55 * (1.0 - k));
+  c = mix(c, indigo, d * blue * k);
   gl_FragColor = vec4(c, 1.0);
 }`;
 
