@@ -24,10 +24,9 @@ export type Sponsor = {
 export type SocialChannel = {
   name: string;
   url: string;
-  handle?: string;
+  handle: string;
   logo: StaticImageData;
   logoAlt: string;
-  description: string;
 };
 
 export const sponsors: Sponsor[] = [
@@ -72,7 +71,6 @@ export const socialChannels: SocialChannel[] = [
     handle: "whIRLwind Amsterdam",
     logo: LinkedInLogo,
     logoAlt: "LinkedIn logo",
-    description: "Results and team announcements.",
   },
   {
     name: "Instagram",
@@ -80,7 +78,6 @@ export const socialChannels: SocialChannel[] = [
     handle: "@whirlwind.ams",
     logo: InstagramLogo,
     logoAlt: "Instagram logo",
-    description: "Photos and clips from the lab, travel, and match days.",
   },
   {
     name: "GitHub",
@@ -88,7 +85,6 @@ export const socialChannels: SocialChannel[] = [
     handle: "Intelligent Robotics Lab",
     logo: GitHubLogo,
     logoAlt: "GitHub logo",
-    description: "Code and tooling from the lab we work in.",
   },
 ];
 

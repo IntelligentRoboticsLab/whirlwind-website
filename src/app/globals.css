@@ -559,9 +559,18 @@ button {
 
 /* ------------------------------------------------------------------ social channels (team page) */
 
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .channel {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-3);
 }
 
@@ -570,7 +579,6 @@ button {
   flex: 0 0 auto;
   width: 1.1em;
   height: 1.1em;
-  align-self: center;
   background: var(--ink);
   -webkit-mask: var(--logo) center / contain no-repeat;
   -webkit-mask-source-type: alpha;
@@ -919,10 +927,18 @@ body:has(.lightbox[open]) {
 /* ------------------------------------------------------------------ landing lineup */
 
 .lineup {
+  /* the figure band is derived from this, so the two can't drift apart when
+     the rem cap wins over the vh term on tall screens (see .lineup__row). When
+     the width is the limit instead, the lineup shrinks to fit the figures
+     rather than leaving a gap above their heads. --sum is set inline. */
+  /* tallest figure = 83% of the lineup: 8% ground below, 9% air above; the
+     same ratio on every device, whether height or width is the limit */
+  --fill: 0.83;
+  --band-w: calc((100vw - 5vw) / var(--sum, 3.5));
+  --lineup-h: min(max(22rem, min(72vh, 44rem)), calc(var(--band-w) / var(--fill)));
   position: relative;
   width: 100%;
-  height: min(72vh, 44rem);
-  min-height: 22rem;
+  height: var(--lineup-h);
   overflow: hidden;
 }
 
@@ -943,7 +959,7 @@ body:has(.lightbox[open]) {
 }
 
 .lineup__row {
-  --band: min(64vh, 42rem, calc((100vw - 5vw) / var(--sum, 3.5)));
+  --band: calc(var(--lineup-h) * var(--fill));
   position: absolute;
   left: 0;
   right: 0;
@@ -962,11 +978,8 @@ body:has(.lightbox[open]) {
 
 @media (max-width: 64rem) {
   .lineup {
-    height: 44vh;
-  }
-
-  .lineup__row {
-    --band: min(34vh, calc((100vw - 6vw) / var(--sum-small, 2)));
+    --band-w: calc((100vw - 6vw) / var(--sum-small, 2));
+    --lineup-h: min(max(22rem, 44vh), calc(var(--band-w) / var(--fill)));
   }
 
   .lineup__fig--optional {

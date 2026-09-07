@@ -17,7 +17,7 @@ export default function TeamPage() {
         <div className="opening__text">
           <h1 className="t-title">Team</h1>
           <p className="t-lede">
-            <Name /> is a team of students from the University of Amsterdam dedicated to pushing the boundaries of robotics and AI, and one of the top teams in the RoboCup Humanoid Soccer League's middle-sized division. We program humanoid robots to compete in fully autonomous robot football competitions globally, with a history going back to 2008. As part of the Intelligent Robotics Lab (IRL) we publish novel research related to our progress, provide workshops for students, and participate in educational events or conferences. One goal at a time, we try to bring the world closer to the shared RoboCup goal of humanoid robots defeating the top football team in 2050!
+            <Name /> is a team of students from the University of Amsterdam dedicated to pushing the boundaries of robotics and AI, and one of the top teams in the RoboCup Humanoid Soccer League&apos;s middle-sized division. We program humanoid robots to compete in fully autonomous robot football competitions globally, with a history going back to 2008. As part of the Intelligent Robotics Lab (IRL) we publish novel research related to our progress, provide workshops for students, and participate in educational events or conferences. One goal at a time, we try to bring the world closer to the shared RoboCup goal of humanoid robots defeating the top football team in 2050!
           </p>
           <p className="t-body">
             Want to join? <Link href="/contact">Send us a message</Link>. You
@@ -38,23 +38,18 @@ export default function TeamPage() {
         <p className="t-body">
           We post from competitions, demos and the lab. The code is on GitHub.
         </p>
-        <ul className="stack stack--tight t-body channels">
+        <ul className="channels t-body">
           {socialChannels.map((channel) => (
             <li key={channel.name} className="channel">
               <span
                 className="channel__logo"
-                aria-hidden="true"
+                role="img"
+                aria-label={channel.name}
                 style={{ ["--logo" as string]: `url(${channel.logo.src})` }}
               />
-              <span>
-                <a href={channel.url} target="_blank" rel="noopener noreferrer">
-                  {channel.name}
-                </a>
-                {channel.handle ? (
-                  <span className="t-meta"> {channel.handle}</span>
-                ) : null}{" "}
-                <span>{channel.description}</span>
-              </span>
+              <a href={channel.url} target="_blank" rel="noopener noreferrer">
+                {channel.handle}
+              </a>
             </li>
           ))}
         </ul>
