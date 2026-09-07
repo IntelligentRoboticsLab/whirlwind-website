@@ -139,7 +139,7 @@ Rules:
 
 Container: `min(72rem, 100% - 3rem)` centred. Twelve columns at 64rem and above, six from 40rem, four below. Column gutter is `--space-6` (1.5rem).
 
-Photographs may leave the container. A lead photograph is full-bleed or spans all twelve columns; its caption sits under it inside the text column, left aligned to the text.
+Photographs may leave the container. A lead photograph is full-bleed or spans all twelve columns; its caption sits under it inside the text column, left aligned to the text. Where a page opens with a paragraph or two of text rather than a title alone, the title may run across all twelve columns with the lead photograph taking the five columns to the right of the reading column under it (`.opening--split`), stacking under the text below 64rem.
 
 Text lives in a reading column of seven columns on desktop, starting at column one or column three, never centred. A caption or aside may use the remaining columns on the right.
 

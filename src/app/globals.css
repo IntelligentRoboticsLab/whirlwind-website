@@ -309,6 +309,29 @@ button {
   object-position: center;
 }
 
+/* the split opening (team): the title runs across the top, then the text keeps
+   its seven-column reading measure and the photograph takes the five columns to
+   its right, at its native ratio; below the twelve-column breakpoint it stacks
+   under the text. The title is a direct child here, so the section owns the
+   title-to-text gap */
+.opening--split {
+  gap: var(--space-6);
+}
+
+@media (min-width: 64rem) {
+  .opening--split {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: var(--space-6);
+    row-gap: var(--space-6);
+    align-items: start;
+  }
+
+  .opening--split > .t-title {
+    grid-column: 1 / -1;
+  }
+}
+
 /* ------------------------------------------------------------------ openers (renders in the page) */
 
 /* a heading band with a render standing on the rule underneath; --x says where along it */
