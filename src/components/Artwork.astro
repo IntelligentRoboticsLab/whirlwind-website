@@ -1,0 +1,69 @@
+---
+import { Image, getImage } from "astro:assets";
+
+import { artwork, type ArtworkName, type ArtworkPiece } from "@/lib/artwork";
+import { CUTOUT_WIDTHS, PHOTO_WIDTHS, responsive } from "@/lib/images";
+
+// A piece from the artwork series, in the version that matches the theme.
+// The ground of each file is the page colour, so it sits on the page with no
+// frame. One <picture>, two sources: the browser downloads only the one it uses.
+type Props = {
+  name: ArtworkName;
+  sizes?: string;
+  priority?: boolean;
+  class?: string;
+  style?: string;
+  // the transparent cutout instead of the framed piece; it works on either ground
+  cutout?: boolean;
+  // the srcset widths; the cutouts default to the small list
+  widths?: number[];
+};
+
+const {
+  name,
+  sizes = "(max-width: 80rem) 100vw, 72rem",
+  priority = false,
+  class: className,
+  style,
+  cutout = false,
+  widths = cutout ? CUTOUT_WIDTHS : PHOTO_WIDTHS,
+} = Astro.props;
+
+const piece: ArtworkPiece = artwork[name];
+const useCut = cutout && piece.cut;
+
+// the framed piece: both grounds, the light one as the <img>
+const common = { quality: 85, sizes, format: "webp" as const };
+const dark = useCut ? null : await getImage({ src: piece.dark, ...responsive(piece.dark, widths), ...common });
+const light = useCut ? null : await getImage({ src: piece.light, ...responsive(piece.light, widths), ...common });
+---
+
+{
+  useCut && piece.cut ? (
+    <Image
+      src={piece.cut}
+      alt={piece.alt}
+      {...responsive(piece.cut, widths)}
+      sizes={sizes}
+      quality={85}
+      priority={priority}
+      class={className}
+      style={style}
+    />
+  ) : (
+    <picture class={className} style={style}>
+      <source media="(prefers-color-scheme: dark)" srcset={dark!.srcSet.attribute} sizes={sizes} />
+      <img
+        src={light!.src}
+        srcset={light!.srcSet.attribute}
+        sizes={sizes}
+        width={light!.attributes.width}
+        height={light!.attributes.height}
+        alt={piece.alt}
+        loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        fetchpriority={priority ? "high" : undefined}
+      />
+    </picture>
+  )
+}

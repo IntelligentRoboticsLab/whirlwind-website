@@ -2,7 +2,7 @@
 // ground and on the dark ground; <Artwork> picks the one that matches the theme.
 // Every piece also has a transparent cutout cropped to the subject, for the
 // openers, where the robot must stand exactly on the rule.
-import type { StaticImageData } from "next/image";
+import type { ImageMetadata } from "astro";
 
 import k1BodyLight from "@/assets/artwork/k1-body-light.jpg";
 import k1BodyDark from "@/assets/artwork/k1-body-dark.jpg";
@@ -47,9 +47,9 @@ import k1FallenBackDark from "@/assets/artwork/k1-fallen-back-dark.jpg";
 import k1FallenBackCut from "@/assets/artwork/cut/k1-fallen-back.png";
 
 export type ArtworkPiece = {
-  light: StaticImageData;
-  dark: StaticImageData;
-  cut?: StaticImageData; // transparent, cropped to the subject
+  light: ImageMetadata;
+  dark: ImageMetadata;
+  cut?: ImageMetadata; // transparent, cropped to the subject
   alt: string;
 };
 

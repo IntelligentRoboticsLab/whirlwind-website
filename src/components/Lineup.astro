@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+
+import walk from "@/assets/artwork/lineup/walk.png";
+import windup from "@/assets/artwork/lineup/windup.png";
+import contact from "@/assets/artwork/lineup/contact.png";
+import follow from "@/assets/artwork/lineup/follow.png";
+import keeper from "@/assets/artwork/lineup/keeper.png";
+import { responsive } from "@/lib/images";
+
+import NoiseField from "./NoiseField.astro";
+
+// The landing view: the K1 in profile, left to right, on the noise field.
+// Five cutouts rendered at one camera distance, so they share a scale. Each
+// figure's height is its pixel height relative to the tallest (751px) so the
+// feet line up on one ground. DESIGN.md, section 9, "Home".
+const figures = [
+  { src: walk, h: 718, optional: false },
+  { src: windup, h: 751, optional: true },
+  { src: contact, h: 713, optional: false },
+  { src: follow, h: 683, optional: true },
+  { src: keeper, h: 736, optional: false },
+];
+
+// sum of width/height ratios, so the row can be sized to fit the viewport
+const sum = figures.reduce((a, f) => a + f.src.width / 751, 0);
+const sumSmall = figures.filter((f) => !f.optional).reduce((a, f) => a + f.src.width / 751, 0);
+
+// a figure is at most a quarter of a wide viewport, or 40vw of a narrow one
+const FIGURE_WIDTHS = [320, 480, 640, 960, 1280];
+---
+
+<div class="lineup" style={`--sum: ${sum.toFixed(2)}; --sum-small: ${sumSmall.toFixed(2)}`}>
+  <NoiseField class="lineup__field" />
+  <div
+    class="lineup__row"
+    role="img"
+    aria-label="The K1 in five poses from left to right: walking, winding up, striking the ball, following through, and as goalkeeper taking the ball."
+  >
+    {
+      figures.map((f, i) => (
+        <Image
+          src={f.src}
+          alt=""
+          class={`lineup__fig${f.optional ? " lineup__fig--optional" : ""}`}
+          style={`--h: ${f.h}`}
+          {...responsive(f.src, FIGURE_WIDTHS)}
+          sizes="(max-width: 64rem) 40vw, 25vw"
+          priority={i < 3}
+        />
+      ))
+    }
+  </div>
+</div>

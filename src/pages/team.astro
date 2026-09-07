@@ -1,0 +1,64 @@
+---
+import Base from "@/layouts/Base.astro";
+import Figure from "@/components/Figure.astro";
+import Name from "@/components/Name.astro";
+import Opener from "@/components/Opener.astro";
+import { photo } from "@/lib/photos";
+import { socialChannels } from "@/lib/site-content";
+
+// the lead photo: the team and its robots on the pitch in the lab
+const leadPhoto = photo("2026-06-LAB42/LAB42-172.jpg");
+---
+
+<Base title="Team" description="Who whIRLwind is, how to join, and where to follow the team.">
+  <div class="page">
+    <section class="container opening opening--split" aria-label="Introduction">
+      <h1 class="t-title">Team</h1>
+      <div class="opening__text">
+        <p class="t-lede">
+          <Name /> is a team of students from the University of Amsterdam dedicated to pushing the boundaries of robotics
+          and AI, and one of the top teams in the RoboCup Humanoid Soccer League's middle-sized division. We program humanoid
+          robots to compete in fully autonomous robot football competitions globally, with a history going back to 2008. As
+          part of the Intelligent Robotics Lab (IRL) we publish novel research related to our progress, provide workshops
+          for students, and participate in educational events or conferences. One goal at a time, we try to bring the world
+          closer to the shared RoboCup goal of humanoid robots defeating the top football team in 2050!
+        </p>
+        <p class="t-body">
+          Want to join? <a href="/contact">Send us a message</a>. You don't need any robotics experience; most of us
+          started without it.
+        </p>
+      </div>
+      <Figure
+        src={leadPhoto.src}
+        alt={leadPhoto.alt}
+        caption="Join the whIRLwind family! We are always looking for new members!"
+        sizes="(max-width: 64rem) 100vw, 30rem"
+        priority
+      />
+    </section>
+
+    <section class="container section" aria-labelledby="follow-heading">
+      <Opener id="follow-heading" artwork="k1-kick-windup" at={80} second={{ artwork: "k1-walk-stride", at: 30 }}>
+        Follow along
+      </Opener>
+      <p class="t-body">We post from competitions, demos and the lab. The code is on GitHub.</p>
+      <ul class="channels t-body">
+        {
+          socialChannels.map((channel) => (
+            <li class="channel">
+              <span
+                class="channel__logo"
+                role="img"
+                aria-label={channel.name}
+                style={`--logo: url(${channel.logo.src})`}
+              />
+              <a href={channel.url} target="_blank" rel="noopener noreferrer">
+                {channel.handle}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Base>

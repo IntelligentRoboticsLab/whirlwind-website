@@ -1,0 +1,127 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image, getImage } from "astro:assets";
+
+import { responsive } from "@/lib/images";
+
+export type GridPhoto = {
+  src: ImageMetadata;
+  alt: string;
+  credit?: string;
+};
+
+// A uniform 3:2 grid, three across on desktop. Plain images by default; the
+// caption and credit are in the dialog every photograph opens, at full size,
+// with a bib button that downloads the original file. The dialog closes with
+// Escape, the Close link or a click outside it. DESIGN.md, section 7.
+//
+// The full-size version of each photograph is prepared here and carried on its
+// button; the script puts it in the one dialog under the grid.
+type Props = {
+  photos: GridPhoto[];
+  captions?: boolean;
+};
+
+const { photos, captions = false } = Astro.props;
+
+const full = await Promise.all(
+  photos.map((p) => getImage({ src: p.src, ...responsive(p.src), sizes: "100vw", quality: 85, format: "webp" })),
+);
+---
+
+<div class={captions ? "gallery gallery--captions" : "gallery"} data-gallery>
+  {
+    photos.map((p, i) => (
+      <figure class="figure">
+        <button
+          type="button"
+          class="gallery__open"
+          aria-label={`View at full size: ${p.alt}`}
+          data-src={full[i].src}
+          data-srcset={full[i].srcSet.attribute}
+          data-width={full[i].attributes.width}
+          data-height={full[i].attributes.height}
+          data-alt={p.alt}
+          data-credit={p.credit ?? "Photo: whIRLwind Amsterdam"}
+          data-pixels={`${p.src.width} × ${p.src.height} px`}
+          data-download={p.src.src}
+        >
+          <Image
+            src={p.src}
+            alt={p.alt}
+            {...responsive(p.src)}
+            sizes="(max-width: 40rem) 100vw, (max-width: 64rem) 50vw, 33vw"
+          />
+        </button>
+        {captions ? (
+          <figcaption>
+            <span class="t-caption">{p.alt}</span>
+            {p.credit ? <span class="t-meta">{p.credit}</span> : null}
+          </figcaption>
+        ) : null}
+      </figure>
+    ))
+  }
+
+  <dialog class="lightbox" aria-label="Photograph at full size">
+    <div class="lightbox__inner">
+      <img class="lightbox__img" alt="" sizes="100vw" decoding="async" />
+      <div class="lightbox__bar">
+        <div class="lightbox__text">
+          <span class="t-caption" data-caption></span>
+          <span class="t-meta"><span data-credit></span> · <span data-pixels></span></span>
+        </div>
+        <div class="lightbox__actions t-body">
+          <!-- the static import's URL is the original file, served as uploaded -->
+          <a class="button" href="#" download data-download>
+            <span>Download full resolution</span>
+          </a>
+          <button type="button" class="text-button link" data-close>Close</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-gallery]").forEach((gallery) => {
+    const dialog = gallery.querySelector<HTMLDialogElement>("dialog.lightbox");
+    if (!dialog) return;
+    const img = dialog.querySelector<HTMLImageElement>(".lightbox__img")!;
+    const caption = dialog.querySelector<HTMLElement>("[data-caption]")!;
+    const credit = dialog.querySelector<HTMLElement>("[data-credit]")!;
+    const pixels = dialog.querySelector<HTMLElement>("[data-pixels]")!;
+    const download = dialog.querySelector<HTMLAnchorElement>("[data-download]")!;
+
+    const open = (button: HTMLElement) => {
+      const d = button.dataset;
+      img.src = d.src ?? "";
+      img.srcset = d.srcset ?? "";
+      img.width = Number(d.width);
+      img.height = Number(d.height);
+      img.alt = d.alt ?? "";
+      caption.textContent = d.alt ?? "";
+      credit.textContent = d.credit ?? "";
+      pixels.textContent = d.pixels ?? "";
+      download.href = d.download ?? "#";
+      if (!dialog.open) dialog.showModal();
+    };
+    const close = () => {
+      if (dialog.open) dialog.close();
+    };
+
+    gallery.querySelectorAll<HTMLElement>("button.gallery__open").forEach((button) => {
+      button.addEventListener("click", () => open(button));
+    });
+    dialog.querySelector("[data-close]")?.addEventListener("click", close);
+    // a click on the backdrop, outside the inner box, closes it
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) close();
+    });
+    // once closed, drop the large image so it is not kept around
+    dialog.addEventListener("close", () => {
+      img.removeAttribute("src");
+      img.removeAttribute("srcset");
+    });
+  });
+</script>

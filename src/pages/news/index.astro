@@ -1,0 +1,56 @@
+---
+import Base from "@/layouts/Base.astro";
+import NewsRow from "@/components/NewsRow.astro";
+import Opener from "@/components/Opener.astro";
+import { getAllNewsPosts, type NewsPost } from "@/lib/news/news";
+import { seasonOf, type Season } from "@/lib/seasons";
+
+const posts = await getAllNewsPosts();
+
+// Group by season, newest season first (posts are already newest first).
+const groups: { season: Season; posts: NewsPost[] }[] = [];
+for (const post of posts) {
+  const season = seasonOf(post.date);
+  const group = groups.find((g) => g.season.id === season.id);
+  if (group) group.posts.push(post);
+  else groups.push({ season, posts: [post] });
+}
+---
+
+<Base title="News" description="Match and competition reports, demos, and visits">
+  <div class="page">
+    <div class="container section-head">
+      <h1 class="t-title">News</h1>
+      <p class="t-lede">
+        Match and competition reports, demos, and visits. We'll do our best to keep you updated on all the latest
+        developments.
+      </p>
+    </div>
+
+    {
+      groups.length === 0 ? (
+        <p class="container t-body">No news yet.</p>
+      ) : (
+        groups.map(({ season, posts }, i) => (
+          <section class="container section" aria-labelledby={`news-${season.id}`}>
+            {/* the newest season opens with a render standing on its rule */}
+            {i === 0 ? (
+              <Opener id={`news-${season.id}`} artwork="k1-walk-swing" at={56}>
+                {season.label}
+              </Opener>
+            ) : (
+              <h2 id={`news-${season.id}`} class="t-heading">
+                {season.label}
+              </h2>
+            )}
+            <div class="news">
+              {posts.map((post) => (
+                <NewsRow post={post} />
+              ))}
+            </div>
+          </section>
+        ))
+      )
+    }
+  </div>
+</Base>

@@ -1,0 +1,7 @@
+---
+// A match score, ours first, in the scoreboard numerals with an orange colon.
+type Props = { us: number; them: number };
+const { us, them } = Astro.props;
+---
+
+<span class="t-score">{us}<span class="colon">:</span>{them}</span>

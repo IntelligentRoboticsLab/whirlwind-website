@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """The still frames of the noise field under the home lineup, one per theme.
-Same maths as the WebGL shader in src/components/NoiseFieldCanvas.tsx at t = 7.
+Same maths as the WebGL shader in src/components/NoiseField.astro at t = 7.
 usage: field.py [width] [height]   (default 1920 x 760) -> src/assets/artwork/field-{light,dark}.jpg"""
 
 import sys, numpy as np

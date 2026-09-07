@@ -1,10 +1,10 @@
-import type { StaticImageData } from "next/image";
+import type { ImageMetadata } from "astro";
 
 import { photo } from "@/lib/photos";
 
 // Maps a news post slug (the markdown filename without `.md`) to its cover, by id
 // from src/lib/photos.ts. Add an entry here when a post needs a cover.
-export const coverImages: Record<string, StaticImageData> = {
+export const coverImages: Record<string, ImageMetadata> = {
   "2026-07-02-robocup-fourth-place": photo(
     "2026-07-Robocup-Incheon/team-photo2.jpg",
   ).src,

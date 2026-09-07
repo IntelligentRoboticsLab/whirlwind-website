@@ -1,0 +1,63 @@
+---
+import type { GetStaticPaths } from "astro";
+
+import Base from "@/layouts/Base.astro";
+import Figure from "@/components/Figure.astro";
+import MetaLine from "@/components/MetaLine.astro";
+import PhotoGrid from "@/components/PhotoGrid.astro";
+import ResultsBlock from "@/components/ResultsBlock.astro";
+import { formatDate } from "@/lib/format";
+import { withName } from "@/lib/name";
+import { getAllNewsPosts, type NewsPost } from "@/lib/news/news";
+import { competitionForNews } from "@/lib/seasons";
+
+export const getStaticPaths = (async () => {
+  const posts = await getAllNewsPosts();
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}) satisfies GetStaticPaths;
+
+type Props = { post: NewsPost };
+const { post } = Astro.props;
+const competition = competitionForNews(post.slug);
+---
+
+<Base title={post.title} description={post.summary}>
+  <div class="page">
+    <article class="container news-post" id={post.slug}>
+      <header class="news-post__head">
+        <p class="t-meta">
+          <a href="/news">News</a>
+        </p>
+        <h1 class="t-title" set:html={withName(post.title)} />
+        <MetaLine
+          items={[
+            `<time datetime="${post.date}">${formatDate(post.date)}</time>`,
+            competition ? competition.place : null,
+            post.author ? withName(post.author) : null,
+          ]}
+        />
+      </header>
+
+      {
+        post.coverImage ? (
+          <Figure
+            src={post.coverImage}
+            alt={post.coverCaption ?? ""}
+            caption={post.coverCaption}
+            credit={post.coverCredit}
+            sizes="(max-width: 72rem) 100vw, 1152px"
+            priority
+          />
+        ) : null
+      }
+
+      <div class="prose t-body" set:html={post.contentHtml} />
+
+      {competition ? <ResultsBlock competition={competition} /> : null}
+
+      {post.gallery?.length ? <PhotoGrid photos={post.gallery} captions /> : null}
+
+      {post.tags?.length ? <p class="t-meta">Tags: {post.tags.join(", ")}</p> : null}
+    </article>
+  </div>
+</Base>

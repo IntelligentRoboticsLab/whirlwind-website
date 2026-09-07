@@ -3,7 +3,7 @@
 // known it also says where and when, since it doubles as the caption in the
 // photo dialog. `gallery: false` keeps a photo out of the Press gallery while
 // a news post can still use it.
-import type { StaticImageData } from "next/image";
+import type { ImageMetadata } from "astro";
 
 import p_2026_07_Robocup_Incheon_12_AL_RC2026_D5_BhumanWhirlwind_09 from "@/assets/photos/2026-07-Robocup-Incheon/12_AL_RC2026_D5_BhumanWhirlwind_09.jpg";
 import p_2026_07_Robocup_Incheon_robocup_1 from "@/assets/photos/2026-07-Robocup-Incheon/robocup_1.jpg";
@@ -66,7 +66,7 @@ import p_2025_07_Robocup_Salvador_DSC_0798 from "@/assets/photos/2025-07-Robocup
 
 export type Photo = {
   id: string;
-  src: StaticImageData;
+  src: ImageMetadata;
   alt: string;
   credit?: string;
   // first day of the event's month, from the folder name; the gallery is sorted by it, newest first

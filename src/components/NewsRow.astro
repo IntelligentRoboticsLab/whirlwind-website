@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+
+import type { NewsPost } from "@/lib/news/news";
+import { formatDate } from "@/lib/format";
+import { responsive } from "@/lib/images";
+import { withName } from "@/lib/name";
+
+// A news item is a row, not a card: photo left, then date, title, summary.
+type Props = { post: NewsPost };
+const { post } = Astro.props;
+const href = `/news/${post.slug}`;
+---
+
+<article class="news-row">
+  {
+    post.coverImage ? (
+      <a href={href} class="title-link" aria-hidden="true" tabindex="-1">
+        <Image src={post.coverImage} alt="" {...responsive(post.coverImage)} sizes="(max-width: 64rem) 100vw, 33vw" />
+      </a>
+    ) : (
+      <span />
+    )
+  }
+  <div class="news-row__body">
+    <time class="t-meta" datetime={post.date}>{formatDate(post.date)}</time>
+    <h3 class="t-subheading">
+      <a href={href} class="title-link" set:html={withName(post.title)} />
+    </h3>
+    <p class="t-body" set:html={withName(post.summary)} />
+  </div>
+</article>

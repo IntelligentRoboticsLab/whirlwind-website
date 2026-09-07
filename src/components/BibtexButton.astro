@@ -1,0 +1,61 @@
+---
+import { type IPublication, toBibtex } from "@/lib/publications/publication";
+
+// Copies the BibTeX entry. Styled as a link, since a second action is a link
+// (DESIGN.md, section 11). The label stays "BibTeX"; only the icon beside it
+// turns into a tick for a moment, and a hidden live region says "Copied".
+type Props = { publication: IPublication };
+const { publication } = Astro.props;
+---
+
+<button type="button" class="text-button link" data-bibtex={toBibtex(publication)} aria-label="Copy BibTeX citation">
+  BibTeX
+  <svg
+    class="text-button__icon"
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <g data-icon="copy">
+      <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+      <path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"></path>
+    </g>
+    <path data-icon="copied" d="M20 6L9 17l-5-5" style="display: none"></path>
+  </svg>
+  <span class="visually-hidden" aria-live="polite"></span>
+</button>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>("button[data-bibtex]");
+  buttons.forEach((button) => {
+    const copy = button.querySelector<SVGElement>("[data-icon='copy']");
+    const copied = button.querySelector<SVGElement>("[data-icon='copied']");
+    const live = button.querySelector<HTMLElement>("[aria-live]");
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.bibtex ?? "");
+      } catch (err) {
+        console.error("Failed to copy BibTeX:", err);
+        return;
+      }
+      // the icon turns into a tick for a moment
+      copy?.style.setProperty("display", "none");
+      copied?.style.removeProperty("display");
+      if (live) live.textContent = "Copied";
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        copy?.style.removeProperty("display");
+        copied?.style.setProperty("display", "none");
+        if (live) live.textContent = "";
+      }, 1500);
+    });
+  });
+</script>

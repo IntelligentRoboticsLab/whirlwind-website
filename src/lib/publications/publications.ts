@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "astro/zod";
 import { Publication } from "./publication";
 
 const PubsByYear = z.array(

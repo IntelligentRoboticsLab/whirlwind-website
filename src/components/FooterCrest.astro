@@ -1,0 +1,81 @@
+---
+import Artwork from "./Artwork.astro";
+import sixseven from "@/assets/artwork/sixseven.png";
+
+const FRAMES = 12; // one cycle of the gesture, in tools/artwork/sixseven.py
+const CYCLES = 3;
+const CYCLE_MS = 1000;
+
+// The footer crest, with one secret: seven taps on it in quick succession and
+// the K1 appears in the middle of the screen, head to hips, and does the
+// six-seven, hands weighing, for three cycles. A sprite strip stepped by CSS;
+// under prefers-reduced-motion the first frame stands still for the same time
+// instead. Not in DESIGN.md, on purpose. The strip is described here and
+// loaded by the script only on the taps, so it costs nothing otherwise.
+---
+
+<!-- the crest: the logo as a solid object, cropped by the page edges (DESIGN.md, section 3) -->
+<div
+  class="crest-hit"
+  data-sixseven={sixseven.src}
+  data-width={sixseven.width}
+  data-height={sixseven.height}
+  data-frames={FRAMES}
+  data-cycles={CYCLES}
+  data-cycle-ms={CYCLE_MS}
+>
+  <Artwork name="mark-3d" class="crest" sizes="26rem" widths={[416, 832]} />
+</div>
+
+<script>
+  const TAPS = 7;
+  const TAP_GAP_MS = 700; // the longest pause allowed between two taps of the run
+
+  const hit = document.querySelector<HTMLElement>(".crest-hit");
+  if (hit) {
+    const frames = Number(hit.dataset.frames);
+    const cycles = Number(hit.dataset.cycles);
+    const cycleMs = Number(hit.dataset.cycleMs);
+    const width = Number(hit.dataset.width);
+    const height = Number(hit.dataset.height);
+    let taps: number[] = [];
+    let playing: HTMLElement | null = null;
+
+    const play = () => {
+      if (playing) return;
+      const span = document.createElement("span");
+      span.className = "sixseven";
+      span.setAttribute("aria-hidden", "true");
+      span.style.setProperty("--frames", String(frames));
+      span.style.setProperty("--ratio", String(width / frames / height));
+      span.style.setProperty("--cycle", `${cycleMs}ms`);
+      span.style.setProperty("--cycles", String(cycles));
+      // a plain img: the strip must keep its exact pixels
+      const img = document.createElement("img");
+      img.src = hit.dataset.sixseven ?? "";
+      img.alt = "";
+      img.width = width;
+      img.height = height;
+      span.append(img);
+      hit.after(span);
+      playing = span;
+      setTimeout(
+        () => {
+          span.remove();
+          playing = null;
+        },
+        cycles * cycleMs + 150,
+      );
+    };
+
+    hit.addEventListener("click", () => {
+      const now = Date.now();
+      const last = taps.at(-1);
+      taps = last !== undefined && now - last > TAP_GAP_MS ? [now] : [...taps, now];
+      if (taps.length >= TAPS) {
+        taps = [];
+        play();
+      }
+    });
+  }
+</script>

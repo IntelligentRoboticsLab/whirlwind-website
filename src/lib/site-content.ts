@@ -1,4 +1,4 @@
-import type { StaticImageData } from "next/image";
+import type { ImageMetadata } from "astro";
 
 import aufLogo from "@/assets/sponsors/auf-white.svg";
 import rerunLogo from "@/assets/sponsors/rerun-wordmark-white.svg";
@@ -13,7 +13,7 @@ import LinkedInLogo from "@/assets/socials/linkedin-mono.svg";
 export type Sponsor = {
   name: string;
   website: string;
-  logo: StaticImageData;
+  logo: ImageMetadata;
   logoAlt: string;
   logoWidth: number;
   logoHeight: number;
@@ -25,7 +25,7 @@ export type SocialChannel = {
   name: string;
   url: string;
   handle: string;
-  logo: StaticImageData;
+  logo: ImageMetadata;
   logoAlt: string;
 };
 

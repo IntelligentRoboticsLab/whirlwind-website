@@ -1,0 +1,4 @@
+# Dependencies allowed to run their install scripts (pnpm asks; these two ship native binaries)
+allowBuilds:
+  esbuild: true
+  sharp: true

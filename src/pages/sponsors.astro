@@ -1,0 +1,71 @@
+---
+import Base from "@/layouts/Base.astro";
+import Figure from "@/components/Figure.astro";
+import Name from "@/components/Name.astro";
+import Opener from "@/components/Opener.astro";
+import { photo } from "@/lib/photos";
+import { siteContact, sponsors } from "@/lib/site-content";
+
+const host = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+---
+
+<Base title="Sponsors" description="The organisations that support whIRLwind, and how to become one of them.">
+  <div class="page">
+    <section class="container opening" aria-label="Introduction">
+      <div class="opening__text">
+        <h1 class="t-title">Sponsors</h1>
+        <p class="t-lede">
+          The organisations that support <Name />. They keep the robots running and get us to competitions.
+        </p>
+      </div>
+    </section>
+
+    <section class="container section" aria-labelledby="sponsors-heading">
+      <Opener id="sponsors-heading" artwork="k1-body" at={30}>Supported by</Opener>
+      <ul class="sponsor-list">
+        {
+          sponsors.map((sponsor) => (
+            <li class="sponsor-row">
+              <a
+                class="sponsor sponsor--row"
+                href={sponsor.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={sponsor.name}
+                style={`--logo: url(${sponsor.logo.src}); aspect-ratio: ${sponsor.logoWidth} / ${sponsor.logoHeight}`}
+              />
+              <div class="sponsor-row__text">
+                <a class="t-subheading" href={sponsor.website} target="_blank" rel="noopener noreferrer">
+                  {sponsor.name}
+                </a>
+                <span class="t-meta">{host(sponsor.website)}</span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="container section" aria-labelledby="become-heading">
+      <div class="stack">
+        <h2 id="become-heading" class="t-heading">Become a sponsor</h2>
+        <p class="t-body">
+          Robots, spare parts and travel to competitions are what a student team spends its money on. If your
+          organisation wants to be part of that, email us. We can figure out a sponsorship that fits.
+        </p>
+        <p class="t-body">
+          <a class="button" href={`mailto:${siteContact.email}`}>
+            <span>Email us</span>
+          </a>
+        </p>
+      </div>
+      <!-- what a sponsor gets: the placements on the back of the jersey -->
+      <Figure
+        src={photo("2026-03-German-Open/74-DSC09320.jpg").src}
+        alt="The back of a whIRLwind jersey with the sponsor logos printed across the shoulders."
+        caption="Sponsor placements on the back of the jersey. RoboCup German Open, Cologne, March 2026."
+        sizes="(max-width: 80rem) 100vw, 72rem"
+      />
+    </section>
+  </div>
+</Base>

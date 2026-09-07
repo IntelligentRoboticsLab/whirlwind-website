@@ -1,0 +1,7 @@
+---
+// A finishing position in the wordmark's slant: "3rd place", "QF quarter-finals".
+type Props = { figure: string; word: string };
+const { figure, word } = Astro.props;
+---
+
+<span class="t-result result__place">{figure}<small>{word}</small></span>

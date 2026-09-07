@@ -1,0 +1,52 @@
+---
+import Base from "@/layouts/Base.astro";
+import Lineup from "@/components/Lineup.astro";
+import Opener from "@/components/Opener.astro";
+import Name from "@/components/Name.astro";
+import NewsRow from "@/components/NewsRow.astro";
+import SeasonList from "@/components/SeasonList.astro";
+import { getAllNewsPosts } from "@/lib/news/news";
+import { latestReport, seasons } from "@/lib/seasons";
+
+const latestNews = (await getAllNewsPosts()).slice(0, 3);
+const report = latestReport();
+---
+
+<Base>
+  <div class="page page--home">
+    <section aria-label="Introduction" class="section">
+      <Lineup />
+      <div class="container lineup-text">
+        <h1 class="t-lede">
+          <Name /> is the humanoid robotics team of the Intelligent Robotics Lab at the University of Amsterdam. We play in
+          the RoboCup Humanoid Soccer League.
+        </h1>
+        {
+          report?.newsSlug ? (
+            <p class="t-body">
+              <a href={`/news/${report.newsSlug}`}>Read the latest news</a>
+            </p>
+          ) : null
+        }
+      </div>
+    </section>
+
+    <section class="container section" aria-label="Seasons">
+      {
+        seasons.map((season, i) => (
+          <SeasonList season={season} artwork={i === 0 ? "k1-keeper-step" : undefined} at={72} />
+        ))
+      }
+    </section>
+
+    <section class="container section" aria-labelledby="news-heading">
+      <Opener id="news-heading" artwork="k1-kick-follow" at={38}>
+        News
+        <a slot="aside" href="/news">All news</a>
+      </Opener>
+      <div class="news">
+        {latestNews.map((post) => <NewsRow post={post} />)}
+      </div>
+    </section>
+  </div>
+</Base>

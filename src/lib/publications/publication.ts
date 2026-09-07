@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "astro/zod";
 
 const PUBLICATION_TYPE_SCHEMA = z.enum([
   "article",

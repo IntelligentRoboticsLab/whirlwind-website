@@ -1,0 +1,62 @@
+---
+import Base from "@/layouts/Base.astro";
+import Opener from "@/components/Opener.astro";
+import Name from "@/components/Name.astro";
+import { siteContact } from "@/lib/site-content";
+---
+
+<Base title="Contact" description="How to reach whIRLwind: email, address, joining and sponsoring.">
+  <div class="page">
+    <section class="container opening" aria-label="Introduction">
+      <div class="opening__text">
+        <h1 class="t-title">Contact</h1>
+        <p class="t-lede">
+          Email us about sponsorships, research, demos, event invites or press. We'll get it to the right person.
+        </p>
+        <p class="t-body">
+          <a class="button" href={`mailto:${siteContact.email}`}>
+            <span>Email us</span>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="container section" aria-labelledby="where-heading">
+      <Opener id="where-heading" artwork="k1-keeper-crouch" at={60}>Where to find us</Opener>
+      <div class="stack stack--tight">
+        <address class="t-body">
+          Intelligent Robotics Lab, University of Amsterdam
+          <br />
+          {
+            siteContact.addressLines.map((line) => (
+              <span>
+                {line}
+                <br />
+              </span>
+            ))
+          }
+        </address>
+      </div>
+    </section>
+
+    <section class="container section" aria-label="Joining and sponsoring">
+      <div class="stack stack--loose">
+        <div class="stack stack--tight">
+          <h2 class="t-heading">Joining</h2>
+          <p class="t-body">
+            <Name /> is run by students of the University of Amsterdam. You don't need robotics experience; most of us started
+            without it.
+          </p>
+        </div>
+
+        <div class="stack stack--tight">
+          <h2 class="t-heading">Sponsoring</h2>
+          <p class="t-body">
+            <a href="/sponsors">The organisations that support us</a> keep the robots running and get us to competitions.
+            If you want to be one of them, email us. We can figure out a sponsorship that fits.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

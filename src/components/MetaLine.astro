@@ -1,0 +1,24 @@
+---
+import Mark from "./Mark.astro";
+
+// A meta line: items joined by the mark as interpunct (DESIGN.md, section 3).
+// Each item is HTML (a <time>, a name marked with withName()), or empty to skip.
+type Props = {
+  items: (string | null | undefined)[];
+  class?: string;
+};
+
+const { items, class: className } = Astro.props;
+const shown = items.filter((item): item is string => item !== null && item !== undefined && item !== "");
+---
+
+<p class:list={["t-meta meta-dots", className]}>
+  {
+    shown.map((item, i) => (
+      <span class="meta-dots__item" style="display: contents">
+        {i > 0 ? <Mark class="dot" height={10} /> : null}
+        <span set:html={item} />
+      </span>
+    ))
+  }
+</p>

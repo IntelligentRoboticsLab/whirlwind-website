@@ -1,0 +1,48 @@
+---
+import FooterCrest from "./FooterCrest.astro";
+import Name from "./Name.astro";
+import { siteContact, socialChannels, sponsors } from "@/lib/site-content";
+---
+
+<footer class="footer">
+  <FooterCrest />
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <p class="t-body">
+        <Name /> is the humanoid robotics team of the Intelligent Robotics Lab, University of Amsterdam.
+      </p>
+      <div class="sponsors">
+        <span class="t-meta">Supported by</span>
+        {
+          sponsors.map((sponsor) => (
+            <a
+              class="sponsor"
+              href={sponsor.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={sponsor.name}
+              style={`--logo: url(${sponsor.logo.src}); aspect-ratio: ${sponsor.logoWidth} / ${sponsor.logoHeight}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="footer__col t-body">
+      {
+        socialChannels.map((channel) => (
+          <a href={channel.url} target="_blank" rel="noopener noreferrer">
+            {channel.name}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="footer__col t-body">
+      <address>
+        {siteContact.addressLines.map((line) => <span style="display: block">{line}</span>)}
+      </address>
+      <a href={`mailto:${siteContact.email}`}>{siteContact.email}</a>
+    </div>
+  </div>
+</footer>

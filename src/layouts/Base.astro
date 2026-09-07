@@ -1,0 +1,63 @@
+---
+import SiteHeader from "@/components/SiteHeader.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
+import "@/styles/brand.css";
+import "@/styles/globals.css";
+
+type Props = {
+  // the page's own title; the site name is appended, or used alone on the home page
+  title?: string;
+  description?: string;
+  // the page in one class: "page page--home"
+  bodyClass?: string;
+};
+
+const siteName = "whIRLwind Amsterdam";
+const siteDescription =
+  "whIRLwind is the humanoid robotics team of the Intelligent Robotics Lab at the University of Amsterdam. We play in the RoboCup Humanoid Soccer League with Booster K1 robots.";
+
+const { title, description = siteDescription } = Astro.props;
+const fullTitle = title ? `${title} | ${siteName}` : siteName;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/og.jpg", Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+    <!-- the page colour behind the browser chrome, one per theme -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf9f6" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d0c22" />
+    <!-- favicon.svg switches the indigo blades to white under prefers-color-scheme: dark;
+         the .ico is the fallback for browsers without SVG icon support. -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- the body face, before the stylesheet asks for it -->
+    <link rel="preload" href="/fonts/tiktok-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="2048" />
+    <meta property="og:image:height" content="1152" />
+    <meta property="og:image:alt" content="The Booster K1, rendered from its model." />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div class="top-bar" aria-hidden="true"></div>
+    <SiteHeader />
+    <main id="main" class="site-main">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

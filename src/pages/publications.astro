@@ -1,0 +1,90 @@
+---
+import Base from "@/layouts/Base.astro";
+import Opener from "@/components/Opener.astro";
+import BibtexButton from "@/components/BibtexButton.astro";
+import { formatDate } from "@/lib/format";
+import { withName } from "@/lib/name";
+import { formatPublicationType } from "@/lib/publications/helpers";
+import { publicationsByYear } from "@/lib/publications/publications";
+import type { ArtworkName } from "@/lib/artwork";
+
+const openers: Record<
+  string,
+  {
+    artwork: ArtworkName;
+    at: number;
+    height?: string;
+    second?: { artwork: ArtworkName; at: number; height?: string };
+  }
+> = {
+  "2026": {
+    artwork: "k1-kick-contact",
+    at: 66,
+    second: { artwork: "k1-keeper-arms", at: 32 },
+  },
+  "2025": { artwork: "k1-fallen-front", at: 52, height: "3.5rem" },
+};
+---
+
+<Base
+  title="Publications"
+  description="Papers, theses, team reports and qualification documents from whIRLwind and the Dutch Nao Team before it."
+>
+  <div class="page">
+    <section class="container opening" aria-label="Introduction">
+      <div class="opening__text">
+        <h1 class="t-title">Publications</h1>
+        <p class="t-lede">
+          Papers, theses, team reports and qualification documents, by year. If you would like to cite us, we make it
+          easy with a BibTeX entry for each publication.
+        </p>
+      </div>
+    </section>
+
+    {
+      publicationsByYear.map((group) => {
+        // the two most recent years open with robots on the rule: the kick at contact
+        // and the keeper facing it, and one that fell over (DESIGN.md, section 8)
+        const opener = openers[group.year];
+        return (
+          <section class="container pub-year" aria-labelledby={`year-${group.year}`}>
+            {opener ? (
+              <Opener id={`year-${group.year}`} {...opener}>
+                {group.year}
+              </Opener>
+            ) : (
+              <h2 id={`year-${group.year}`} class="t-heading">
+                {group.year}
+              </h2>
+            )}
+            <ul class="pubs">
+              {group.publications.map((pub) => {
+                const external = pub.file.startsWith("http");
+                return (
+                  <li class="pub">
+                    <h3 class="t-subheading pub__title" set:html={withName(pub.title)} />
+                    <p class="t-body">{pub.authors.join(", ")}</p>
+                    <p class="t-meta">
+                      {formatPublicationType(pub.type)}, {formatDate(pub.date)}
+                      {pub.tags.length ? `. ${pub.tags.join(", ")}` : ""}
+                    </p>
+                    <div class="pub__links t-body">
+                      <a
+                        href={pub.file}
+                        target={external ? "_blank" : undefined}
+                        rel={external ? "noopener noreferrer" : undefined}
+                      >
+                        PDF
+                      </a>
+                      <BibtexButton publication={pub} />
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        );
+      })
+    }
+  </div>
+</Base>
