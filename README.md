@@ -18,6 +18,7 @@ pnpm dev
 - **A match result:** add the competition and its matches to `src/lib/seasons.ts`. The home page, the season lists and the results block on the match report pick it up.
 - **A news post:** add a markdown file to `content/news` (see the existing ones for the frontmatter), map its cover and gallery photos in `src/lib/news`. Optional frontmatter: `coverCredit`, `coverCaption`.
 - **A publication:** add it to `src/lib/publications/publications.ts` and the PDF to `public/publications/<year>`.
+- **A project page:** write it in `src/app/publications/<slug>/page.tsx` (`booster-mjlab` shows the pattern), put its images in `src/assets/publications/<slug>` and its videos in `public/publications/<slug>`, and point the publication's entry at it with `project`. Software without a PDF gets `code` instead of `file`.
 - **A sponsor:** add the white logo file to `src/assets/sponsors` and an entry in `src/lib/site-content.ts`. The footer masks it to the page ink.
 - **Photos:** file names must not contain `@`; the image optimizer rejects them.
 

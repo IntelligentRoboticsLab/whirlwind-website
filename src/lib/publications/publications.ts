@@ -13,6 +13,18 @@ export const publicationsByYear = PubsByYear.parse([
     year: "2026",
     publications: [
       {
+        // the project has a page of its own, ported from its standalone site
+        title: "booster_mjlab",
+        authors: ["Gijs de Jong", "Harold Ruiter", "Julia de Vries"],
+        date: "2026-09-18",
+        year: "2026",
+        type: "software",
+        tags: ["Reinforcement Learning", "Locomotion", "Simulation"],
+        id: "booster_mjlab",
+        project: "/publications/booster-mjlab",
+        code: "https://github.com/IntelligentRoboticsLab/booster-mjlab",
+      },
+      {
         title:
           "HSLVision: A Multimodal Vision Dataset for RoboCup Humanoid Soccer",
         authors: [

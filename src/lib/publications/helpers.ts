@@ -25,6 +25,7 @@ export function formatPublicationType(type?: string): string {
     misc: "Miscellaneous",
     phdthesis: "PhD Thesis",
     proceedings: "Proceedings",
+    software: "Software",
     teamreport: "Team Report",
     techreport: "Technical Report",
     unpublished: "Unpublished",
