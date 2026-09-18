@@ -91,7 +91,6 @@ export default function BoosterMjlabPage() {
         <VideoCarousel
           label="Simulation clips"
           clips={simulationClips}
-          rendered
           head={
             <div className="section-head">
               <h2 id="simulation-heading" className="t-heading">
@@ -138,7 +137,7 @@ export default function BoosterMjlabPage() {
         </div>
         <figure className="figure">
           <video
-            className="motion-video rendered"
+            className="motion-video"
             autoPlay
             muted
             loop

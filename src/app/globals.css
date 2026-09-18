@@ -1019,21 +1019,6 @@ body:has(.lightbox[open]) {
   height: auto;
 }
 
-/* Simulation renders come on a white ground. Multiplied onto the paper the ground
-   disappears and the robot and grid stand on the page, the way the artwork does;
-   on the dark canvas the render is inverted first and screened, so the ground is
-   again the page and the robot reads in light greys. */
-.rendered {
-  mix-blend-mode: multiply;
-}
-
-@media (prefers-color-scheme: dark) {
-  .rendered {
-    filter: invert(1);
-    mix-blend-mode: screen;
-  }
-}
-
 /* ------------------------------------------------------------------ footer */
 
 .footer {

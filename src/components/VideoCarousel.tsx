@@ -18,18 +18,15 @@ const DIALOG_EVENT = "project-video-dialog";
 // under prefers-reduced-motion. Choosing a clip opens it at full size in a
 // dialog with sound and controls; Escape, the Close link or a click outside
 // close it, and focus returns to the preview. `head` is the heading (and its
-// subcaption) the arrows sit beside; `rendered` marks simulation renders on a
-// white ground, which are blended onto the paper (globals.css, .rendered).
+// subcaption) the arrows sit beside.
 export default function VideoCarousel({
   label,
   clips,
   head,
-  rendered = false,
 }: {
   label: string;
   clips: Clip[];
   head: ReactNode;
-  rendered?: boolean;
 }) {
   const track = useRef<HTMLDivElement>(null);
   const cards = useRef<(HTMLButtonElement | null)[]>([]);
@@ -206,7 +203,6 @@ export default function VideoCarousel({
                   }}
                 >
                   <video
-                    className={rendered ? "rendered" : undefined}
                     muted
                     loop
                     playsInline
@@ -237,7 +233,7 @@ export default function VideoCarousel({
           {/* the player stays mounted so its src can be set before the dialog opens */}
           <video
             ref={player}
-            className={rendered ? "lightbox__video rendered" : "lightbox__video"}
+            className="lightbox__video"
             controls
             playsInline
             preload="none"
