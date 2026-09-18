@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import Opener from "@/components/Opener";
 import BibtexButton from "@/components/BibtexButton";
@@ -66,25 +67,42 @@ export default function PublicationsPage() {
             )}
             <ul className="pubs">
               {group.publications.map((pub) => {
-                const external = pub.file.startsWith("http");
+                const external = pub.file?.startsWith("http");
                 return (
                   <li key={pub.id} className="pub">
                     <h3 className="t-subheading pub__title">
-                      {withName(pub.title)}
+                      {/* a publication with a page of its own is a link to it */}
+                      {pub.project ? (
+                        <Link href={pub.project} className="title-link">
+                          {withName(pub.title)}
+                        </Link>
+                      ) : (
+                        withName(pub.title)
+                      )}
                     </h3>
-                    <p className="t-body">{pub.authors.join(", ")}</p>
+                    <p className="t-body">{withName(pub.authors.join(", "))}</p>
                     <p className="t-meta">
                       {formatPublicationType(pub.type)}, {formatDate(pub.date)}
                       {pub.tags.length ? `. ${pub.tags.join(", ")}` : ""}
                     </p>
                     <div className="pub__links t-body">
-                      <a
-                        href={pub.file}
-                        target={external ? "_blank" : undefined}
-                        rel={external ? "noopener noreferrer" : undefined}
-                      >
-                        PDF
-                      </a>
+                      {pub.project ? (
+                        <Link href={pub.project}>Project page</Link>
+                      ) : null}
+                      {pub.file ? (
+                        <a
+                          href={pub.file}
+                          target={external ? "_blank" : undefined}
+                          rel={external ? "noopener noreferrer" : undefined}
+                        >
+                          PDF
+                        </a>
+                      ) : null}
+                      {pub.code ? (
+                        <a href={pub.code} target="_blank" rel="noopener noreferrer">
+                          GitHub
+                        </a>
+                      ) : null}
                       <BibtexButton publication={pub} />
                     </div>
                   </li>

@@ -14,6 +14,7 @@ const PUBLICATION_TYPE_SCHEMA = z.enum([
   "misc",
   "phdthesis",
   "proceedings",
+  "software",
   "teamreport",
   "techreport",
   "unpublished",
@@ -41,7 +42,12 @@ export interface IPublication {
   year: string;
   date: string;
   tags: string[];
-  file: string;
+  // the PDF, under public/publications/<year>; software has none
+  file?: string;
+  // a page of its own on this site, such as /publications/booster-mjlab
+  project?: string;
+  // the repository
+  code?: string;
   id?: string;
 }
 
@@ -66,7 +72,9 @@ export const Publication = z.object({
   date: z.string(),
   year: z.string(),
   id: z.string(),
-  file: z.string(),
+  file: z.string().optional(),
+  project: z.string().optional(),
+  code: z.string().optional(),
 });
 
 export const toBibtex = (pub: IPublication): string => {
@@ -133,6 +141,10 @@ export const toBibtex = (pub: IPublication): string => {
 
   if (pub.note) {
     bibtex = `${bibtex},\n  note = {${pub.note}}`;
+  }
+
+  if (pub.code) {
+    bibtex = `${bibtex},\n  url = {${pub.code}}`;
   }
 
   return `${bibtex}\n}`;

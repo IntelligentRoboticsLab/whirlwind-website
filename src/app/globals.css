@@ -609,6 +609,19 @@ button {
   mask-mode: alpha;
 }
 
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* a brand's own logo in its own colours beside a link, the height of a capital (the Hugging Face face) */
+.logo-link__img {
+  flex: 0 0 auto;
+  width: 1.1em;
+  height: 1.1em;
+}
+
 /* ------------------------------------------------------------------ figures and galleries */
 
 .figure {
@@ -708,6 +721,10 @@ body:has(.lightbox[open]) {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-4) var(--space-8);
+}
+
+.lightbox__bar--end {
+  justify-content: flex-end;
 }
 
 .lightbox__text {
@@ -881,6 +898,139 @@ body:has(.lightbox[open]) {
   .sponsor-row {
     grid-template-columns: 1fr;
     row-gap: var(--space-3);
+  }
+}
+
+/* ------------------------------------------------------------------ project pages */
+
+/* the actions under an opening or a section: the page's bib button and links, in one row */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+}
+
+/* muted, looping previews in a row that scrolls sideways; three across, two below 64rem, one and a bit below 40rem.
+   The heading and the arrows share one row above the track, at a heading's distance from it. */
+.carousel-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.carousel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
+.carousel-head__text {
+  min-width: 0;
+}
+
+.carousel__arrows {
+  display: flex;
+  gap: var(--space-2);
+  flex: 0 0 auto;
+}
+
+/* the arrows: a chevron in ink, nothing around it; faint at either end of the row */
+.carousel__arrow {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.carousel__arrow:disabled {
+  color: var(--rule);
+  cursor: default;
+}
+
+.carousel__track {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__card {
+  flex: 0 0 calc((100% - 2 * var(--space-2)) / 3);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 63.99rem) {
+  .carousel__card {
+    flex-basis: calc((100% - var(--space-2)) / 2);
+  }
+}
+
+@media (max-width: 39.99rem) {
+  .carousel__card {
+    flex-basis: 78%;
+  }
+}
+
+/* the preview itself is the button that opens the clip at full size */
+.carousel__open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.carousel__open video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--paper);
+  pointer-events: none;
+}
+
+/* the clip at full size, in the same dialog as a photograph */
+.lightbox__video {
+  display: block;
+  width: min(1100px, calc(96vw - 2 * var(--space-4)));
+  max-height: 75vh;
+  height: auto;
+  background: var(--paper);
+}
+
+.motion-video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Simulation renders come on a white ground. Multiplied onto the paper the ground
+   disappears and the robot and grid stand on the page, the way the artwork does;
+   on the dark canvas the render is inverted first and screened, so the ground is
+   again the page and the robot reads in light greys. */
+.rendered {
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-color-scheme: dark) {
+  .rendered {
+    filter: invert(1);
+    mix-blend-mode: screen;
   }
 }
 
