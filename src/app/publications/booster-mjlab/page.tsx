@@ -9,6 +9,7 @@ import posterHighlight from "@/assets/publications/booster-mjlab/highlight-poste
 import posterLoop from "@/assets/publications/booster-mjlab/loop.jpg";
 import posterStrafe from "@/assets/publications/booster-mjlab/strafe.jpg";
 import simGulp from "@/assets/publications/booster-mjlab/sim/gulp.jpg";
+import simKick from "@/assets/publications/booster-mjlab/sim/kick.jpg";
 import simOutAndBack from "@/assets/publications/booster-mjlab/sim/out_and_back.jpg";
 import simSprintFollow from "@/assets/publications/booster-mjlab/sim/sprint_follow.jpg";
 import simStrafeAcross from "@/assets/publications/booster-mjlab/sim/strafe_across.jpg";
@@ -40,6 +41,7 @@ const lafan = "https://github.com/ubisoft/ubisoft-laforge-animation-dataset";
 const videos = "/publications/booster-mjlab/videos";
 
 const simulationClips: Clip[] = [
+  { title: "Kick", poster: simKick, src: `${videos}/sim/kick.mp4` },
   { title: "Walk across", poster: simWalkAcross, src: `${videos}/sim/walk_across.mp4` },
   { title: "Sprint", poster: simSprintFollow, src: `${videos}/sim/sprint_follow.mp4` },
   { title: "Side flip", poster: simGulp, src: `${videos}/sim/gulp.mp4` },
