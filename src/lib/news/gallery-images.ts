@@ -8,7 +8,7 @@ export type GalleryImage = Photo;
 export const galleryImages: Record<string, GalleryImage[]> = {
   "2026-10-03-weekend-of-science": [
     photo("2026-10-Dag_vd_wetenschap/explaining-the-game.jpg"),
-    photo("2026-10-Dag_vd_wetenschap/robot-in-front-of-crowd.jpg"),
+    photo("2026-10-Dag_vd_wetenschap/robot-dancing.jpg"),
     photo("2026-10-Dag_vd_wetenschap/talking-to-visitors.jpg"),
   ],
   "2026-08-26-world-humanoid-robot-games-third-place": [

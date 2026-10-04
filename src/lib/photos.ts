@@ -7,7 +7,7 @@ import type { StaticImageData } from "next/image";
 
 import p_2026_10_Dag_vd_wetenschap_robot_match from "@/assets/photos/2026-10-Dag_vd_wetenschap/robot-match.jpg";
 import p_2026_10_Dag_vd_wetenschap_explaining_the_game from "@/assets/photos/2026-10-Dag_vd_wetenschap/explaining-the-game.jpg";
-import p_2026_10_Dag_vd_wetenschap_robot_in_front_of_crowd from "@/assets/photos/2026-10-Dag_vd_wetenschap/robot-in-front-of-crowd.jpg";
+import p_2026_10_Dag_vd_wetenschap_robot_dancing from "@/assets/photos/2026-10-Dag_vd_wetenschap/robot-dancing.jpg";
 import p_2026_10_Dag_vd_wetenschap_talking_to_visitors from "@/assets/photos/2026-10-Dag_vd_wetenschap/talking-to-visitors.jpg";
 import p_2026_08_WHRG_Beijing_team_podium from "@/assets/photos/2026-08-WHRG-Beijing/team-podium.jpg";
 import p_2026_08_WHRG_Beijing_podium from "@/assets/photos/2026-08-WHRG-Beijing/podium.jpg";
@@ -104,9 +104,9 @@ export const photos: Photo[] = [
     event: "2026-10-01",
   },
   {
-    id: "2026-10-Dag_vd_wetenschap/robot-in-front-of-crowd.jpg",
-    src: p_2026_10_Dag_vd_wetenschap_robot_in_front_of_crowd,
-    alt: "One of our robots walking past the crowd at the edge of the pitch. Weekend of Science, Amsterdam Science Park, October 2026.",
+    id: "2026-10-Dag_vd_wetenschap/robot-dancing.jpg",
+    src: p_2026_10_Dag_vd_wetenschap_robot_dancing,
+    alt: "One of our robots dancing for the crowd at the edge of the pitch. Weekend of Science, Amsterdam Science Park, October 2026.",
     event: "2026-10-01",
   },
   {
