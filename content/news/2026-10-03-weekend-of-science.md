@@ -9,7 +9,7 @@ coverCaption: "Visitors watching one of our matches from the side of the pitch. 
 
 On Saturday 3 October, we took part in the [Weekend of Science](https://weekendvandewetenschap.nl/) (Weekend van de Wetenschap), the national weekend organised by NEMO where research institutes across the Netherlands open their doors to the public.
 
-At Amsterdam Science Park this was the [Science Day](https://wetenschapsdagamsterdamsciencepark.nl/), where AMOLF, ARCNL, CWI, Nikhef and the UvA Faculty of Science showed visitors from 6 to 106 what they work on. In the afternoon we played robot football matches on our pitch in LAB42, and answered questions from visitors in between.
+At Amsterdam Science Park this was the [Science Day](https://www.uva.nl/shared-content/faculteiten/nl/faculteit-der-natuurwetenschappen-wiskunde-en-informatica/evenementen/2026/10/wetenschapsdag-2026.html), where AMOLF, ARCNL, CWI, Nikhef and the UvA Faculty of Science showed visitors from 6 to 106 what they work on. In the afternoon we played robot football matches on our pitch in LAB42. In between, the robots danced for the crowd and we answered questions from visitors.
 
 We also took part [last year](/news/2025-10-04-science-park-science-day), and it was good to see the pitch surrounded by visitors again.
 
