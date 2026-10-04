@@ -44,7 +44,7 @@ export interface IPublication {
   tags: string[];
   // the PDF, under public/publications/<year>; software has none
   file?: string;
-  // a page of its own on this site, such as /publications/booster-mjlab
+  // a page of its own, on this site (/publications/<slug>) or elsewhere
   project?: string;
   // the repository
   code?: string;

@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
     return [
       // Old route from before the redesign: socials became the Team page.
       { source: "/socials", destination: "/team", permanent: true },
+      // booster_mjlab's project page moved back to its own site.
+      {
+        source: "/publications/booster-mjlab",
+        destination: "https://intelligentroboticslab.github.io/booster_mjlab/",
+        permanent: true,
+      },
     ];
   },
 };
