@@ -62,6 +62,7 @@ export const seasons: Season[] = [
         detail: "5v5 Middle Division, 16 teams, knockout.",
         placing: { figure: "3rd", word: "place" },
         division: "5v5 Middle Division",
+        newsSlug: "2026-08-26-world-humanoid-robot-games-third-place",
         matches: [
           { stage: "Round of 16", opponent: "SC ROB-X", us: 11, them: 1 },
           { stage: "Quarter-final", opponent: "Yuxin Zhanqing", us: 11, them: 0 },

@@ -5,6 +5,9 @@ import { photo } from "@/lib/photos";
 // Maps a news post slug (the markdown filename without `.md`) to its cover, by id
 // from src/lib/photos.ts. Add an entry here when a post needs a cover.
 export const coverImages: Record<string, StaticImageData> = {
+  "2026-08-26-world-humanoid-robot-games-third-place": photo(
+    "2026-08-WHRG-Beijing/team-podium.jpg",
+  ).src,
   "2026-07-02-robocup-fourth-place": photo(
     "2026-07-Robocup-Incheon/team-photo2.jpg",
   ).src,

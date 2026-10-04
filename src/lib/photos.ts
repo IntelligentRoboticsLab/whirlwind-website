@@ -5,6 +5,17 @@
 // a news post can still use it.
 import type { StaticImageData } from "next/image";
 
+import p_2026_08_WHRG_Beijing_team_podium from "@/assets/photos/2026-08-WHRG-Beijing/team-podium.jpg";
+import p_2026_08_WHRG_Beijing_podium from "@/assets/photos/2026-08-WHRG-Beijing/podium.jpg";
+import p_2026_08_WHRG_Beijing_team_photo_rcap from "@/assets/photos/2026-08-WHRG-Beijing/team-photo-rcap.jpg";
+import p_2026_08_WHRG_Beijing_P1377585 from "@/assets/photos/2026-08-WHRG-Beijing/P1377585.jpg";
+import p_2026_08_WHRG_Beijing_P1377527 from "@/assets/photos/2026-08-WHRG-Beijing/P1377527.jpg";
+import p_2026_08_WHRG_Beijing_P1377614 from "@/assets/photos/2026-08-WHRG-Beijing/P1377614.jpg";
+import p_2026_08_WHRG_Beijing_P1377474 from "@/assets/photos/2026-08-WHRG-Beijing/P1377474.jpg";
+import p_2026_08_WHRG_Beijing_P1377516 from "@/assets/photos/2026-08-WHRG-Beijing/P1377516.jpg";
+import p_2026_08_WHRG_Beijing_P1377509 from "@/assets/photos/2026-08-WHRG-Beijing/P1377509.jpg";
+import p_2026_08_WHRG_Beijing_P1377733 from "@/assets/photos/2026-08-WHRG-Beijing/P1377733.jpg";
+import p_2026_08_WHRG_Beijing_P1377722 from "@/assets/photos/2026-08-WHRG-Beijing/P1377722.jpg";
 import p_2026_07_Robocup_Incheon_12_AL_RC2026_D5_BhumanWhirlwind_09 from "@/assets/photos/2026-07-Robocup-Incheon/12_AL_RC2026_D5_BhumanWhirlwind_09.jpg";
 import p_2026_07_Robocup_Incheon_robocup_1 from "@/assets/photos/2026-07-Robocup-Incheon/robocup_1.jpg";
 import p_2026_07_Robocup_Incheon_robocup_2 from "@/assets/photos/2026-07-Robocup-Incheon/robocup_2.jpg";
@@ -76,6 +87,72 @@ export type Photo = {
 
 // Newest event first; within an event, the order they should appear in.
 export const photos: Photo[] = [
+  {
+    id: "2026-08-WHRG-Beijing/team-podium.jpg",
+    src: p_2026_08_WHRG_Beijing_team_podium,
+    alt: "The team behind the whIRLwind flag on the third step of the podium, with our robots wearing their bronze medals. National Speed Skating Oval, Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/podium.jpg",
+    src: p_2026_08_WHRG_Beijing_podium,
+    alt: "The RoboCup humanoid soccer podium at the World Humanoid Robot Games: B-Human first, HTWK Robots second, and us third with our robots in orange. National Speed Skating Oval, Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/team-photo-rcap.jpg",
+    src: p_2026_08_WHRG_Beijing_team_photo_rcap,
+    alt: "The team with the whIRLwind flag and the team from Beijing Institute of Petrochemical Technology, behind the RoboCup Asia-Pacific Beijing Masters banner. Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/P1377585.jpg",
+    src: p_2026_08_WHRG_Beijing_P1377585,
+    alt: "One of our robots, in orange, fighting for the ball with B-Human. Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/P1377527.jpg",
+    src: p_2026_08_WHRG_Beijing_P1377527,
+    alt: "One of our robots taking the ball along the touchline. Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/P1377614.jpg",
+    src: p_2026_08_WHRG_Beijing_P1377614,
+    alt: "Two of our robots going forward with the ball. Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/P1377474.jpg",
+    src: p_2026_08_WHRG_Beijing_P1377474,
+    alt: "Our five robots in their orange and red bibs, sitting in the team area between matches. Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/P1377516.jpg",
+    src: p_2026_08_WHRG_Beijing_P1377516,
+    alt: "One of our robots walking up to the ball near the centre circle. Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/P1377509.jpg",
+    src: p_2026_08_WHRG_Beijing_P1377509,
+    alt: "Our goalie blocking the ball. Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/P1377733.jpg",
+    src: p_2026_08_WHRG_Beijing_P1377733,
+    alt: "A close-up of one of our robots on the pitch. Beijing, August 2026.",
+    event: "2026-08-01",
+  },
+  {
+    id: "2026-08-WHRG-Beijing/P1377722.jpg",
+    src: p_2026_08_WHRG_Beijing_P1377722,
+    alt: "A team member at the side of the pitch in the team's Beijing Masters shirt. Beijing, August 2026.",
+    event: "2026-08-01",
+  },
   {
     id: "2026-07-Robocup-Incheon/12_AL_RC2026_D5_BhumanWhirlwind_09.jpg",
     src: p_2026_07_Robocup_Incheon_12_AL_RC2026_D5_BhumanWhirlwind_09,
