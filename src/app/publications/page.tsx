@@ -68,12 +68,16 @@ export default function PublicationsPage() {
             <ul className="pubs">
               {group.publications.map((pub) => {
                 const external = pub.file?.startsWith("http");
+                const projectExternal = pub.project?.startsWith("http");
+                const projectTarget = projectExternal
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {};
                 return (
                   <li key={pub.id} className="pub">
                     <h3 className="t-subheading pub__title">
-                      {/* a publication with a page of its own is a link to it */}
+                      {/* a publication with a page of its own, here or elsewhere, is a link to it */}
                       {pub.project ? (
-                        <Link href={pub.project} className="title-link">
+                        <Link href={pub.project} className="title-link" {...projectTarget}>
                           {withName(pub.title)}
                         </Link>
                       ) : (
@@ -87,7 +91,9 @@ export default function PublicationsPage() {
                     </p>
                     <div className="pub__links t-body">
                       {pub.project ? (
-                        <Link href={pub.project}>Project page</Link>
+                        <Link href={pub.project} {...projectTarget}>
+                          Project page
+                        </Link>
                       ) : null}
                       {pub.file ? (
                         <a

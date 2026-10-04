@@ -13,7 +13,7 @@ export const publicationsByYear = PubsByYear.parse([
     year: "2026",
     publications: [
       {
-        // the project has a page of its own, ported from its standalone site
+        // the project page is its own site; its videos are served from public/publications/booster-mjlab
         title: "booster_mjlab",
         authors: ["Gijs de Jong", "Harold Ruiter", "Julia de Vries"],
         date: "2026-09-18",
@@ -21,8 +21,8 @@ export const publicationsByYear = PubsByYear.parse([
         type: "software",
         tags: ["Reinforcement Learning", "Locomotion", "Simulation"],
         id: "booster_mjlab",
-        project: "/publications/booster-mjlab",
-        code: "https://github.com/IntelligentRoboticsLab/booster-mjlab",
+        project: "https://intelligentroboticslab.github.io/booster_mjlab/",
+        code: "https://github.com/IntelligentRoboticsLab/booster_mjlab",
       },
       {
         title:
