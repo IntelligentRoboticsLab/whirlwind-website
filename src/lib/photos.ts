@@ -5,6 +5,10 @@
 // a news post can still use it.
 import type { StaticImageData } from "next/image";
 
+import p_2026_10_Dag_vd_wetenschap_robot_match from "@/assets/photos/2026-10-Dag_vd_wetenschap/robot-match.jpg";
+import p_2026_10_Dag_vd_wetenschap_explaining_the_game from "@/assets/photos/2026-10-Dag_vd_wetenschap/explaining-the-game.jpg";
+import p_2026_10_Dag_vd_wetenschap_robot_in_front_of_crowd from "@/assets/photos/2026-10-Dag_vd_wetenschap/robot-in-front-of-crowd.jpg";
+import p_2026_10_Dag_vd_wetenschap_talking_to_visitors from "@/assets/photos/2026-10-Dag_vd_wetenschap/talking-to-visitors.jpg";
 import p_2026_08_WHRG_Beijing_team_podium from "@/assets/photos/2026-08-WHRG-Beijing/team-podium.jpg";
 import p_2026_08_WHRG_Beijing_podium from "@/assets/photos/2026-08-WHRG-Beijing/podium.jpg";
 import p_2026_08_WHRG_Beijing_team_photo_rcap from "@/assets/photos/2026-08-WHRG-Beijing/team-photo-rcap.jpg";
@@ -87,6 +91,30 @@ export type Photo = {
 
 // Newest event first; within an event, the order they should appear in.
 export const photos: Photo[] = [
+  {
+    id: "2026-10-Dag_vd_wetenschap/robot-match.jpg",
+    src: p_2026_10_Dag_vd_wetenschap_robot_match,
+    alt: "Visitors lining the pitch in our lab while our robots, in orange and blue bibs, play a match. Weekend of Science, Amsterdam Science Park, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-Dag_vd_wetenschap/explaining-the-game.jpg",
+    src: p_2026_10_Dag_vd_wetenschap_explaining_the_game,
+    alt: "A team member explaining robot football to children at the side of the pitch before a match. Weekend of Science, Amsterdam Science Park, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-Dag_vd_wetenschap/robot-in-front-of-crowd.jpg",
+    src: p_2026_10_Dag_vd_wetenschap_robot_in_front_of_crowd,
+    alt: "One of our robots walking past the crowd at the edge of the pitch. Weekend of Science, Amsterdam Science Park, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-Dag_vd_wetenschap/talking-to-visitors.jpg",
+    src: p_2026_10_Dag_vd_wetenschap_talking_to_visitors,
+    alt: "Team members answering visitors' questions next to the pitch. Weekend of Science, Amsterdam Science Park, October 2026.",
+    event: "2026-10-01",
+  },
   {
     id: "2026-08-WHRG-Beijing/team-podium.jpg",
     src: p_2026_08_WHRG_Beijing_team_podium,
