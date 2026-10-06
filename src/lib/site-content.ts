@@ -7,6 +7,7 @@ import uvaLogo from "@/assets/sponsors/uva.png";
 import GitHubLogo from "@/assets/socials/github-mono.svg";
 import InstagramLogo from "@/assets/socials/instagram-mono.svg";
 import LinkedInLogo from "@/assets/socials/linkedin-mono.svg";
+import XLogo from "@/assets/socials/x-mono.svg";
 import YouTubeLogo from "@/assets/socials/youtube-mono.svg";
 
 // Sponsor logos are white-on-transparent files; the footer renders them as
@@ -86,6 +87,13 @@ export const socialChannels: SocialChannel[] = [
     handle: "@whIRLwind_Amsterdam",
     logo: YouTubeLogo,
     logoAlt: "YouTube logo",
+  },
+  {
+    name: "X",
+    url: "https://x.com/whIRLwind_ams",
+    handle: "@whIRLwind_ams",
+    logo: XLogo,
+    logoAlt: "X logo",
   },
   {
     name: "GitHub",
