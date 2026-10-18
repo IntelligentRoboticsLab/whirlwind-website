@@ -47,7 +47,8 @@ export default function PhotoGrid({
                 src={p.src}
                 alt={p.alt}
                 sizes="(max-width: 40rem) 100vw, (max-width: 64rem) 50vw, 33vw"
-                placeholder="blur"
+                // animated GIFs get no blur placeholder from the static import
+                placeholder={p.src.blurDataURL ? "blur" : "empty"}
               />
             </button>
             {captions ? (

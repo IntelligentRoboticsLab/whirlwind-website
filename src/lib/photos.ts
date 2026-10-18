@@ -5,6 +5,15 @@
 // a news post can still use it.
 import type { StaticImageData } from "next/image";
 
+import p_2026_10_AI_on_the_Amstel_01388135 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388135.jpg";
+import p_2026_10_AI_on_the_Amstel_kick from "@/assets/photos/2026-10-AI-on-the-Amstel/kick.gif";
+import p_2026_10_AI_on_the_Amstel_01388320 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388320.jpg";
+import p_2026_10_AI_on_the_Amstel_01388364 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388364.jpg";
+import p_2026_10_AI_on_the_Amstel_01388494 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388494.jpg";
+import p_2026_10_AI_on_the_Amstel_01388456 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388456.jpg";
+import p_2026_10_AI_on_the_Amstel_01388142 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388142.jpg";
+import p_2026_10_AI_on_the_Amstel_01388188 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388188.jpg";
+import p_2026_10_AI_on_the_Amstel_01388181 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388181.jpg";
 import p_2026_10_Dag_vd_wetenschap_robot_match from "@/assets/photos/2026-10-Dag_vd_wetenschap/robot-match.jpg";
 import p_2026_10_Dag_vd_wetenschap_explaining_the_game from "@/assets/photos/2026-10-Dag_vd_wetenschap/explaining-the-game.jpg";
 import p_2026_10_Dag_vd_wetenschap_robot_dancing from "@/assets/photos/2026-10-Dag_vd_wetenschap/robot-dancing.jpg";
@@ -91,6 +100,60 @@ export type Photo = {
 
 // Newest event first; within an event, the order they should appear in.
 export const photos: Photo[] = [
+  {
+    id: "2026-10-AI-on-the-Amstel/01388135.jpg",
+    src: p_2026_10_AI_on_the_Amstel_01388135,
+    alt: "The whIRLwind team getting ready for the game in front of a full stand. AI on the Amstel, Amsterdam, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-AI-on-the-Amstel/kick.gif",
+    src: p_2026_10_AI_on_the_Amstel_kick,
+    alt: "Nutmeg! AI on the Amstel, Amsterdam, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-AI-on-the-Amstel/01388320.jpg",
+    src: p_2026_10_AI_on_the_Amstel_01388320,
+    alt: "Quick pass from the orange robot. AI on the Amstel, Amsterdam, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-AI-on-the-Amstel/01388364.jpg",
+    src: p_2026_10_AI_on_the_Amstel_01388364,
+    alt: "Shot on goal after breaking some ankles. AI on the Amstel, Amsterdam, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-AI-on-the-Amstel/01388494.jpg",
+    src: p_2026_10_AI_on_the_Amstel_01388494,
+    alt: "Kickoff. AI on the Amstel, Amsterdam, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-AI-on-the-Amstel/01388456.jpg",
+    src: p_2026_10_AI_on_the_Amstel_01388456,
+    alt: "Our goalie is locked in and ready to stop any ball. AI on the Amstel, Amsterdam, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-AI-on-the-Amstel/01388142.jpg",
+    src: p_2026_10_AI_on_the_Amstel_01388142,
+    alt: "Pre-game preparations in front of a crowd. AI on the Amstel, Amsterdam, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-AI-on-the-Amstel/01388188.jpg",
+    src: p_2026_10_AI_on_the_Amstel_01388188,
+    alt: "RoboCop, the quadruped from the Dutch police, hungry for attention. AI on the Amstel, Amsterdam, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-AI-on-the-Amstel/01388181.jpg",
+    src: p_2026_10_AI_on_the_Amstel_01388181,
+    alt: "RoboCop getting ready for the game. AI on the Amstel, Amsterdam, October 2026.",
+    event: "2026-10-01",
+  },
   {
     id: "2026-10-Dag_vd_wetenschap/robot-match.jpg",
     src: p_2026_10_Dag_vd_wetenschap_robot_match,
