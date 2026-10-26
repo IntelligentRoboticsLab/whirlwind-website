@@ -5,6 +5,12 @@
 // a news post can still use it.
 import type { StaticImageData } from "next/image";
 
+import p_2026_10_Italian_Open_Rome_P1399419 from "@/assets/photos/2026-10-Italian-Open-Rome/P1399419.jpg";
+import p_2026_10_Italian_Open_Rome_P1399096 from "@/assets/photos/2026-10-Italian-Open-Rome/P1399096.jpg";
+import p_2026_10_Italian_Open_Rome_P1388950 from "@/assets/photos/2026-10-Italian-Open-Rome/P1388950.jpg";
+import p_2026_10_Italian_Open_Rome_P1388783 from "@/assets/photos/2026-10-Italian-Open-Rome/P1388783.jpg";
+import p_2026_10_Italian_Open_Rome_P1388847 from "@/assets/photos/2026-10-Italian-Open-Rome/P1388847.jpg";
+import p_2026_10_Italian_Open_Rome_P1399442 from "@/assets/photos/2026-10-Italian-Open-Rome/P1399442.jpg";
 import p_2026_10_AI_on_the_Amstel_01388135 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388135.jpg";
 import p_2026_10_AI_on_the_Amstel_kick from "@/assets/photos/2026-10-AI-on-the-Amstel/kick.gif";
 import p_2026_10_AI_on_the_Amstel_01388320 from "@/assets/photos/2026-10-AI-on-the-Amstel/01388320.jpg";
@@ -100,6 +106,42 @@ export type Photo = {
 
 // Newest event first; within an event, the order they should appear in.
 export const photos: Photo[] = [
+  {
+    id: "2026-10-Italian-Open-Rome/P1399419.jpg",
+    src: p_2026_10_Italian_Open_Rome_P1399419,
+    alt: "The team behind the whIRLwind flag with the first place trophy. Maker Faire Rome, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-Italian-Open-Rome/P1399096.jpg",
+    src: p_2026_10_Italian_Open_Rome_P1399096,
+    alt: "Finals against HULKs. Maker Faire Rome, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-Italian-Open-Rome/P1388950.jpg",
+    src: p_2026_10_Italian_Open_Rome_P1388950,
+    alt: "Our number 5 closing in on a HULKs defender in front of a packed crowd. Maker Faire Rome, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-Italian-Open-Rome/P1388783.jpg",
+    src: p_2026_10_Italian_Open_Rome_P1388783,
+    alt: "Our number 3 after shooting the ball before our opponent could reach it. Maker Faire Rome, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-Italian-Open-Rome/P1388847.jpg",
+    src: p_2026_10_Italian_Open_Rome_P1388847,
+    alt: "Our number 2 showing off their newly learned dribbling technique. Maker Faire Rome, October 2026.",
+    event: "2026-10-01",
+  },
+  {
+    id: "2026-10-Italian-Open-Rome/P1399442.jpg",
+    src: p_2026_10_Italian_Open_Rome_P1399442,
+    alt: "Celebrating with the trophy and a robot in sunglasses. Maker Faire Rome, October 2026.",
+    event: "2026-10-01",
+  },
   {
     id: "2026-10-AI-on-the-Amstel/01388135.jpg",
     src: p_2026_10_AI_on_the_Amstel_01388135,

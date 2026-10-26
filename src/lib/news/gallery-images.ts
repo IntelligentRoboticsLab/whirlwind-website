@@ -6,6 +6,13 @@ export type GalleryImage = Photo;
 // of photos shown under the post, by id from src/lib/photos.ts. Add an entry here
 // when a post should show a gallery.
 export const galleryImages: Record<string, GalleryImage[]> = {
+  "2026-10-25-italian-open-first-place": [
+    photo("2026-10-Italian-Open-Rome/P1399096.jpg"),
+    photo("2026-10-Italian-Open-Rome/P1388950.jpg"),
+    photo("2026-10-Italian-Open-Rome/P1388783.jpg"),
+    photo("2026-10-Italian-Open-Rome/P1388847.jpg"),
+    photo("2026-10-Italian-Open-Rome/P1399442.jpg"),
+  ],
   "2026-10-13-ai-on-the-amstel": [
     photo("2026-10-AI-on-the-Amstel/kick.gif"),
     photo("2026-10-AI-on-the-Amstel/01388320.jpg"),
