@@ -52,6 +52,12 @@ export const seasons: Season[] = [
         placing: { figure: "1st", word: "place" },
         division: "Middle Division",
         newsSlug: "2026-10-25-italian-open-first-place",
+        matches: [
+          { stage: "Group B", opponent: "HULKs", us: 4, them: 1 },
+          { stage: "Group B", opponent: "Berlin United", us: 4, them: 0 },
+          { stage: "Semi-final", opponent: "FOOMBOT", us: 6, them: 0 },
+          { stage: "Final", opponent: "HULKs", us: 5, them: 0 },
+        ],
       },
       {
         id: "whrg-2026",
