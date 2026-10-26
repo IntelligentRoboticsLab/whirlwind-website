@@ -48,10 +48,10 @@ export const seasons: Season[] = [
         place: "Rome",
         dateLabel: "Oct 2026",
         date: "2026-10-23",
-        dates: "23 to 25 Oct",
-        detail: "23 to 25 October, Humanoid Soccer League, Middle Division, at Maker Faire Rome.",
+        detail: "Our first tournament win, at the first Italian Open.",
+        placing: { figure: "1st", word: "place" },
         division: "Middle Division",
-        upcoming: true,
+        newsSlug: "2026-10-25-italian-open-first-place",
       },
       {
         id: "whrg-2026",
