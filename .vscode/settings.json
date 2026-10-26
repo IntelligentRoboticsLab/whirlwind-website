@@ -1,3 +1,5 @@
 {
-  "svg.preview.background": "dark-transparent"
+  "svg.preview.background": "dark-transparent",
+  "spellright.language": [],
+  "spellright.documentTypes": ["latex", "plaintext"]
 }
