@@ -115,25 +115,25 @@ export const photos: Photo[] = [
   {
     id: "2026-10-Italian-Open-Rome/P1399096.jpg",
     src: p_2026_10_Italian_Open_Rome_P1399096,
-    alt: "Kickoff against HULKs. Maker Faire Rome, October 2026.",
+    alt: "Finals against HULKs. Maker Faire Rome, October 2026.",
     event: "2026-10-01",
   },
   {
     id: "2026-10-Italian-Open-Rome/P1388950.jpg",
     src: p_2026_10_Italian_Open_Rome_P1388950,
-    alt: "Our number 5 closing down a HULKs attacker in front of a packed crowd. Maker Faire Rome, October 2026.",
+    alt: "Our number 5 closing in on a HULKs defender in front of a packed crowd. Maker Faire Rome, October 2026.",
     event: "2026-10-01",
   },
   {
     id: "2026-10-Italian-Open-Rome/P1388783.jpg",
     src: p_2026_10_Italian_Open_Rome_P1388783,
-    alt: "Our number 3 racing an opponent to the ball. Maker Faire Rome, October 2026.",
+    alt: "Our number 3 after shooting the ball before our opponent could reach it. Maker Faire Rome, October 2026.",
     event: "2026-10-01",
   },
   {
     id: "2026-10-Italian-Open-Rome/P1388847.jpg",
     src: p_2026_10_Italian_Open_Rome_P1388847,
-    alt: "Our number 2 with the ball at its feet. Maker Faire Rome, October 2026.",
+    alt: "Our number 2 showing off their newly learned dribbling technique. Maker Faire Rome, October 2026.",
     event: "2026-10-01",
   },
   {
