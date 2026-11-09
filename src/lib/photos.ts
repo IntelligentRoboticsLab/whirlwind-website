@@ -5,7 +5,7 @@
 // a news post can still use it.
 import type { StaticImageData } from "next/image";
 
-import p_2026_10_Italian_Open_Rome_P1399419 from "@/assets/photos/2026-10-Italian-Open-Rome/P1399419.jpg";
+import p_2026_10_Italian_Open_Rome_P1399421 from "@/assets/photos/2026-10-Italian-Open-Rome/P1399421.jpg";
 import p_2026_10_Italian_Open_Rome_P1399096 from "@/assets/photos/2026-10-Italian-Open-Rome/P1399096.jpg";
 import p_2026_10_Italian_Open_Rome_P1388950 from "@/assets/photos/2026-10-Italian-Open-Rome/P1388950.jpg";
 import p_2026_10_Italian_Open_Rome_P1388783 from "@/assets/photos/2026-10-Italian-Open-Rome/P1388783.jpg";
@@ -107,8 +107,8 @@ export type Photo = {
 // Newest event first; within an event, the order they should appear in.
 export const photos: Photo[] = [
   {
-    id: "2026-10-Italian-Open-Rome/P1399419.jpg",
-    src: p_2026_10_Italian_Open_Rome_P1399419,
+    id: "2026-10-Italian-Open-Rome/P1399421.jpg",
+    src: p_2026_10_Italian_Open_Rome_P1399421,
     alt: "The team behind the whIRLwind flag with the first place trophy. Maker Faire Rome, October 2026.",
     event: "2026-10-01",
   },
